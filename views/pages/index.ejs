@@ -10,7 +10,7 @@
             <% include ../partials/headbandPub.ejs %>
             <% include ../partials/navbar.ejs %>
             <div class="card-group m-0 p-0">
-                <a href="\video?no=0&idVideo=<%= params.video.alexVideos[0].idVideo %>" class="card">
+                <a href="\video?no=0" class="card">
                     <div class="card-body pb-0">
                         <h5 class="card-title"><%= params.video.alexVideos[0].title %></h5>
                         <p class="card-text">Quand je ne suis pas en train de faire un top 1 sur Fortnite, je gère les préoccupations de millions de gens, dur ma vie de star.</p>
@@ -25,28 +25,28 @@
                 </a>
                 <a href="\video?no=1" class="card">
                     <div class="card-body pb-0">
-                        <h5 class="card-title"></h5>
+                        <h5 class="card-title"><%= params.video.alexVideos[1].title %></h5>
                         <p class="card-text">Quand je ne suis pas en train de faire un top 1 sur Fortnite, je gère les préoccupations de millions de gens, dur ma vie de star.</p>
                     </div>
                     <div class="container row">
-                        <img id="thumbnail_1" class="card-img-top col-md-6" src="https://i.ytimg.com/vi/6eiDDZEWQYE/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDhdr9m2lyyAH9iTn0aVAfP4Vz1rQ" alt="Simcity gameplay">
-                        <p class="card-text text2 col-md-6 pt-2">    Gameplay commenté de 15 minutes sur SimCity PC, je suis parti de rien et je suis arrivé nulle part.</p>
+                        <img id="thumbnail_1" class="card-img-top col-md-6" src="<%= params.video.alexVideos[1].urlThumbnails %>" alt="<%= params.video.alexVideos[0].title %>">
+                        <p class="card-text text2 col-md-6 pt-2"><%= params.video.alexVideos[1].description %></p>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">Posté le 03/10/2019</small>
+                        <small class="text-muted">Posté le <%= params.video.alexVideos[1].date %></small>
                     </div>
                 </a>
                 <a href="\video?no=2" class="card">
                     <div class="card-body pb-0">
-                        <h5 class="card-title"></h5>
+                        <h5 class="card-title"><%= params.video.alexVideos[2].title %></h5>
                         <p class="card-text">Quand je ne suis pas en train de faire un top 1 sur Fortnite, je gère les préoccupations de millions de gens, dur ma vie de star.</p>
                     </div>
                     <div class="container row">
-                        <img id="thumbnail_2" class="card-img-top col-md-6" src="https://i.ytimg.com/vi/6eiDDZEWQYE/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDhdr9m2lyyAH9iTn0aVAfP4Vz1rQ" alt="Simcity gameplay">
-                        <p class="card-text text2 col-md-6 pt-2">    Gameplay commenté de 15 minutes sur SimCity PC, je suis parti de rien et je suis arrivé nulle part.</p>
+                        <img id="thumbnail_2" class="card-img-top col-md-6" src="<%= params.video.alexVideos[2].urlThumbnails %>" alt="<%= params.video.alexVideos[0].title %>">
+                        <p class="card-text text2 col-md-6 pt-2"><%= params.video.alexVideos[2].description %></p>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">Posté le 03/10/2019</small>
+                        <small class="text-muted">Posté le <%= params.video.alexVideos[2].date %></small>
                     </div>
                 </a>
             </div>
@@ -82,68 +82,100 @@
             </div>
         </div>
         <div class="card-columns m-0 p-0">
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title that wraps to a new line</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-            <div class="card">
-                <blockquote class="blockquote mb-0 card-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <footer class="blockquote-footer">
-                        <small class="text-muted">
-                            Someone famous in <cite title="Source Title">Source Title</cite>
-                        </small>
-                    </footer>
-                </blockquote>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card bg-primary text-white text-center">
-                <blockquote class="blockquote mb-0">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
-                    <footer class="blockquote-footer">
-                        <small>
-                            Someone famous in <cite title="Source Title">Source Title</cite>
-                        </small>
-                    </footer>
-                </blockquote>
-            </div>
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
+           <a href="\video?no=3" class="card">
+                    <div class="card-body pb-0">
+                        <h5 class="card-title"><%= params.video.alexVideos[3].title %></h5>
+                        <p class="card-text">Quand je ne suis pas en train de faire un top 1 sur Fortnite, je gère les préoccupations de millions de gens, dur ma vie de star.</p>
+                    </div>
+                    <div class="container row">
+                        <img id="thumbnail_3" class="card-img-top col-md-6" src="<%= params.video.alexVideos[3].urlThumbnails %>" alt="<%= params.video.alexVideos[0].title %>">
+                        <p class="card-text text2 col-md-6 pt-2"><%= params.video.alexVideos[3].description %></p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Posté le <%= params.video.alexVideos[3].date %></small>
+                    </div>
+                </a>
+           <a href="\video?no=4" class="card">
+                    <div class="card-body pb-0">
+                        <h5 class="card-title"><%= params.video.alexVideos[4].title %></h5>
+                        <p class="card-text">Quand je ne suis pas en train de faire un top 1 sur Fortnite, je gère les préoccupations de millions de gens, dur ma vie de star.</p>
+                    </div>
+                    <div class="container row">
+                        <img id="thumbnail_4" class="card-img-top col-md-6" src="<%= params.video.alexVideos[4].urlThumbnails %>" alt="<%= params.video.alexVideos[0].title %>">
+                        <p class="card-text text2 col-md-6 pt-2"><%= params.video.alexVideos[4].description %></p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Posté le <%= params.video.alexVideos[4].date %></small>
+                    </div>
+                </a>
+           <a href="\video?no=5" class="card">
+                    <div class="card-body pb-0">
+                        <h5 class="card-title"><%= params.video.alexVideos[5].title %></h5>
+                        <p class="card-text">Quand je ne suis pas en train de faire un top 1 sur Fortnite, je gère les préoccupations de millions de gens, dur ma vie de star.</p>
+                    </div>
+                    <div class="container row">
+                        <img id="thumbnail_5" class="card-img-top col-md-6" src="<%= params.video.alexVideos[5].urlThumbnails %>" alt="<%= params.video.alexVideos[0].title %>">
+                        <p class="card-text text2 col-md-6 pt-2"><%= params.video.alexVideos[5].description %></p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Posté le <%= params.video.alexVideos[5].date %></small>
+                    </div>
+                </a>
+            <a href="\video?no=6" class="card">
+                    <div class="card-body pb-0">
+                        <h5 class="card-title"><%= params.video.alexVideos[6].title %></h5>
+                        <p class="card-text">Quand je ne suis pas en train de faire un top 1 sur Fortnite, je gère les préoccupations de millions de gens, dur ma vie de star.</p>
+                    </div>
+                    <div class="container row">
+                        <img id="thumbnail_6" class="card-img-top col-md-6" src="<%= params.video.alexVideos[6].urlThumbnails %>" alt="<%= params.video.alexVideos[0].title %>">
+                        <p class="card-text text2 col-md-6 pt-2"><%= params.video.alexVideos[6].description %></p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Posté le <%= params.video.alexVideos[6].date %></small>
+                    </div>
+                </a>
+            <a href="\video?no=7" class="card">
+                    <div class="card-body pb-0">
+                        <h5 class="card-title"><%= params.video.alexVideos[7].title %></h5>
+                        <p class="card-text">Quand je ne suis pas en train de faire un top 1 sur Fortnite, je gère les préoccupations de millions de gens, dur ma vie de star.</p>
+                    </div>
+                    <div class="container row">
+                        <img id="thumbnail_7" class="card-img-top col-md-6" src="<%= params.video.alexVideos[7].urlThumbnails %>" alt="<%= params.video.alexVideos[0].title %>">
+                        <p class="card-text text2 col-md-6 pt-2"><%= params.video.alexVideos[7].description %></p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Posté le <%= params.video.alexVideos[7].date %></small>
+                    </div>
+                </a>
             <div class="card">
                 <img class="card-img" src="..." alt="Card image">
             </div>
-            <div class="card text-right">
-                <blockquote class="blockquote mb-0">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <footer class="blockquote-footer">
-                        <small class="text-muted">
-                            Someone famous in <cite title="Source Title">Source Title</cite>
-                        </small>
-                    </footer>
-                </blockquote>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
+            <a href="\video?no=8" class="card">
+                    <div class="card-body pb-0">
+                        <h5 class="card-title"><%= params.video.alexVideos[8].title %></h5>
+                        <p class="card-text">Quand je ne suis pas en train de faire un top 1 sur Fortnite, je gère les préoccupations de millions de gens, dur ma vie de star.</p>
+                    </div>
+                    <div class="container row">
+                        <img id="thumbnail_8" class="card-img-top col-md-6" src="<%= params.video.alexVideos[8].urlThumbnails %>" alt="<%= params.video.alexVideos[0].title %>">
+                        <p class="card-text text2 col-md-6 pt-2"><%= params.video.alexVideos[8].description %></p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Posté le <%= params.video.alexVideos[8].date %></small>
+                    </div>
+                </a>
+            <a href="\video?no=9" class="card">
+                    <div class="card-body pb-0">
+                        <h5 class="card-title"><%= params.video.alexVideos[9].title %></h5>
+                        <p class="card-text">Quand je ne suis pas en train de faire un top 1 sur Fortnite, je gère les préoccupations de millions de gens, dur ma vie de star.</p>
+                    </div>
+                    <div class="container row">
+                        <img id="thumbnail_0" class="card-img-top col-md-6" src="<%= params.video.alexVideos[9].urlThumbnails %>" alt="<%= params.video.alexVideos[0].title %>">
+                        <p class="card-text text2 col-md-6 pt-2"><%= params.video.alexVideos[9].description %></p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Posté le <%= params.video.alexVideos[9].date %></small>
+                    </div>
+                </a>
         </div>
     </main>
     <footer class="container">
@@ -154,12 +186,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="/socket.io/socket.io.js"></script>
 <script>
-  if (typeof(socket) == 'undefined') {
-            socket = io.connect('http://localhost:8080');
-        }
-           var pseudo = 'micmac';
-            socket.emit('nouveauClient', pseudo);
-        
+    var socket = io.connect('http://localhost:8080');
+    socket.on('message', function(message) {
+        alert('Le serveur a un message pour vous : ' + message.content);
+    });
 </script>
     <script src="/public/assets/js/index.js"></script>
    </body>

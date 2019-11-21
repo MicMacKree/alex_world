@@ -1,13 +1,19 @@
-var express = require('express');
-var app = express();
-var session = require('cookie-session');
-var bodyParser = require('body-parser');
-var server = require('http').createServer(app);
-var io = require('socket.io').listen(server);
 var ent = require('ent');
+var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 var moment = require('moment');
+var session = require('cookie-session');
 const { searchVideos } = require("@micmac/youtube");
+var express = require('express');
+var app = express();
+app.set('view engine', 'ejs');
+var http = require('http');
+var fs = require('fs');
+
+// Chargement du fichier index.html affiché au client
+
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
 
 //api fortnite
 //const fortniteapi = require('fortnite-api-js');
@@ -21,11 +27,11 @@ const { searchVideos } = require("@micmac/youtube");
 //fortniteapi.getItem('208f8a9-35aff6e-b1ae608-1cb4c7b').then(data => {
 //    console.log(data);
 //});
-// set the view engine to ejs
-app.set('view engine', 'ejs');
+
 // use res.render to load up an ejs view file
+
 console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
- app.listen(8080);
+
 
 console.log('8080 is the magic port');
 app.use(session({secret: 'todotopsecret'}))
@@ -73,6 +79,7 @@ app.use(session({secret: 'todotopsecret'}))
         });
        
    io.sockets.on('connection', function(socket) {
+    socket.emit('message', { content: 'Vous êtes bien connecté !', importance: '1' });
     socket.on('nouveauClient', function() {
            
             console.log("nouveau client");
@@ -95,3 +102,4 @@ app.use(session({secret: 'todotopsecret'}))
             // clientsInfo.splice(i, 1);
         });
     });
+    server.listen(8080);

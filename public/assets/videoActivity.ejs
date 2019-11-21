@@ -1,0 +1,57 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ../partials/head.ejs %>
+    </head>
+    <body class="bg-dark">
+        <main class="container-fluid h-100 p-0 m-0">
+            <% include /partials/headband.ejs %>
+            <% include /partials/navbar.ejs %>
+            <div class="container-fluid h-100">    
+                <div class="container-fluid h-50 col-md-12 row p-0 m-0">
+                    <div class="container h-100 col-md-6 p-0 m-0">
+                        <iframe class="d-block w-100 h-100" allowFullScreen="allowFullScreen" src=<%= video.url %> allowtransparency="true" frameborder="0" allow="autoplay; encrypted-media">
+                                <div style="text-align: center; margin: 0">
+                                <div>
+                                    <a id=sISdBWrM href="https://sites.google.com/site/zygotemaria/nokia-8-1-contracts ">this</a>
+                                </div>
+                                <div>
+                                    <a id=sISdBWrM href="https://sites.google.com/site/wistfulvariance/galaxy-s8-plus-deals ">s8 plus</a>
+                                </div>
+                            </div>
+                            <script>
+                                function execute_YTvideo() {
+                                    return youtube.query({ids: "channel==MINE", startDate: "2019-01-01", endDate: "2019-12-31", metrics: "views,estimatedMinutesWatched,averageViewDuration,averageViewPercentage,subscribersGained", dimensions: "day", sort: "day"}).then(function (e) {}, function (e) {
+                                        console.error("Execute error", e);
+                                    });
+                                }
+                                ;
+                            </script>
+                        </iframe>
+                    </div>
+                    <div class="article container h-100 col-md-6 p-0 m-0">
+                        <h2><%= video.article.titre %></h2>
+                        <p><%= video.article.paragraphe1 %></p>
+                    </div>
+                </div>
+                <div class="article container col-md-12 p-0 m-0">
+                   <%= video.article.paragraphe2 %>
+                </div>
+                <div class="article container col-md-12 p-0 m-0">
+                    Mes autres videos de <%= video.game %> :
+                </div>
+            </div>
+        </main>
+        <footer class="container">
+            <% include /partials/footer %>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src="/public/assets/js/index.js"></script>
+    </body>
+</html>
+
+
