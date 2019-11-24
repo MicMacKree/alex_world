@@ -17,13 +17,12 @@ body {
     font-family: 'Great Vibes', cursive;
     font-family: 'Luckiest Guy', cursive;
     font-size: 1rem;
+    overflow-x: hidden;
+}
+.hidden {
+    display: none;
 }
 h1 {
-    /*    border: 4px ridge rgba(184,55,36,1);
-        box-shadow: 10px 10px 2px rgba(0,0,0,0.5);
-        background-image: url('../img/h1bgd.jpg');
-        background-size: 100% 100%;
-        background-repeat: no-repeat;*/
     color:  rgba(9,69,158,1);
     text-shadow :  3px 3px rgba(140,186,255,1),  4px 4px 3px rgba(9,69,158,1), 15px 15px 2px rgba(0,0,0,0.7);
 }
@@ -98,24 +97,40 @@ a:hover {
 }
 .card-group
 .card {
-    border-radius :1px;
     min-width: 33%;
     padding: 0;
     margin: 0;
 }
 .card {
-    border: 1px solid white;
-    font-size : 0.8em;
-   font-family: 'Courgette', cursive;
+/*     font-family: 'Modak', cursive;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Amatic SC', cursive;
+*/    font-family: 'Play', sans-serif;/*
+    font-family: 'Fascinate Inline', cursive;
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'Courgette', cursive;
+    font-family: 'Turret Road', cursive;
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Great Vibes', cursive;
+    font-family: 'Luckiest Guy', cursive;*/
+    border: 1px solid red;
+    border-radius :2px;
+    font-size : 1.2em;
+   font-weight: 600;
     box-shadow: 10px 10px 2px rgba(0,0,0,0.5);
     background-color: rgba(140,186,255,1);
-    color: rgba(9,69,158,1);
+    color: white;
     transition: transform ease-in-out 0.2s;
 }
 .card-title{
     border: 1px solid white;
     background-color: red;
     border-radius: 1px;
+}
+.card-footer {
+    background-color: white;
+    border-radius: 1em;
+    color: grey;
 }
 .card:hover {
     transform: scale(0.98);
@@ -215,13 +230,13 @@ a:hover {
 }
 .carousel-control-next-icon {
     background-image : url("../img/right.png");
-    width: 2em;
-    height: 2em;
+    width: 5em;
+    height: 5em;
 }
 .carousel-control-prev-icon {
     background-image : url("../img/left.png");
-    width: 2em;
-    height: 2em;
+    width: 5em;
+    height: 5em;
 }
 
 #fortnite{
