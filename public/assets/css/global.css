@@ -30,12 +30,49 @@ a {
     text-decoration: none;
 }
 a:hover {
-     text-decoration: none;
+    text-decoration: none;
+}
+.headband{
+    background-color: rgba(140,186,255,1);
+}
+.headband > div{
+    flex-wrap: nowrap;
+}
+.headbandDescribe {
+     font-family: 'Luckiest Guy', cursive;
+     font-size: 1em;
+/*    border: 2px ridge red;*/
+    border-radius :4px;
+/*    box-shadow: 10px 10px 2px rgba(0,0,0,0.5);*/
+    background-color: transparent;
+}
+.headbandBeerus{
+    background-image: url('../img/ironmanLgLumineux.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    box-shadow: 20px 20px 15px rgba(0,0,0,0.5);
+}
+#describeNow{
+     text-decoration: underline;
+     font-weight: 200;
+      font-size: 1.2em;
+     text-shadow :  1px 1px red,  2px 2px 1px rgba(9,69,158,1), 5px 5px 2px rgba(0,0,0,0.7);
+    color: white;
+}
+.infoband{
+    border: 1px inset rgba(255, 255, 255, 0.7);
+    border-radius: 2px;
+}
+.infoServer {
+    text-decoration: none;
+    font-size: 1em;
+     text-shadow :  1px 1px rgba(140,186,255,1),  2px 2px 1px rgba(9,69,158,1), 5px 5px 2px rgba(0,0,0,0.7);
+    color: black;
 }
 .navbar {
     font-size : 1.2em;
     font-weight: bolder;
-    font-family: 'Turret Road', cursive;
+    font-family: 'Luckiest Guy', cursive;
     background-image: url('../img/maxresdefault.jpg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -88,6 +125,9 @@ a:hover {
     color: rgba(140,186,255,1);
     text-shadow :  1px 1px rgba(9,69,158,1),  2px 2px 1px rgba(140,186,255,1), 3px 3px 3px rgba(0,0,0,0.7);
 }
+.carousel-indicators{
+    display:none;
+}
 .card-columns
 .card {
     border-radius :1px;
@@ -102,25 +142,26 @@ a:hover {
     margin: 0;
 }
 .card {
-/*     font-family: 'Modak', cursive;
-    font-family: 'Pacifico', cursive;
-    font-family: 'Amatic SC', cursive;
-*/    font-family: 'Play', sans-serif;/*
-    font-family: 'Fascinate Inline', cursive;
-    font-family: 'Permanent Marker', cursive;
-    font-family: 'Courgette', cursive;
-    font-family: 'Turret Road', cursive;
-    font-family: 'Kaushan Script', cursive;
-    font-family: 'Great Vibes', cursive;
-    font-family: 'Luckiest Guy', cursive;*/
-    border: 1px solid red;
+    /*     font-family: 'Modak', cursive;
+*/        font-family: 'Pacifico', cursive;/*
+        font-family: 'Amatic SC', cursive;
+        font-family: 'Play', sans-serif;
+        font-family: 'Fascinate Inline', cursive;
+        font-family: 'Permanent Marker', cursive;
+        font-family: 'Courgette', cursive;
+        font-family: 'Turret Road', cursive;
+        font-family: 'Kaushan Script', cursive;
+        font-family: 'Great Vibes', cursive;
+        font-family: 'Luckiest Guy', cursive;*/
+    border: 2px ridge white;
     border-radius :2px;
     font-size : 1.2em;
-   font-weight: 600;
+    font-weight: 200;
+    text-shadow :  1px 1px rgba(9,69,158,1),  2px 2px 1px rgba(140,186,255,1), 3px 3px 3px rgba(0,0,0,0.7);
     box-shadow: 10px 10px 2px rgba(0,0,0,0.5);
     background-color: rgba(140,186,255,1);
     color: white;
-    transition: transform ease-in-out 0.2s;
+   
 }
 .card-title{
     border: 1px solid white;
@@ -133,8 +174,16 @@ a:hover {
     color: grey;
 }
 .card:hover {
-    transform: scale(0.98);
+    background-color: rgba(130,176,255,1);
+    transition: transform ease-in 0.5s;
+    transform: scale(0.99);
+    color:white;
 }
+.card:active {
+    background-color: rgba(186,226,255,1);
+    transition: transform ease-out 0.5s;
+    transform: scale(1.2);
+   }
 .card-columns{
     column-gap: 0;
 }
@@ -151,6 +200,20 @@ a:hover {
     outline-offset: -1em;
     border-radius: 2px;
 }
+.carousel-item>small{
+    color: white;
+}
+.card.fix {
+    background-color: rgba(55,50,65,1);
+    font-family: 'Permanent Marker', cursive;
+    color : red;
+}
+.card.fix:hover {
+transform: none;
+}
+.card.fix:active {
+transform: none;
+}
 @media screen and (max-width: 680px){
     body {
         font-size: 0.6em;
@@ -160,28 +223,21 @@ a:hover {
         font-family: 'Luckiest Guy', cursive;
         border-radius: 0.5em;
     }
-    .headband{
-        min-height: 190px;
-        background-image: url('../img/ironmanLgLumineux.jpg');
-        background-size:auto 100%;
-        background-repeat: no-repeat;
-        background-position-x: 95%;
-    }
-      .news{
-            font-family: 'Permanent Marker', cursive;
-            font-weight: bold;
-            font-size: 1.2em;
-          padding-top: 0;
-          margin-top: 0;
+   .news{
+        font-family: 'Permanent Marker', cursive;
+        font-weight: bold;
+        font-size: 1.2em;
+        padding-top: 0;
+        margin-top: 0;
         align-self: flex-start;
         height: 50%;
         width:40%;
         text-align: center;
         rotation-point: center;
         transform: rotateZ(5deg);
-      }
+    }
     .news:hover {
-         animation: shake 1s ease-in 10;
+        animation: shake 1s ease-in 10;
     }
     .newsStart {
         animation: shake 0.2s ease-in 10;
@@ -200,10 +256,21 @@ a:hover {
         border-radius: 1em;
     }
     .headband{
-        min-height: 190px;
-        background-image: url('../img/ironmanLgLumineux.jpg');
-        background-size: 100% auto;
-        background-repeat: no-repeat;
+        
+    }
+    .headbandBeerus{
+      min-height: 12em;
+    }
+    .headbandDescribe{
+        font-size: 1em;
+
+    }
+    .carousel-item p {
+        height: 20%;
+        background-color: white;
+    }
+    .carousel-item img {
+        height: 60%;
     }
     .news{
         box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
@@ -213,10 +280,13 @@ a:hover {
         text-align: center;
         rotation-point: center;
         transform: rotateZ(-45deg);
-         animation: shake 20s ease-in infinite;
-      }
+        animation: shake 20s ease-in infinite;
+    }
     .newsStart {
-       
+
+    }
+    .subscribe{
+        height: 3em;
     }
     .news p{
         margin:0;
@@ -230,13 +300,13 @@ a:hover {
 }
 .carousel-control-next-icon {
     background-image : url("../img/right.png");
-    width: 5em;
-    height: 5em;
+    width: 2em;
+    height: 2em;
 }
 .carousel-control-prev-icon {
     background-image : url("../img/left.png");
-    width: 5em;
-    height: 5em;
+    width: 2em;
+    height: 2em;
 }
 
 #fortnite{
