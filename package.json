@@ -17,7 +17,7 @@
     "author": "mic_mac",
     "contributors": [],
     "dependencies": {
-        "@micmac/youtube": "^2.9.8",
+        "@micmac/youtube": "^3.0.3",
         "bootstrap": "^4.3.1",
         "cookie-session": "^1.3.3",
         "dotenv": "^8.2.0",

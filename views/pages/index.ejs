@@ -9,21 +9,8 @@
     <main class="container-fluid m-0 p-0">
         <% include ../partials/headbandPub.ejs %>
         <% include ../partials/navbar.ejs %>
-        <div id="masterCard" class="card-group m-0 p-0"></div>
-        <div class="card-group row m-0 p-0">
-            <a href="\video?no=3" class="card">
-                <div class="card-body pb-0">
-                    <h5 class="card-title"><%= params.video.allVideos[3].title %></h5>
-                    <p class="card-text"><%= params.video.allVideos[3].description %></p>
-                </div>
-                <div class="container row">
-                    <img id="thumbnail_3" class="card-img-top col-md-6" src="<%= params.video.allVideos[3].urlThumbnails %>" alt="<%= params.video.allVideos[0].title %>">
-                    <p class="card-text text2 col-md-6 pt-2"><%= params.video.allVideos[3].description2 %></p>
-                </div>
-                <div class="card-footer">
-                    <small>Posté le <%= params.video.allVideos[3].date %></small>
-                </div>
-            </a>
+        <div id="masterCard_0" class="card-group row m-0 p-0"></div>
+        <div id="masterCard_1" class="card-group row m-0 p-0">
             <div  class="card fix container justify-content-center">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -59,88 +46,10 @@
                     </a>
                 </div>
             </div>
-            <a href="\video?no=4" class="card">
-                <div class="card-body pb-0">
-                    <h5 class="card-title"><%= params.video.allVideos[4].title %></h5>
-                    <p class="card-text"><%= params.video.allVideos[4].description %></p>
-                </div>
-                <div class="container row">
-                    <img id="thumbnail_4" class="card-img-top col-md-6" src="<%= params.video.allVideos[4].urlThumbnails %>" alt="<%= params.video.allVideos[0].title %>">
-                    <p class="card-text text2 col-md-6 pt-2"><%= params.video.allVideos[4].description2 %></p>
-                </div>
-                <div class="card-footer">
-                    <small>Posté le <%= params.video.allVideos[4].date %></small>
-                </div>
-            </a>
         </div>
-        <div class="card-group row m-0 p-0">
-            <a href="\video?no=5" class="card">
-                <div class="card-body pb-0">
-                    <h5 class="card-title"><%= params.video.allVideos[5].title %></h5>
-                    <p class="card-text"><%= params.video.allVideos[5].description %></p>
-                </div>
-                <div class="container row">
-                    <img id="thumbnail_5" class="card-img-top col-md-6" src="<%= params.video.allVideos[5].urlThumbnails %>" alt="<%= params.video.allVideos[0].title %>">
-                    <p class="card-text text2 col-md-6 pt-2"><%= params.video.allVideos[5].description2 %></p>
-                </div>
-                <div class="card-footer">
-                    <small>Posté le <%= params.video.allVideos[5].date %></small>
-                </div>
-            </a>
-            <a href="\video?no=6" class="card">
-                <div class="card-body pb-0">
-                    <h5 class="card-title"><%= params.video.allVideos[6].title %></h5>
-                    <p class="card-text"><%= params.video.allVideos[6].description %></p>
-                </div>
-                <div class="container row">
-                    <img id="thumbnail_6" class="card-img-top col-md-6" src="<%= params.video.allVideos[6].urlThumbnails %>" alt="<%= params.video.allVideos[0].title %>">
-                    <p class="card-text text2 col-md-6 pt-2"><%= params.video.allVideos[6].description2 %></p>
-                </div>
-                <div class="card-footer">
-                    <small>Posté le <%= params.video.allVideos[6].date %></small>
-                </div>
-            </a>
-            <a href="\video?no=7" class="card">
-                <div class="card-body pb-0">
-                    <h5 class="card-title"><%= params.video.allVideos[7].title %></h5>
-                    <p class="card-text"><%= params.video.allVideos[7].description %></p>
-                </div>
-                <div class="container row">
-                    <img id="thumbnail_7" class="card-img-top col-md-6" src="<%= params.video.allVideos[7].urlThumbnails %>" alt="<%= params.video.allVideos[0].title %>">
-                    <p class="card-text text2 col-md-6 pt-2"><%= params.video.allVideos[7].description2 %></p>
-                </div>
-                <div class="card-footer">
-                    <small>Posté le <%= params.video.allVideos[7].date %></small>
-                </div>
-            </a>
+        <div id="masterCard_2" class="card-group row m-0 p-0"> 
         </div>
-        <div class="card-group row m-0 p-0">
-            <a href="\video?no=8" class="card">
-                <div class="card-body pb-0">
-                    <h5 class="card-title"><%= params.video.allVideos[8].title %></h5>
-                    <p class="card-text"><%= params.video.allVideos[8].description %></p>
-                </div>
-                <div class="container row">
-                    <img id="thumbnail_8" class="card-img-top col-md-6" src="<%= params.video.allVideos[8].urlThumbnails %>" alt="<%= params.video.allVideos[0].title %>">
-                    <p class="card-text text2 col-md-6 pt-2"><%= params.video.allVideos[8].description2 %></p>
-                </div>
-                <div class="card-footer">
-                    <small>Posté le <%= params.video.allVideos[8].date %></small>
-                </div>
-            </a>
-            <a href="\video?no=9" class="card">
-                <div class="card-body pb-0">
-                    <h5 class="card-title"><%= params.video.allVideos[9].title %></h5>
-                    <p class="card-text"><%= params.video.allVideos[9].description %></p>
-                </div>
-                <div class="container row">
-                    <img id="thumbnail_0" class="card-img-top col-md-6" src="<%= params.video.allVideos[9].urlThumbnails %>" alt="<%= params.video.allVideos[0].title %>">
-                    <p class="card-text text2 col-md-6 pt-2"><%= params.video.allVideos[9].description2 %></p>
-                </div>
-                <div class="card-footer">
-                    <small>Posté le <%= params.video.allVideos[9].date %></small>
-                </div>
-            </a>
+        <div id="masterCard_3" class="card-group row m-0 p-0">
         </div>
     </main>
     <div id="hidden" class="hidden"><%= JSON.stringify(params.video) %></div>
