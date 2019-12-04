@@ -1,60 +1,83 @@
 <!-- views/pages/index.ejs -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <% include ../partials/head.ejs %>
     </head>
     <body class="bg-dark">
         <main class="container-fluid h-100 p-0 m-0">
-            <% include ../partials/headband.ejs %>
-            <% include ../partials/navbar.ejs %>
-            <div class="container-fluid h-100">    
-                <div class="container-fluid h-50 col-md-12 row p-0 m-0">
-                    <div class="container h-100 col-md-6 p-0 m-0">
-                        <iframe class="d-block w-100 h-100" allowFullScreen="allowFullScreen" src="https://www.youtube.com/embed/<%= params.videoData.data.items[0].id %>" allowtransparency="true" frameborder="0" allow="autoplay; encrypted-media">
-                                <div style="text-align: center; margin: 0">
-                                <div>
-                                    <a id=sISdBWrM href="https://sites.google.com/site/zygotemaria/nokia-8-1-contracts ">this</a>
-                                </div>
-                                <div>
-                                    <a id=sISdBWrM href="https://sites.google.com/site/wistfulvariance/galaxy-s8-plus-deals ">s8 plus</a>
-                                </div>
-                            </div>
-                            <script>
-                                function execute_YTvideo() {
-                                    return youtube.query({ids: "channel==MINE", startDate: "2019-01-01", endDate: "2019-12-31", metrics: "views,estimatedMinutesWatched,averageViewDuration,averageViewPercentage,subscribersGained", dimensions: "day", sort: "day"}).then(function (e) {}, function (e) {
-                                        console.error("Execute error", e);
-                                    });
-                                }
-                                ;
-                            </script>
-                        </iframe>
-                    </div>
-                    <div class="article container h-100 col-md-6 p-0 m-0">
-                        <h2><%= params.videoData.data.items[0].snippet.title %></h2>
-                        <p>Posté le <%= params.videoData.data.items[0].snippet.publishedAt %></p>
-                    </div>
+            <% include ../partials/headbandVideo.ejs %>
+            <% include ../partials/navbar.ejs %>   
+            <div id="themeVideo" class="container-fluid col-md-12 h-100 p-0 m-0">    
+
+                <div class="article container h-100 col-md-6 p-0 m-0">
+                    <h2><%= params.video.title %></h2>
+                    <p>Posté le <%= params.video.date %></p>
                 </div>
                 <div class="article container col-md-12 p-0 m-0">
-                   <%= params.videoData.data.items[0].snippet.description %>
+                    <%= params.video.description1 %>
                 </div>
                 <div class="article container col-md-12 p-0 m-0">
-                   <%= params.videoData.data.items[0].snippet.description2 %>
+                    <h2>Vos commentaires</h2>
+                    <h3>test 1</h3>
+                    <h1><%= params.video.theme %></h1>
+                    <ul>
+                        <% params.video.comments.forEach(function(p) { %>
+                        <li><img src ="<%= p.avatar %>" /></li>
+                        <% }); %>
+                    </ul>
                 </div>
             </div>
         </main>
+        <div id="hidden" class="hidden"><%= JSON.stringify(params.video) %></div>
         <footer class="container">
-            <% include ../partials/footer %>
+            <% include ../partials/footer.ejs %>
         </footer>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
         <script src="https://apis.google.com/js/platform.js"></script>
-        <script src="/public/assets/js/index.js"></script>
-         
+        <script src="/socket.io/socket.io.js"></script>
+        <link rel="stylesheet" href="../../public/lib/js/themeChannel/themeChannel.css" />
+        <script> <% include ../../public/lib/js/themeChannel/themeChannel.js %> </script>
+
+        <script>
+             var socket = io.connect ('http://localhost:8080');
+             var infoServer = document.getElementById ('infoServer');
+             socket.on ('message', function (message) {
+                 infoServer.innerHTML = message.content;
+                 setTimeout (function () {
+                     infoServer.innerHTML = '';
+                 }, 10000);
+             });
+
+             window.onload = function () {
+                 wBgd = 1920;
+                 hBgd = 1080;
+                 hScreen = window.innerHeight;
+                 wScreen = window.innerWidth;
+                 document.body.style.height = hScreen + 'px';
+                 document.body.style.width = wScreen + 'px';
+                 new Theme ('<%= params.theme %>');
+             };
+
+             function execute_YTvideo () {
+                 return youtube.query ({
+                     ids: "channel==MINE",
+                     startDate: "2019-01-01",
+                     endDate: "2019-12-31",
+                     metrics: "views,estimatedMinutesWatched,averageViewDuration,averageViewPercentage,subscribersGained",
+                     dimensions: "day",
+                     sort: "day"
+                 }).then (function (e) {}, function (e) {
+                     console.error ("Execute error", e);
+                 });
+             }
+             ;
+        </script>
     </body>
-   
+
 </html>
 
 

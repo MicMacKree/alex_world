@@ -1,0 +1,250 @@
+@media screen and (max-width: 680px){
+
+    #fortnite {
+        z-index: 1;
+        background-position-x: 35%;
+        background-position-y:  0%;
+        background-size: 100% 60%;
+        background-repeat: no-repeat;
+        height: 100%;
+        width:100%;
+    }
+
+    .TV {
+        position: relative;
+        top: 30%;
+        left: 35%;
+        background-image:url('/public/assets/img/meubleTV.png');
+        background-size: auto 25%;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+    }
+    .fortniteYtPlayer {
+        position: relative;
+        top:0%;
+        left:10%;
+        width: 42%;
+        height: 13%;
+    }
+    #nature {
+        z-index: 1;
+        background-position-x: 100%;
+        background-position-y:  100%;
+        background-size: 200% 100%;
+        background-repeat: no-repeat;
+        height: 50%;
+        width:100%;
+    }
+    .natureYtPlayer {
+        position: relative;
+        top:48.6%;
+        left:10%;
+        width: 83%;
+        height: 47.1%;
+    }
+    #other {
+        z-index: 1;
+        background-position-x: 100%;
+        background-position-y:  100%;
+        background-size: 200% 100%;
+        background-repeat: no-repeat;
+        height: 50%;
+        width:100%;
+    }
+    .otherYtPlayer {
+        position: relative;
+        top:0;
+        left:60.5%;
+        width: 36.5%;
+        height: 30%;
+    }
+    #simcity {
+        z-index: 1;
+        background-position-x: 50%;
+        background-position-y:  0%;
+        background-size: 200% 100%;
+        background-repeat: no-repeat;
+        height: 70%;
+        width:100%;
+    }
+    .simcityYtPlayer {
+        transform: rotate3d(0, 0, 1, 5.3deg);
+        position: relative;
+        top:11.9%;
+        left:21%;
+        width: 68%;
+        height: 24%;
+    }
+}
+@media screen and (max-width: 1480px) and (min-width: 681px){
+
+    #fortnite {
+        z-index: 1;
+        background-position-x: 0%;
+        background-position-y:  0%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 80%;
+        width:100%;
+    }
+
+    .TV {
+        position: relative;
+        top: 50%;
+        left: 41%;
+        background-image:url('/public/assets/img/meubleTV.png');
+        background-size: 60% 100%;
+        background-repeat: no-repeat;
+        width: 50%;
+        height: 50%;
+    }
+    .fortniteYtPlayer {
+        position: relative;
+        top:3%;
+        left:10%;
+        width: 41%;
+        height: 44%;
+    }
+    #nature {
+        z-index: 1;
+        background-position-x: 0%;
+        background-position-y:  0%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 70%;
+        width:100%;
+    }
+    .natureYtPlayer {
+        position: relative;
+        top:48.3%;
+        left:5.7%;
+        width: 41.5%;
+        height: 47.7%;
+    }
+    #other {
+        z-index: 1;
+        background-position-x: 0%;
+        background-position-y:  0%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 70%;
+        width:100%;
+    }
+    .otherYtPlayer {
+        position: relative;
+        top:29.3%;
+        left:43.3%;
+        width: 19%;
+        height: 32.5%;
+    }
+    #simcity {
+        z-index: 1;
+        background-position-x: 0%;
+        background-position-y:  0%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 70%;
+        width:100%;
+    }
+    .simcityYtPlayer {
+        transform: rotate3d(0, 0, 1, 3.6deg);
+        position: relative;
+        top:11.9%;
+        left:36%;
+        width: 33%;
+        height: 24%;
+    }
+    .simcityYtPlayer {
+        transform: rotate3d(0, 0, 1, 3.6deg);
+        position: relative;
+        top:53.9%;
+        left:36%;
+        width: 33%;
+        height: 24%;
+    }
+}
+
+@media screen and (min-width: 1481px){
+
+    #fortnite {
+        z-index: 1;
+        background-position-x: 0%;
+        background-position-y:  0%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 80%;
+        width:100%;
+    }
+
+    #TV {
+        background-image:url('/public/assets/img/meubleTV.png');
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        overflow-y: visible;
+    }
+    #ytplayer {
+        padding-top:2%;
+        padding-bottom:37.5%;
+        padding-left:16%;
+        padding-right:15%;
+        width: 70%;
+        height: 70%;
+    }
+    #nature {
+        z-index: 1;
+        background-position-x: 0%;
+        background-position-y:  0%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 70%;
+        width:100%;
+    }
+    .natureYtPlayer {
+        position: relative;
+        top:48.3%;
+        left:5.7%;
+        width: 41.5%;
+        height: 47.7%;
+    }
+    #other {
+        z-index: 1;
+        background-position-x: 0%;
+        background-position-y:  0%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 70%;
+        width:100%;
+    }
+    .otherYtPlayer {
+        position: relative;
+        top:29.3%;
+        left:43.3%;
+        width: 19%;
+        height: 32.5%;
+    }
+    #simcity {
+        z-index: 1;
+        background-position-x: 0%;
+        background-position-y:  0%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 70%;
+        width:100%;
+    }
+    .simcityYtPlayer {
+        transform: rotate3d(0, 0, 1, 3.6deg);
+        position: relative;
+        top:11.9%;
+        left:36%;
+        width: 33%;
+        height: 24%;
+    }
+}
+
+@keyframes shake {
+    0% {transform : rotateY(-45deg) rotateZ(5deg);}
+    50% {transform :rotateY(45deg) rotateZ(0deg);}
+    100% {transform :rotateY(-45deg) rotateZ(5deg);}
+}
+

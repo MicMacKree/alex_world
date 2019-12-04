@@ -29,7 +29,7 @@
                      + '              <div class="card-footer">'
                      + '                  <small>Posté le ' + allVideos.video[i].date + '</small>'
                      + '              </div>';
-             videoCard[i].setAttribute ("href", "/video?no=" + i);
+             videoCard[i].setAttribute ("href", "/video?noVideo=" + i);
              videoCard[i].classList.add ("card");
          }
      ;

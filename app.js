@@ -13,7 +13,7 @@
  app.set ('view engine', 'ejs');
  var http = require ('http');
  const fs = require ('fs');
- 
+
 //api fortnite
 //const fortniteapi = require('fortnite-api-js');
 //
@@ -26,7 +26,9 @@
 //fortniteapi.getItem('208f8a9-35aff6e-b1ae608-1cb4c7b').then(data => {
 //    console.log(data);
 //});
-// fonction pour consulter les infos des videos, à rafraichir a chque nouvelle entrée sur la chaine
+// 
+
+
 
 //provisoirement stocké ici en attendant mieux, les JSON des vignettes manga, culture ....
 
@@ -100,7 +102,7 @@
      });
  };
 
- 
+
 
 
 
@@ -108,31 +110,28 @@
 // fonction appel de getAndWrite() puis renvoie la lecture de public/src/video.json sous forme de json. 
 
  var readApiThenRecordThenRead = function () {
-     getApiInfoThenWrite ().then (function (response) {
-         if (response)
-             {
-                 console.log ('ecriture ok!');
-                 readVideoJSON ().then (function (response) {
-                     console.log ('lecture en sortie ok');
-                     console.log (response);
-                     return response;
-                 });
-             }
-     }).catch (function (error) {
-         console.log ('error capté en sortie :');
-         console.log (error);
+     return new Promise (function (resolve, reject) {
+         getApiInfoThenWrite ().then (function (response) {
+             console.log ('ecriture ok!');
+             readVideoJSON ().catch (function (error) {
+                 console.log (error);
+             }).then (function (response) {
+                 console.log ('lecture en sortie ok');
+                 console.log (response);
+                 resolve (response);
+             });
+         });
      });
  };
- 
- readVideoJSON().then(function(response) {
-     serverStart(response);
+ // readApiThenRecordThenRead ().then (function (response) {
+ readVideoJSON ().then (function (response) {
+     serverStart (response);
  });
- 
+
  // fonction démarrage du serveur
  var serverStart = function (videoData) {
      var server = http.createServer (app);
      var io = require ('socket.io').listen (server);
-
 // use res.render to load up an ejs view file
 
      console.log (moment ().format ('MMMM Do YYYY, h:mm:ss a'));
@@ -143,7 +142,7 @@
      app.use ('/public', express.static ('public'))
              // index page 
              .get ('/', function (req, res) {
-                 var params = {
+                 let params = {
                      css: 'global.css',
                      carroussel: titan,
                      video: videoData
@@ -152,11 +151,25 @@
                      params: params
                  });
              })
+             .get ('/googlef76e7a236c78cd16.html', function (req, res) {
+                 res.render ('pages/googlef76e7a236c78cd16.ejs');
+             })
              .get ('/video', function (req, res) {
-                 searchThisVideo.goToVideoPage (searchVideos.allVideos[req.query.no].idVideo, 'global.css', res, 'pages/videoActivity.ejs');
+                 let videoTheme = findTheme (videoData.video[req.query.noVideo]);
+                 let params = {
+                     css: 'videoPage1.css',
+                     video: videoData.video[req.query.noVideo],
+                     theme: videoTheme
+                 };
+                 console.log (videoTheme);
+                 console.log (params);
+                 res.render ('pages/videoActivity.ejs', {
+                     params: params
+                 });
              })
 
-// about page 
+// page pour les test;
+
              .get ('/test', function (req, res) {
                  console.log ('test');
                  youtube.searchVideos ();
@@ -195,6 +208,31 @@
      server.listen (process.env.PORT);
  };
 
+ // fonction pour déterminer le theme d'une video
 
-
-    
+ var findTheme = function (_video) {
+     var theme = 'other';
+     _video.tags.forEach (function (tag) {
+         let lowTag = tag.toLowerCase ();
+         switch (lowTag)
+             {
+                 case 'fortnite':
+                     theme = 'fortnite';
+                     console.log ('fortnite');
+                     break;
+                 case 'nature':
+                     theme = 'nature';
+                     console.log ('nature');
+                     break;
+//                 case 'gravitrax':
+//                     theme = 'gravitrax';
+//                     console.log ('gravitrax');
+//                     break;
+                 case 'simcity':
+                     theme = 'simcity';
+                     console.log ('simcity');
+                     break;
+             }
+     });
+     return theme;
+ }; 
