@@ -121,7 +121,7 @@
     }
 }
 @media screen and (min-width: 1481px){
-    ul.navbar-nav {
+     ul.navbar-nav {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;

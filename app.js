@@ -1,6 +1,5 @@
  // pour lancer le server utiliser la commande suivante :
  // node -r dotenv/config app.js dotenv_config_path=private/lib/src/.env
- console.log (process.env.APIKEY);
  var ent = require ('ent');
  var bodyParser = require ('body-parser');
  var urlencodedParser = bodyParser.urlencoded ({
@@ -28,8 +27,6 @@
 //});
 // 
 
-
-
 //provisoirement stocké ici en attendant mieux, les JSON des vignettes manga, culture ....
 
  var titan = {
@@ -41,7 +38,6 @@
          pitch: 'L’histoire tourne autour du personnage d’Eren Jäger dans un monde où l’humanité vit entourée d’immenses murs pour se protéger de créatures gigantesques, les Titans. Le récit raconte le combat mené par l’humanité pour reconquérir son territoire, en éclaircissant les mystères dus à l’apparition des Titans. '
      }
  };
-
 // récupère les infos au format json de l'api youtube data puis les écrits dans un fichier public/src/video.json
 
  var getApiInfoThenWrite = function () {
@@ -83,7 +79,7 @@
 
 // fonction lecture du fichier public/src/video.json 
 
- readVideoJSON = function () {
+var readVideoJSON = function () {
      return new Promise (function (resolve, reject) {
          fs.readFile ('public/src/video.json', 'utf8', function (err, data) {
              if (err)
@@ -95,17 +91,11 @@
              if (data)
                  {
                      console.log ('lecture OK');
-                     console.log (data);
                      resolve (JSON.parse (data));
                  }
          });
      });
  };
-
-
-
-
-
 
 // fonction appel de getAndWrite() puis renvoie la lecture de public/src/video.json sous forme de json. 
 
@@ -117,22 +107,53 @@
                  console.log (error);
              }).then (function (response) {
                  console.log ('lecture en sortie ok');
-                 console.log (response);
                  resolve (response);
              });
          });
      });
  };
- // readApiThenRecordThenRead ().then (function (response) {
- readVideoJSON ().then (function (response) {
+ 
+ // fonction pour déterminer le theme d'une video
+
+ var findTheme = function (_video) {
+     var theme = 'other';
+     _video.tags.forEach (function (tag) {
+         let lowTag = tag.toLowerCase ();
+         switch (lowTag)
+             {
+                 case 'fortnite':
+                     theme = 'fortnite';
+                     console.log ('Theme fortnite');
+                     break;
+                 case 'nature':
+                     theme = 'nature';
+                     console.log ('Theme nature');
+                     break;
+                 case 'gravitrax':
+                     theme = 'gravitrax';
+                     console.log ('Theme gravitrax');
+                     break;
+                 case 'simcity':
+                     theme = 'simcity';
+                     console.log ('Theme simcity');
+                     break;
+             }
+     });
+     return theme;
+ }; 
+ 
+ 
+ //readApiThenRecordThenRead ().then (function (response) {
+  readVideoJSON ().then (function (response) {
      serverStart (response);
  });
 
  // fonction démarrage du serveur
+ 
  var serverStart = function (videoData) {
+     
      var server = http.createServer (app);
      var io = require ('socket.io').listen (server);
-// use res.render to load up an ejs view file
 
      console.log (moment ().format ('MMMM Do YYYY, h:mm:ss a'));
      console.log (process.env.PORT + 'is the magic port');
@@ -161,8 +182,8 @@
                      video: videoData.video[req.query.noVideo],
                      theme: videoTheme
                  };
-                 console.log (videoTheme);
-                 console.log (params);
+//                 console.log (videoTheme);
+//                 console.log (params);
                  res.render ('pages/videoActivity.ejs', {
                      params: params
                  });
@@ -172,8 +193,7 @@
 
              .get ('/test', function (req, res) {
                  console.log ('test');
-                 youtube.searchVideos ();
-                 var params = {
+                var params = {
                      css: 'videoPage1.css'
                  };
                  res.render ('pages/test.ejs', {
@@ -207,32 +227,4 @@
      });
      server.listen (process.env.PORT);
  };
-
- // fonction pour déterminer le theme d'une video
-
- var findTheme = function (_video) {
-     var theme = 'other';
-     _video.tags.forEach (function (tag) {
-         let lowTag = tag.toLowerCase ();
-         switch (lowTag)
-             {
-                 case 'fortnite':
-                     theme = 'fortnite';
-                     console.log ('fortnite');
-                     break;
-                 case 'nature':
-                     theme = 'nature';
-                     console.log ('nature');
-                     break;
-//                 case 'gravitrax':
-//                     theme = 'gravitrax';
-//                     console.log ('gravitrax');
-//                     break;
-                 case 'simcity':
-                     theme = 'simcity';
-                     console.log ('simcity');
-                     break;
-             }
-     });
-     return theme;
- }; 
+ 

@@ -227,26 +227,38 @@ a:hover {
 }
 
 @media screen and (min-width: 1481px){
-    body {
-        font-size: 1.6em;
+  body {
+        font-size: 1em;
+    }
+    h1{
+        font-size: 3em;
+        font-family: 'Luckiest Guy', cursive;
+        border-radius: 1em;
+    }
+    .headband{
+
+    }
+    .headbandBeerus{
+        min-height: 12em;
+    }
+    .headbandDescribe{
+        font-size: 1em;
+
+    }
+   
+   
+    .carousel-item p {
+        height: 20%;
+        background-color: white;
+    }
+    .carousel-item img {
+        height: 60%;
+    }
+    .subscribe{
+        height: 3em;
     }
 }
-.carousel-control-next-icon {
-    background-image : url("../img/right.png");
-    width: 2em;
-    height: 2em;
-}
-.carousel-control-prev-icon {
-    background-image : url("../img/left.png");
-    width: 2em;
-    height: 2em;
-}
 
-#fortnite{
-    /*    background-image: url('../img/913123.jpg');
-        background-size: initial;
-        height:content-box;*/
-}
 
 @keyframes shake {
     0% {transform : rotateY(-45deg) rotateZ(5deg);}

@@ -1,0 +1,84 @@
+<script>
+ Theme = function (_theme) {
+     this.initTheme (_theme);
+     this.setThemeHTML ();
+ };
+ Theme.prototype = {
+     initTheme: function (_theme) {
+         this.theme = _theme;
+         this.DIV = document.createElement ("DIV");
+         this.parentDIV = document.getElementById ('themeVideo');
+         this.themeContent = new Array ();
+         this.themeContent['fortnite'] =
+                 {
+                     html: '<div id="fortnite" class="backTheme" style="background-image: url(\'/public/assets/img/theme/fortnite.jpg\')">'
+                             + '     <div class="TV">'
+                             + '         <iframe id="ytplayer" class="fortniteYtPlayer" type="text/html" width="100%" height="100%"'
+                             + '         src="https://www.youtube.com/embed/<%= params.video.id %>?autoplay=1"'
+                             + '         frameborder="0" allowfullscreen>'
+                             + '         </iframe>'
+                             + '     </div>'
+                             + '</div>'
+                     ,
+                     background: 'fortnite.jpg'
+                 }
+         ;
+         this.themeContent['other'] =
+                 {
+                     html: '<div id="other" class="backTheme" style="background-image: url(\'/public/assets/img/theme/other.jpg\')">'
+                             + '         <iframe id="ytplayer" class="otherYtPlayer" type="text/html" width="100%" height="100%"'
+                             + '         src="https://www.youtube.com/embed/<%= params.video.id %>?autoplay=1"'
+                             + '         frameborder="0" allowfullscreen>'
+                             + '         </iframe>'
+                             + '</div>'
+                     ,
+                     background: 'other.jpg'
+                 }
+         ;
+         this.themeContent['simcity'] =
+                 {
+                     html: '<div id="simcity" class="backTheme" style="background-image: url(\'/public/assets/img/theme/simcity.jpg\')">'
+                             + '         <iframe id="ytplayer" class="simcityYtPlayer" type="text/html" width="100%" height="100%"'
+                             + '         src="https://www.youtube.com/embed/<%= params.video.id %>?autoplay=1"'
+                             + '         frameborder="0" allowfullscreen>'
+                             + '         </iframe>'
+                             + '</div>'
+                     ,
+                     background: 'simcity.jpg'
+                 }
+         ;
+         this.themeContent['nature'] =
+                 {
+                     html: '<div id="nature" class="backTheme" style="background-image: url(\'/public/assets/img/theme/nature.jpg\')">'
+                             + '         <iframe id="ytplayer" class="natureYtPlayer" type="text/html" width="100%" height="100%"'
+                             + '         src="https://www.youtube.com/embed/<%= params.video.id %>?autoplay=1"'
+                             + '         frameborder="0" allowfullscreen>'
+                             + '         </iframe>'
+                             + '</div>'
+                     ,
+                     background: 'nature.jpg'
+                 }
+         ;
+         this.themeContent['gravitrax'] =
+                 {
+                     html: '<div id="gravitrax" class="backTheme" style="background-image: url(\'/public/assets/img/theme/gravitrax3.gif\')">'
+                             + '<div class="panda">'
+                             + '         <iframe id="ytplayer" class="gravitraxYtPlayer" type="text/html" width="100%" height="100%"'
+                             + '         src="https://www.youtube.com/embed/<%= params.video.id %>?autoplay=1"'
+                             + '         frameborder="0" allowfullscreen>'
+                             + '         </iframe>'
+                             + '</div>'
+                             + '</div>'
+                     ,
+                     background: 'gravitrax3.gif'
+                 }
+         ;
+     },
+     setThemeHTML: function () {
+         this.DIV.innerHTML = this.themeContent[this.theme].html;
+         this.DIV.setAttribute ("id", "theme");
+         this.DIV.classList.add ("container-fluid", "h-100", "w-100", "p-0", "m-0");
+         this.parentDIV.prepend (this.DIV);
+     }
+ };
+</script>

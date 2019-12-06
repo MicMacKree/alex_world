@@ -76,6 +76,31 @@
         width: 68%;
         height: 24%;
     }
+    #gravitrax {
+        background-position-x: 0%;
+        background-position-y:  0%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 70%;
+        width:100%;
+    }
+    .panda {
+        position: relative;
+        top: 5%;
+        left: 5%;
+        background-image:url('/public/assets/img/theme/panda.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        width: 45%;
+        height: 30%;
+    }
+    .gravitraxYtPlayer {
+        position: relative;
+        top:19%;
+        left:14%;
+        width: 69%;
+        height: 74%;
+    }
 }
 @media screen and (max-width: 1480px) and (min-width: 681px){
 
@@ -85,7 +110,7 @@
         background-position-y:  0%;
         background-size: 100% 100%;
         background-repeat: no-repeat;
-        height: 80%;
+        height: 100%;
         width:100%;
     }
 
@@ -112,7 +137,7 @@
         background-position-y:  0%;
         background-size: 100% 100%;
         background-repeat: no-repeat;
-        height: 70%;
+        height: 100%;
         width:100%;
     }
     .natureYtPlayer {
@@ -144,24 +169,42 @@
         background-position-y:  0%;
         background-size: 100% 100%;
         background-repeat: no-repeat;
-        height: 70%;
+        height: 100%;
         width:100%;
     }
-    .simcityYtPlayer {
-        transform: rotate3d(0, 0, 1, 3.6deg);
+      .simcityYtPlayer {
+        transform: rotate3d(0, 0, 1, 6deg);
         position: relative;
-        top:11.9%;
-        left:36%;
-        width: 33%;
-        height: 24%;
+        top:11.85%;
+        left:35%;
+        width: 34%;
+        height: 24.3%;
     }
-    .simcityYtPlayer {
-        transform: rotate3d(0, 0, 1, 3.6deg);
+    #gravitrax {
+        z-index: 1;
+        background-position-x: 0%;
+        background-position-y:  0%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 600px;
+        width:100%;
+    }
+    .panda {
         position: relative;
-        top:53.9%;
-        left:36%;
-        width: 33%;
-        height: 24%;
+        top: 5%;
+        left: 5%;
+        background-image:url('/public/assets/img/theme/panda.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        width: 35%;
+        height: 40%;
+    }
+    .gravitraxYtPlayer {
+        position: relative;
+        top:24%;
+        left:13%;
+        width: 69.5%;
+        height: 73%;
     }
 }
 
@@ -173,23 +216,26 @@
         background-position-y:  0%;
         background-size: 100% 100%;
         background-repeat: no-repeat;
-        height: 80%;
+        height: 100%;
         width:100%;
     }
 
-    #TV {
+    .TV {
+        position: relative;
+        top: 50%;
+        left: 41%;
         background-image:url('/public/assets/img/meubleTV.png');
-        background-size: auto 100%;
+        background-size: 60% 100%;
         background-repeat: no-repeat;
-        overflow-y: visible;
+        width: 50%;
+        height: 50%;
     }
-    #ytplayer {
-        padding-top:2%;
-        padding-bottom:37.5%;
-        padding-left:16%;
-        padding-right:15%;
-        width: 70%;
-        height: 70%;
+    .fortniteYtPlayer {
+        position: relative;
+        top:3%;
+        left:10%;
+        width: 41%;
+        height: 44%;
     }
     #nature {
         z-index: 1;
@@ -197,7 +243,7 @@
         background-position-y:  0%;
         background-size: 100% 100%;
         background-repeat: no-repeat;
-        height: 70%;
+        height: 100%;
         width:100%;
     }
     .natureYtPlayer {
@@ -229,19 +275,44 @@
         background-position-y:  0%;
         background-size: 100% 100%;
         background-repeat: no-repeat;
-        height: 70%;
+        height: 100%;
         width:100%;
     }
-    .simcityYtPlayer {
-        transform: rotate3d(0, 0, 1, 3.6deg);
+      .simcityYtPlayer {
+        transform: rotate3d(0, 0, 1, 6deg);
         position: relative;
-        top:11.9%;
-        left:36%;
-        width: 33%;
-        height: 24%;
+        top:11.85%;
+        left:35%;
+        width: 34%;
+        height: 24.3%;
+    }
+    #gravitrax {
+        z-index: 1;
+        background-position-x: 0%;
+        background-position-y:  0%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 600px;
+        width:100%;
+    }
+    .panda {
+        position: relative;
+        top: 5%;
+        left: 5%;
+        background-image:url('/public/assets/img/theme/panda.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        width: 35%;
+        height: 40%;
+    }
+    .gravitraxYtPlayer {
+        position: relative;
+        top:24%;
+        left:13%;
+        width: 69.5%;
+        height: 73%;
     }
 }
-
 @keyframes shake {
     0% {transform : rotateY(-45deg) rotateZ(5deg);}
     50% {transform :rotateY(45deg) rotateZ(0deg);}
