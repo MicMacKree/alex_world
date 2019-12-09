@@ -79,7 +79,7 @@
 
 // fonction lecture du fichier public/src/video.json 
 
-var readVideoJSON = function () {
+ var readVideoJSON = function () {
      return new Promise (function (resolve, reject) {
          fs.readFile ('public/src/video.json', 'utf8', function (err, data) {
              if (err)
@@ -112,7 +112,7 @@ var readVideoJSON = function () {
          });
      });
  };
- 
+
  // fonction pour déterminer le theme d'une video
 
  var findTheme = function (_video) {
@@ -140,18 +140,18 @@ var readVideoJSON = function () {
              }
      });
      return theme;
- }; 
- 
- 
+ };
+
+
  //readApiThenRecordThenRead ().then (function (response) {
-  readVideoJSON ().then (function (response) {
+ readVideoJSON ().then (function (response) {
      serverStart (response);
  });
 
  // fonction démarrage du serveur
- 
+
  var serverStart = function (videoData) {
-     
+
      var server = http.createServer (app);
      var io = require ('socket.io').listen (server);
 
@@ -182,49 +182,86 @@ var readVideoJSON = function () {
                      video: videoData.video[req.query.noVideo],
                      theme: videoTheme
                  };
-//                 console.log (videoTheme);
-//                 console.log (params);
                  res.render ('pages/videoActivity.ejs', {
                      params: params
                  });
              })
-
 // page pour les test;
-
              .get ('/test', function (req, res) {
                  console.log ('test');
-                var params = {
+                 var params = {
                      css: 'videoPage1.css'
                  };
                  res.render ('pages/test.ejs', {
                      params: params
                  });
              });
+     var listClient = new Array ();
      io.sockets.on ('connection', function (socket) {
+         function filterOtherSocketId (_listClient) {
+             if (_listClient.socketId === socket.id)
+                 {
+                     console.log ('filter filterOtherSocketId false : ' + _listClient.socketId + '...' + socket.id);
+                     return false;
+                 }
+             else
+                 {
+                     console.log ('filter filterOtherSocketId true : ' + _listClient.socketId + '...' + socket.id);
+                     return true;
+                 }
+         }
+         ;
+         function filterThisSocketId (_listClient) {
+             if (_listClient.socketId === socket.id)
+                 {
+                     console.log ('filter filterThisSocketId true : ' + _listClient.socketId + '...' + socket.id);
+                     return true;
+                 }
+             else
+                 {
+                     console.log ('filter filterThisSocketId false : ' + _listClient.socketId + '...' + socket.id);
+                     return false;
+                 }
+         }
+         ;
          socket.emit ('message', {
-             content: 'Vous êtes bien connecté !',
+             content: 'connection serveur.',
              importance: '1'
          });
-         socket.on ('nouveauClient', function () {
-
-             console.log ("nouveau client");
+         socket.on ('entree', function (pseudo) {
+             console.log ("nouveau client : " + pseudo);
+             listClient.push ({
+                 socketId: socket.id,
+                 pseudo: pseudo,
+                 message: [
+                     {
+                         message: pseudo + ' est connecté(e).',
+                         color: 'black'
+                     }
+                 ]
+             });
+             console.log (listClient.slice (- 1)[0].message);
+             socket.emit ('identification', true);
+             socket.broadcast.emit ('smdySpeak', listClient.slice (- 1)[0].message);
          })
+
                  .on ('connexionIndex', function () {
                      socket.emit ('identification');
                      socket.broadcast.emit ('entree');
                  })
-                 .on ('message', function (message, noOfSouth) {
-
+                 .on ('message', function (message) {
+                     socket.emit ('message', message);
+                     console.log (message);
                  })
                  .on ('move', function (_leftF, _topF, _time, _anim) {
 
                  })
-                 .on ('disconnect', function (reason) {
-                     console.log (reason);
-                     // clients.splice(i, 1);
-                     // clientsInfo.splice(i, 1);
+                 .on ('disconnect', function () {
+                     console.log (listClient);
+                     listClient = listClient.filter(filterOtherSocketId);
+                     console.log (listClient);
                  });
      });
      server.listen (process.env.PORT);
  };
- 
+

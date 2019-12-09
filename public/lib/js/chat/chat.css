@@ -1,0 +1,188 @@
+textarea{
+    resize:none;
+}
+#chat{
+    display:none;
+ 
+    position:absolute;
+    top:25%;
+    left:25%;
+    z-index:2;
+
+    background-color: transparent;
+    color: graytext;
+
+ 
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding:0;
+    margin:0;
+    width:35em;
+    height:20em;
+    overflow: visible;
+}
+.chatBand{
+    height: 1.5em;
+    background-color: white;
+    overflow: visible;
+    
+    padding:0px;
+    margin:0;
+}
+.chatHandler{
+    height: 1.5em;
+    background-color: white;
+    overflow: visible;
+    
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding:1px;
+    margin:0;
+    
+    justify-content: space-between;
+    align-content: center;
+}
+#cat{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width : auto;
+    height:100%;
+    overflow: visible;
+    justify-content: center;
+}
+#cat>img {
+    position:relative;
+    top:-1.5em;
+    left:0;
+}
+.chatBodyUp{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding:0;
+    margin:0;
+    
+    width: 100%;
+    height: 18.5em;
+    
+    background-color: greenyellow;
+}
+.chatBodyUpLeft{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding:0;
+    margin:0;
+    
+    width: 50%;
+    height: 100%;
+    
+    background-color: blue;
+}
+#chatConnected{
+    padding:0;
+    margin:0;
+    
+    width: 100%;
+    height: 45%;
+    
+    background-color: pink;
+}
+#chatGame{
+    padding:0;
+    margin:0;
+    
+    width: 100%;
+    height: 30%;
+    
+    background-color: blanchedalmond;
+}
+#chatPseudo{
+    padding:0;
+    margin:0;
+    
+    width: 100%;
+    height: 25%;
+    
+    background-color: lightcoral;
+}
+.chatBodyUpRight{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding:0;
+    margin:0;
+    
+    width: 50%;
+    height: 100%;
+    
+    background-color: darkorange;
+}
+#chatOutput{
+    padding:0;
+    margin:0;
+    
+    width: 100%;
+    height: 75%;
+    
+    background-color: violet;
+}
+.chatInput{
+    padding:0;
+    margin:0;
+    
+    width: 100%;
+    height: 25%;
+    
+    display:flex;
+    flex-direction: row;
+    background-color: grey;
+}
+#chatButton{
+    height:100%;
+    width:10%;
+    
+    background-color: yellow;
+}
+#chatInput{
+    height:100%;
+    width:90%;
+    
+    background-color: red;
+}
+#chatLogin{
+    display:flex;
+ 
+    position:absolute;
+    top:50%;
+    left:0%;
+    z-index:2;
+
+    background-color: transparent;
+    color: graytext;
+
+ 
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding:0;
+    margin:0;
+    width:35em;
+    height:20em;
+    overflow: visible;
+}
+#chatLoginBody{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding:0;
+    margin:0;
+    
+    width: 100%;
+    height: 18.5em;
+    
+    justify-content: center;
+    align-items: center;
+    background-color: greenyellow;
+}

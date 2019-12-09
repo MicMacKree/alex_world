@@ -1,11 +1,11 @@
 <!-- views/pages/index.ejs -->
 
 <!DOCTYPE html>
-
 <head>
     <% include ../partials/head.ejs %>
 </head>
 <body class="bg-dark">
+    <% include ../../public/lib/js/chat/chat.ejs %>
     <main class="container-fluid m-0 p-0">
         <% include ../partials/headbandPub.ejs %>
         <% include ../partials/navbar.ejs %>
@@ -61,25 +61,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://apis.google.com/js/platform.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-        var socket = io.connect('http://localhost:8080');
-        var infoServer = document.getElementById('infoServer');
-        socket.on('message', function (message) {
-            infoServer.innerHTML = message.content;
-            setTimeout(function() {
-                infoServer.innerHTML = '';
-            },10000);
-        });
-    </script>
+     <link rel="stylesheet" href="../../public/lib/js/chat/chat.css" />
+     <script src="/public/lib/js/chat/chat.js"></script>
     <script src="/public/assets/js/index.js"></script>
 </body>
-
-<!--
-<div class="container d-block w-100 h-100">
-    <iframe allowFullScreen="allowFullScreen" src="https://www.youtube.com/embed/6eiDDZEWQYE?ecver=1&amp;autoplay=0&amp;iv_load_policy=1&amp;yt:stretch=4:3&amp;autohide=1&amp;color=red&amp;width=400&amp;width=400" width="100%" height="100%" allowtransparency="true" frameborder="1" allow="autoplay; encrypted-media"><div style="text-align: center; margin: 0"><div><a id=sISdBWrM href="https://sites.google.com/site/zygotemaria/nokia-8-1-contracts ">this</a></div><div><a id=sISdBWrM href="https://sites.google.com/site/wistfulvariance/galaxy-s8-plus-deals ">s8 plus</a></div></div><script>function execute_YTvideo() {
-                                return youtube.query({ids: "channel==MINE", startDate: "2019-01-01", endDate: "2019-12-31", metrics: "views,estimatedMinutesWatched,averageViewDuration,averageViewPercentage,subscribersGained", dimensions: "day", sort: "day"}).then(function (e) {}, function (e) {
-                                    console.error("Execute error", e)
-                                });
-                            }</script></iframe>
-</div>
--->
