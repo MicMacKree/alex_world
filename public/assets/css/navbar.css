@@ -1,3 +1,19 @@
+#beerus{
+    background-image: url('../img/navbar/spriteBeerus.png');
+   height: 100px;
+  width : 100px;
+  background-origin: initial;
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  background-size: initial;
+  position: relative;
+}
+#beerus:hover{
+    cursor: pointer;
+}
+.navbar-brand{
+    height:100%;
+}
 .navbar {
     font-size : 1.2em;
     font-weight: bolder;
@@ -103,7 +119,7 @@
         flex-direction: column;
         justify-content: center;
         width:6em;
-        height:4em;
+        height:8em;
     }
     ul.navbar-nav>li>a{
         background-size: 100% 100%;
@@ -117,7 +133,7 @@
         font-size: 0em;      
     }
     ul.navbar-nav>li>a:hover{
-        font-size: 1.5em;
+        font-size: 2em;
     }
 }
 @media screen and (min-width: 1481px){

@@ -20,7 +20,7 @@
              videoCard[i] = document.createElement ("A");
              videoCard[i].innerHTML = '<div class="card-body pb-0">'
                      + '                  <h5 class="card-title">' + allVideos.video[i].title + '</h5>'
-                     + '                  <p class="card-text">' + allVideos.video[i].description2+ ' ... ' + '</p>'
+                     + '                  <p class="card-text">' + allVideos.video[i].description2 + ' ... ' + '</p>'
                      + '              </div>'
                      + '              <div class="container row">'
                      + '                  <img id="thumbnail_' + i + '" class="card-img-top col-md-6" src="' + allVideos.video[i].thumbnail + '" alt="' + allVideos.video[i].title + '">'
@@ -29,8 +29,12 @@
                      + '              <div class="card-footer">'
                      + '                  <small>Posté le ' + allVideos.video[i].date + '</small>'
                      + '              </div>';
-             videoCard[i].setAttribute ("href", "/video?noVideo=" + i);
+             videoCard[i].setAttribute ("href", "#");
+             videoCard[i].setAttribute ("id", "video" + i);
              videoCard[i].classList.add ("card");
+             videoCard[i].addEventListener ('click', function () {
+                 redirection (i);
+             });
          }
      ;
      masterCard_0.appendChild (videoCard[0]);
@@ -43,4 +47,8 @@
      masterCard_2.appendChild (videoCard[7]);
      masterCard_3.appendChild (videoCard[8]);
      masterCard_3.appendChild (videoCard[9]);
- };
+    };
+ function redirection (_i) {
+     document.location.href = '/video?noVideo=' + _i + '&pseudo=' + myParam.pseudo + '&color=' + myParam.chatOptions.color + '&style=' + myParam.chatOptions.style +
+             '&idSocket=' + myParam.socket.id;
+ }

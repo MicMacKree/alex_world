@@ -6,6 +6,5 @@
      document.body.style.height = hScreen + 'px';
      document.body.style.width = wScreen + 'px';
      //$ ('.news').toggleClass ('newsStart');
-     // var allVideos = JSON.parse ($ ('#hidden').text ());
-     
+     // var allVideos = JSON.parse ($ ('#hidden').text ());   
  };

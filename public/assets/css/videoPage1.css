@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Courgette|Fascinate+Inline|Great+Vibes|Kaushan+Script|Luckiest+Guy|Modak|Pacifico|Permanent+Marker|Play|Turret+Road&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Courgette|Fascinate+Inline|Black+Ops+One|Great+Vibes|Kaushan+Script|Luckiest+Guy|Modak|Pacifico|Permanent+Marker|Play|Turret+Road&display=swap');
 html{
     height:100%;
 }
@@ -16,7 +16,6 @@ body {
         font-family: 'Kaushan Script', cursive;
         font-family: 'Great Vibes', cursive;
         font-family: 'Luckiest Guy', cursive;*/
-    font-size: 1rem;
     overflow-x: hidden;
 }
 .hidden {
@@ -116,6 +115,13 @@ a:hover {
     border-radius: 0.5em;
     border: 2px inset powderblue;
     box-shadow: -2em 2em 3em rgba(0,0,0,0.7);
+   }
+  
+   
+.backTheme{
+    width: 100%;
+    height: 100%; 
+    background-size: 100% 100%;
 }
 .infos, .comments{
     background: rgb(149,149,149); /* Old browsers */
@@ -135,7 +141,7 @@ a:hover {
 }
 @media screen and (max-width: 680px){
     body {
-        font-size: 1em;
+        font-size: 10px;
     }
     h1{
 
@@ -154,8 +160,8 @@ a:hover {
     }
 }
 @media screen and (max-width: 1480px) and (min-width: 681px){
-    body {
-        font-size: 1em;
+   body {
+        font-size: 10px;
     }
     h1{
 
@@ -171,10 +177,11 @@ a:hover {
         height:100%;
     }
     #themeVideo{
-        height: 65%;
+        height: 66%;
+         font-size: 0.2em;
     }
     #infoVideo{
-        height:32%;
+        height:34%;
     }
       .author{
         font-size: 0.7em;
@@ -195,7 +202,7 @@ a:hover {
 
 @media screen and (min-width: 1481px){
     body {
-        font-size: 1em;
+        font-size: 15px;
     }
     h1{
 
