@@ -1,4 +1,3 @@
- chatClient ();
  function chatClient () {
      // déclaration des variables du chat
      console.log ('entree chatClient()');
@@ -7,50 +6,66 @@
      var chatHTML = document.getElementById ('chat');
      var chatOutput = document.getElementById ('chatOutput');
      var chatButton = document.getElementById ('chatButton');
+     var eraseButton = document.getElementById ('eraseButton');
      var chatLoginButton = document.getElementById ('chatLoginButton');
      var chatInput = document.getElementById ('chatInput');
      var chatLoginPseudo = document.getElementById ('chatLoginPseudo');
      var chatHandler = document.getElementById ('chatHandler');
      var chatHandlerLogin = document.getElementById ('chatHandlerLogin');
+     var chatBody = document.getElementById ('chatBodyUp');
+     var reduceChat = document.getElementById ('reduceChat');
+     var leaveChat = document.getElementById ('leaveChat');
      var pPseudo = new Array ();
      var pMessage = new Array ();
      var chatList = new Array ();
      var chatMessage = new Array ();
+
 // affectation des événements DOM (bouton valid pseudo, bouton valid message, bar menu des fenêtres
 
      chatButton.onclick = function () {
          let message = chatInput.value;
+         chatInput.value = '';
          socket.emit ('message', message);
+     };
+     eraseButton.onclick = function () {
+       chatInput.value = '';
      };
      chatLoginButton.onclick = function () {
          myParam.pseudo = chatLoginPseudo.value;
          socket.emit ('entry', myParam.pseudo);
      };
-     chatHandlerLogin.addEventListener ('mousedown', function (e) {
-         //alert ('largeur : ' + this.offsetWidth);
-         this.x0 = e.clientX;
-         this.y0 = e.clientY;
-         this.chatX0 = chatLoginHTML.offsetLeft;
-         this.chatY0 = chatLoginHTML.offsetTop;
-         document.body.style.cursor = 'grab';
-         this.down = true;
-     });
+     reduceChat.onclick = function () {
+        chatBody.classList.toggle('chatReduce');
+        chatHTML.classList.toggle('chatMinimize');
+    };
+     leaveChat.onclick = function () {
+        chatHTML.classList.remove('chatActif');
+                 setTimeout (function () {
+                     chatHTML.style.display = 'none';
+                 }, 20);
+             socket.disconnect();
+    };
+
      document.body.addEventListener ('mousemove', function (e) {
-         if (this.down)
+         if (chatHandler.down)
              {
-                 chatLoginHTML.style.left = this.chatX0 + e.clientX - this.x0 + 'px';
-                 chatLoginHTML.style.top = this.chatY0 + e.clientY - this.y0 + 'px';
+                 chatHTML.style.left = chatHandler.chatX0 + e.clientX - chatHandler.x0 + 'px';
+                 chatHTML.style.top = chatHandler.chatY0 + e.clientY - chatHandler.y0 + 'px';
+                 chatLoginHTML.style.left = chatHandler.chatX0 + e.clientX - chatHandler.x0 + 'px';
+                 chatLoginHTML.style.top = chatHandler.chatY0 + e.clientY - chatHandler.y0 + 'px';
              }
-     }.bind (chatHandlerLogin));
-     document.body.addEventListener ('mouseup', function () {
-         if (this.down)
+     });
+     document.body.addEventListener ('mouseup', function (e) {
+         if (chatHandler.down)
              {
-                 document.body.style.cursor = 'auto';
-                 this.down = false;
-                 chatHTML.style.left = chatLoginHTML.offsetLeft + 'px';
-                 chatHTML.style.top = chatLoginHTML.offsetTop + 'px';
+                 chatHandler.down = false;
+                 chatHTML.style.left = chatHandler.chatX0 + e.clientX - chatHandler.x0 + 'px';
+                 chatHTML.style.top = chatHandler.chatY0 + e.clientY - chatHandler.y0 + 'px';
+                 chatLoginHTML.style.left = chatHandler.chatX0 + e.clientX - chatHandler.x0 + 'px';
+                 chatLoginHTML.style.top = chatHandler.chatY0 + e.clientY - chatHandler.y0 + 'px';
              }
-     }.bind (chatHandlerLogin));
+
+     });
      chatHandler.addEventListener ('mousedown', function (e) {
          //alert ('largeur : ' + this.offsetWidth);
          this.x0 = e.clientX;
@@ -60,22 +75,16 @@
          document.body.style.cursor = 'grab';
          this.down = true;
      });
-     document.body.addEventListener ('mousemove', function (e) {
-         if (this.down)
-             {
-                 chatHTML.style.left = this.chatX0 + e.clientX - this.x0 + 'px';
-                 chatHTML.style.top = this.chatY0 + e.clientY - this.y0 + 'px';
-             }
-     }.bind (chatHandler));
-     document.body.addEventListener ('mouseup', function () {
-         if (this.down)
-             {
-                 document.body.style.cursor = 'auto';
-                 this.down = false;
-                 chatLoginHTML.style.left = chatHTML.offsetLeft + 'px';
-                 chatLoginHTML.style.top = chatHTML.offsetTop + 'px';
-             }
-     }.bind (chatHandler));
+     chatHandlerLogin.addEventListener ('mousedown', function (e) {
+         //alert ('largeur : ' + this.offsetWidth);
+         chatHandler.x0 = e.clientX;
+         chatHandler.y0 = e.clientY;
+         chatHandler.chatX0 = chatLoginHTML.offsetLeft;
+         chatHandler.chatY0 = chatLoginHTML.offsetTop;
+         document.body.style.cursor = 'grab';
+         chatHandler.down = true;
+     });
+
 // fonction pour écrire les messages serveurs dans le bandeau
 
      function recieveInfoServer (_messageServer) {
@@ -88,19 +97,19 @@
 
 
 // gestion des messages envoyés depuis le serveur.
- // test si déja connecté
-         if (myParam.pseudo === 'undefined' || myParam.pseudo === '')
-             {
-                 console.log ('tchat off');
-             }
-         else
-             {
-                 socket.emit ('entry', myParam.pseudo);
-             }
-         ;
+     // test si déja connecté
+     if (typeof myParam.pseudo === 'undefined' || myParam.pseudo === '')
+         {
+             console.log ('tchat off');
+         }
+     else
+         {
+             socket.emit ('entry', myParam.pseudo);
+         }
+     ;
      socket.on ('messageServer', function (message) {
          recieveInfoServer (message.text);
-       })
+     })
              .on ('validEntry', function (_pseudo) {
                  chatList.push (_pseudo);
                  pPseudo.push (document.createElement ('p'));
@@ -111,9 +120,9 @@
              })
              .on ('identification', function (data) {
                  chatListClient.innerHTML = "";
-                 chatList = new Array();
+                 chatList = new Array ();
                  data.forEach (function (_client) {
-                     console.log(_client.pseudo);
+                     console.log (_client.pseudo);
                      chatList.push (_client.pseudo);
                      pPseudo.push (document.createElement ('p'));
                      pPseudo.slice (- 1)[0].innerHTML = _client.pseudo;
@@ -133,7 +142,7 @@
                  recieveInfoServer ('Bienvenue ' + myParam.pseudo);
              })
              .on ('leave', function (data) {
-                 chatList = new Array();
+                 chatList = new Array ();
                  chatListClient.innerHTML = "";
                  data.forEach (function (_client) {
                      chatList.push (_client.pseudo);
@@ -153,7 +162,7 @@
                  chatOutput.appendChild (pMessage.slice (- 1)[0]);
              });
  }
- ;
+
  function readFile (file) {
      var rawFile = new XMLHttpRequest ();
      rawFile.open ("GET", file, false);

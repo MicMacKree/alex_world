@@ -61,12 +61,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://apis.google.com/js/platform.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-
+    <script src="/public/lib/js/chat/chat.js"></script>
     <link rel="stylesheet" href="../../public/lib/js/chat/chat.css" />
     <!-- <script type="text/javascript" src="/public/lib/js/chat/src/emoji.js"></script> -->
     <script>
-         socket = io.connect ('http://localhost:8080');
-        chatLoginHTML = document.getElementById ('chatLogin');
          myParam = {
              pseudo: '<%= params.myParam.pseudo %>',
              chatOptions: {
@@ -77,30 +75,42 @@
                  id: '<%= params.myParam.socket.id %>'
              }
          };
-         console.log ('myParam recu : ');
-         console.log (myParam);
-         if (myParam.pseudo === 'undefined' || myParam.pseudo === '')
+         socket = io();
+         if (typeof myParam.pseudo !== 'undefined' && myParam.pseudo !== '')
              {
-                 myParam = {
-                     pseudo: '',
-                     chatOptions: {
-                         color: 'black',
-                         style: 1
-                     },
-                     socket: {
-                         id: socket.id
-                     }
-                 };
+                 startChat ();
              }
+         function startChat () {
+             socket = io({'forceNew': true});
+             chatLoginHTML = document.getElementById ('chatLogin');
+             console.log ('myParam recu : ');
+             console.log (myParam);
+             if (typeof myParam.pseudo === 'undefined' || myParam.pseudo === '')
+                 {
+                     myParam = {
+                         pseudo: '',
+                         chatOptions: {
+                             color: 'black',
+                             style: 1
+                         },
+                         socket: {
+                             id: socket.id
+                         }
+                     };
+                 }
+             chatClient ();
+             chatLoginHTML.style.display = 'flex';
+             setTimeout (function () {
+                 chatLoginHTML.classList.add ('chatActif');
+             }, 20);
+         }
+         ;
          var chatButtonStart = document.getElementById ('chatButtonStart');
          chatButtonStart.onclick = function () {
-             chatLoginHTML.style.display = 'flex';
-             setTimeout(function(){
-            chatLoginHTML.classList.add ('chatActif');
-             },20);
+             startChat ();
          };
+
     </script>
-    <script src="/public/lib/js/chat/chat.js"></script>
     <script src="/public/assets/js/navbar.js"></script>
     <script src="/public/assets/js/index.js"></script>
 </body>

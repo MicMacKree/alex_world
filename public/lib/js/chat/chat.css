@@ -1,10 +1,22 @@
 html{
-    --chatBkgd: black; 
+    --chatBkgd: black;
+    --color2: rgba(18,189,250,0.9);
+    --color2Opac: rgba(91,187,250,1);
+    --color3: rgba(20,20,70,0.9);
+    --color3Dark: rgba(0,0,50,1);
+    --font-color1: rgba(50,50,50,1);
+    --font-type: 'pacifico';
+    --font-button: 'pacifico';
+    --color-valid: rgba(50,200,50,1);
+    --color-erase: rgba(200,50,50,1);
+    --font-area: 'Kaushan Script';
+    cursor: pointer;
 }
 textarea{
     resize:none;
 }
-#chat{
+.chat{
+    display : none;
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -12,40 +24,26 @@ textarea{
     box-shadow: 0.5em 0.5em 3em rgba(20,20,150,0.5), -0.5em 0.5em 3em rgba(20,20,150,0.5), 0.5em -0.5em 3em rgba(20,20,150,0.5), -0.5em -0.5em 3em rgba(20,20,150,0.5);
 
     flex-direction: column;
+    align-items: center;
     flex-wrap: nowrap;
-
+cursor: pointer;
 }
 
-.chat{
-
-    display : none;
-}
-.chatBand{
-    background-color: transparent;
-    height: 0em;
-    overflow: visible;
-
-    padding:0px;
-    margin:0;
-}
 .chatHandler{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
     height: 3em;
     background-color: white;
     overflow: visible;
-
-    display:flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    padding:1px;
-    margin:0;
-
-    justify-content: space-between;
-    align-content: center;
-
+    width:100%;
     border-top: 2px ridge black;
     border-right: 2px ridge black;
     border-left: 2px ridge black;
-
+    margin: 0;
+    padding-right: 1em;
+    cursor: pointer;
 }
 .chatHandler:hover{
     cursor: grab;
@@ -53,27 +51,33 @@ textarea{
 .chatHandler:active{
     cursor: grabbing;
 }
-.reduction, .leave {
+.reduction, .leave{
+    margin-right: 0.5em;
+    background-color: transparent;
     transform: scale(1);
-    transition: transform linear 0.1s;
+    transition: background-color linear 0.1s, transform linear 0.1s;
 }
 .reduction:hover, .leave:hover {
     cursor:pointer;
-    transform: scale(0.9);
+    background-color: rgba(120,120,255,0.5);
+    transform: scale(1.05);
 }
 .reduction:active, .leave:active {
     cursor:wait;
-    transform: scale(1.1);
+    background-color: rgba(120,120,255,1);
+    transform: scale(0.95);
 }
 #cat{
+    position: relative;
+    top : 0.2em;
+    left:-35%;
     display:flex;
     flex-direction: row;
     flex-wrap: nowrap;
     width : auto;
     height:100%;
     overflow: visible;
-    justify-content: center;
-}
+}   
 #cat>img {
     position:relative;
     width:auto;
@@ -84,16 +88,12 @@ textarea{
     display:flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    padding:0;
-    margin:0;
-
-    width: 100%;
+    width: 99%;
     height: 100%;
-
-    background-image: url('img/pseudo.png');
-    background-size: auto 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+}
+.chatReduce{
+    display: none;
+    height:0%;
 }
 .chatBodyUpLeft{
     display:flex;
@@ -101,19 +101,18 @@ textarea{
     flex-wrap: nowrap;
     padding:0;
     margin:0;
-    width: 35%;
+    width: 40%;
     height: 100%;
-
-    background-color: transparent;
+    background-color: var(--color3,black);
 }
 .chatBodyUpLeft > h4{
     text-align: left;
-    margin-top: 0.5em;
-    font-size:1em;
+    font-size:0.6em;
     font-weight: 200;
     color : white;
+    margin-top : 2%;
+    height:10%;
     font-family: 'Black Ops One', cursive;
-    box-shadow: 1px 1px 2px black;
     text-shadow: 1px 1px 2px black;   
 }
 #chatConnected{
@@ -122,71 +121,70 @@ textarea{
     flex-direction: column;
     justify-content: flex-start;
 
-    padding:0;
-    margin:0;
-
     width: 100%;
-    height: 45%;
-
-    background-color: rgba(50,50,10,0.8);
-}
-#chatButtonStart{
-    height:5em;
-    width:auto;
-    box-shadow: 1em 1em 1em black;
-    border-radius: 0.5em;
-    transition: box-shadow linear 0.2s, border-radius ease-in-out 0.2s, transform linear  0.2s;
-}
-#chatButtonStart:hover{
-    box-shadow: 0.7em 0.7em 0.7em black;
-    border-radius: 0.6em;
-    transform: translate(0.3em, 0.3em);
-    cursor: pointer;
-}
-#chatButtonStart:active{
-    box-shadow: 1em 1em 0em black;
-    border-radius: 1.5em;
-    transform: translate(0.6em, 0.5em);
+    height: 58%;   
 }
 #chatConnected > p{
     text-align: start;
-    margin:0;
-    padding:0;
-    font-size:1em;
+     font-size:1em;
     font-weight: lighter;
     color : rgba(220,220,250,1);
     font-family: 'Black Ops One', cursive;
     text-shadow : 1px 1px 0 rgba(60,95,127,1), 2px 2px 0 rgba(120,190,255,1), 4px 4px 3px rgba(0,0,0,1);
 }
 #chatGame{
-    padding:0;
-    margin:0;
-
-    width: 100%;
-    height: 30%;
-
-    background-color: rgba(50,50,10,0.8);
+   width: 100%;
+    height: 15%;
+    background-color: var(--color3Dark);
 }
 #chatOptions{
-    padding:0;
-    margin:0;
-
     width: 100%;
-    height: 25%;
-
-    background-color: rgba(10,10,10,0.8);
+    height: 15%;
+    background-color: var(--color3Dark);
 }
+#chatButtonStart{
+    height:5em;
+    width:auto;
+    box-shadow: 0.7em 0.7em 0.7em black;
+    border-radius: 0.5em;
+    transform : scale(1);
+    transition: box-shadow linear 0.1s, border-radius ease-in-out 0.1s, transform linear  0.1s;
+}
+#chatButtonStart:hover{
+    box-shadow: 1em 1em 1em black;
+    border-radius: 0.6em;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+#chatButtonStart:active{
+    box-shadow: 0.2em 0.2em 0.2em black;
+    border-radius: 1.5em;
+    transform: scale(0.8);
+}
+
 .chatBodyUpRight{
     display:flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    padding:0;
-    margin:0;
-
-    width: 65%;
+    width: 60%;
     height: 100%;
+}
+#chatOutput{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
-    background-color: transparent;
+    width: 100%;
+    height: 70%;
+
+    background-color: var(--color2);
+    overflow-y: scroll;
+}
+#chatOutput > div{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
 }
 .chatBodyUpRight > h4{
      text-align: center;
@@ -198,45 +196,22 @@ textarea{
   
     text-shadow : 2px 2px 0 rgba(60,95,127,1), 3px 3px 0 rgba(120,190,255,1), 8px 8px 5px rgba(0,0,0,1);
 }
-#chatOutput{
-    display:flex;
-    flex-direction: column;
-    justify-content: flex-start;
-
-    padding:0;
-    margin:0;
-
-    width: 100%;
-    height: 75%;
-
-    background-color: rgba(250,250,200,0.8);
-    overflow-y: scroll;
-}
-#chatOutput > div{
-    display:flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
-    margin:0;
-    padding:0;
-
-
-}
 .messagePseudo {
     margin:0;
     padding:0;
     text-align: end;
     font-size:1.4em;
     font-weight: 400;
-    color : black;
-    font-family: 'Black Ops One', cursive;
+    color : var(--font-color1);
+   font-family: var(--font-type), cursive;
    
 }
 .messageText{
+    align-self: flex-start;
     margin:0;
     padding:0;
     margin-right: 0.5em;
-    text-align: end;
+    text-align: start;
     font-size:1.2em;
     font-weight: lighter;
     color : rgba(50,50,100,1);
@@ -254,26 +229,54 @@ textarea{
     
 }
 .chatInput{
-    padding:0;
-    margin:0;
-
     width: 100%;
-    height: 25%;
-
+    height: 30%;
+    font-size:0.8em;
     display:flex;
     flex-direction: row;
     background-color: white;
 }
-.chatButton{
+.cmdChat{
+    height:100%;
+    width:20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#chatButton{
+    background-color: var(--color-valid);
+}
+#eraseButton{
+    background-color: var(--color-erase);
+}
+.cButton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height:50%;
-    width:10%;
+    width:100%;
+    border-radius: 2px;
+}
+.cButton> p {
+    margin: 0;
+    padding:0;
+    padding-top:0.2em;
     color:white;
-    text-shadow: 1px 1px 1px gold;
-    background-color: transparent;
+    text-shadow: 1px 1px 1px black;
+    font-size: 1em;
+    font-family: var(--font-button), recursive;
+    height:100%;
+    text-align: center;
 }
 #chatInput{
+    border :0;
     height:100%;
     width:90%;
+    font-size: 1.5em;
+    background-color: var(--color2Opac);
+    font-family: var(--font-area);
 }
 .chatLogin{
     display: none;
@@ -286,10 +289,8 @@ textarea{
 
 
     flex-direction: column;
-    flex-wrap: nowrap;
 
 }
-
 #chatLoginBody{
     background-image: url('img/pseudo.png');
     background-size: 100% 100%;
@@ -367,8 +368,6 @@ textarea{
         left:0%;
         z-index:2;
 
-        padding:0;
-        margin:0;
         width:100%;
         height:50%;
 
@@ -383,7 +382,7 @@ textarea{
         height: 100%;
     }
     .chat {
-        
+
         position:absolute;
         top:50%;
         left:0%;
@@ -392,52 +391,45 @@ textarea{
         padding:0;
         margin:0;
         width:100%;
-        height:50%;
+        height:25%;
 
         overflow: visible;
     }
 }
 @media screen and (max-width: 1480px) and (min-width: 681px){
     .chatLogin{
-
-
+        height:50%;
         position:absolute;
         top:25%;
         left:30%;
         z-index:2;
 
         font-size: 0em;
-        padding:0;
-        margin:0;
-        height:0em;
+
         width:40%;
         transition : font-size linear 0.5s, height linear 0.5s;
         overflow: visible;
     }
     .chat{
-       
-        position:absolute;
-        top:25%;
-        left:30%;
+        height: 20%;
+        position : fixed;
+        top:80%;
+        left:60%;
         z-index:2;
-
         font-size: 0em;
-        padding:0;
-        margin:0;
-        height:0em;
         width:40%;
         transition : font-size linear 0.5s, height linear 0.5s;
         overflow: visible;
     }
+    .chatMinimize{
+    height: 3em;
+}
     .chatActif{
 
         font-size: 1em;
-        height: 28em;
     }
     #chatLoginBody{
 
-        padding:0;
-        margin:0;
 
         width: 100%;
         height: 100%;
