@@ -1,6 +1,4 @@
  window.onload = function () {
-     var wBgd = 1920;
-     var hBgd = 1080;
      var hScreen = window.innerHeight;
      var wScreen = window.innerWidth;
      document.body.style.height = hScreen + 'px';
