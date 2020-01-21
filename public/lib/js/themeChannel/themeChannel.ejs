@@ -1,84 +1,77 @@
 <script>
- Theme = function (_theme) {
-     this.initTheme (_theme);
-     this.setThemeHTML ();
- };
- Theme.prototype = {
-     initTheme: function (_theme) {
-         this.theme = _theme;
-         this.DIV = document.createElement ("DIV");
-         this.parentDIV = document.getElementById ('themeVideo');
-         this.themeContent = new Array ();
-         this.themeContent['fortnite'] =
-                 {
-                     html: '<div id="fortnite" class="backTheme" style="background-image: url(\'/public/assets/img/theme/fortnite.jpg\')">'
-                             + '     <div class="TV">'
-                             + '         <iframe id="ytplayer" class="fortniteYtPlayer" type="text/html" width="100%" height="100%"'
-                             + '         src="https://www.youtube.com/embed/<%= params.video.id %>?autoplay=1"'
-                             + '         frameborder="0" allowfullscreen>'
-                             + '         </iframe>'
-                             + '     </div>'
+     Theme = function (_theme) {
+         this.initTheme (_theme);
+         this.setThemeHTML ();
+     };
+     Theme.prototype = {
+         initTheme: function (_theme) {
+             this.theme = _theme;
+             this.DIV = document.createElement ("DIV");
+             this.parentDIV = document.getElementById ('themeVideo');
+             this.themeContent = new Array ();
+             this.themeContent['fortnite'] =
+                     {
+                         html: '<div class="fortnite" id="backTheme">'
+                                 + '     <div id="subBackTheme" class="TV">'
+                                 + '         <div id="player" class="fortnitePlayer">'
+                                 + '         </div>'
+                                 + '     </div>'
+                                 + '</div>'
+                         ,
+                         background: 'fortnite.jpg'
+                     }
+             ;
+             this.themeContent['other'] =
+                     {
+                         html: '<div class="other" id="backTheme">'
+                             + '         <div id="player" class="otherPlayer">'
+                             + '         </div>'
+                                 + '</div>'
+                         ,
+                         background: 'other.jpg'
+                     }
+             ;
+             this.themeContent['simcity'] =
+                     {
+                         html: '<div class="simcity" id="backTheme">'
+                                 + '         <div id="player" class="simcityPlayer">'
+                                 + '         </div>'
+                                 + '</div>'
+                         ,
+                         background: 'simcity.jpg'
+                     }
+             ;
+             this.themeContent['nature'] =
+                     {
+                         html: '<div class="nature" id="backTheme">'
+                                 + '         <div id="player" class="naturePlayer">'
+                                 + '         </div>'
+                                 + '</div>'
+                         ,
+                         background: 'nature.jpg'
+                     }
+             ;
+             this.themeContent['gravitrax'] =
+                     {
+                         html: '<div id="backTheme" class="gravitrax">'
+                             + '    <div class="panda" id="subBackTheme">'
+                             + '         <div id="player" class="gravitraxPlayer">'
+                             + '         </div>'
+                             + '    </div>'
                              + '</div>'
-                     ,
-                     background: 'fortnite.jpg'
-                 }
-         ;
-         this.themeContent['other'] =
-                 {
-                     html: '<div id="other" class="backTheme" style="background-image: url(\'/public/assets/img/theme/other.jpg\')">'
-                             + '         <iframe id="ytplayer" class="otherYtPlayer" type="text/html" width="100%" height="100%"'
-                             + '         src="https://www.youtube.com/embed/<%= params.video.id %>?autoplay=1"'
-                             + '         frameborder="0" allowfullscreen>'
-                             + '         </iframe>'
-                             + '</div>'
-                     ,
-                     background: 'other.jpg'
-                 }
-         ;
-         this.themeContent['simcity'] =
-                 {
-                     html: '<div id="simcity" class="backTheme" style="background-image: url(\'/public/assets/img/theme/simcity.jpg\')">'
-                             + '         <iframe id="ytplayer" class="simcityYtPlayer" type="text/html" width="100%" height="100%"'
-                             + '         src="https://www.youtube.com/embed/<%= params.video.id %>?autoplay=1"'
-                             + '         frameborder="0" allowfullscreen>'
-                             + '         </iframe>'
-                             + '</div>'
-                     ,
-                     background: 'simcity.jpg'
-                 }
-         ;
-         this.themeContent['nature'] =
-                 {
-                     html: '<div id="nature" class="backTheme" style="background-image: url(\'/public/assets/img/theme/nature.jpg\')">'
-                             + '         <iframe id="ytplayer" class="natureYtPlayer" type="text/html" width="100%" height="100%"'
-                             + '         src="https://www.youtube.com/embed/<%= params.video.id %>?autoplay=1"'
-                             + '         frameborder="0" allowfullscreen>'
-                             + '         </iframe>'
-                             + '</div>'
-                     ,
-                     background: 'nature.jpg'
-                 }
-         ;
-         this.themeContent['gravitrax'] =
-                 {
-                     html: '<div id="gravitrax" class="backTheme" style="background-image: url(\'/public/assets/img/theme/gravitrax3.gif\')">'
-                             + '<div class="panda">'
-                             + '         <iframe id="ytplayer" class="gravitraxYtPlayer" type="text/html" width="100%" height="100%"'
-                             + '         src="https://www.youtube.com/embed/<%= params.video.id %>?autoplay=1"'
-                             + '         frameborder="0" allowfullscreen>'
-                             + '         </iframe>'
-                             + '</div>'
-                             + '</div>'
-                     ,
-                     background: 'gravitrax3.gif'
-                 }
-         ;
-     },
-     setThemeHTML: function () {
-         this.DIV.innerHTML = this.themeContent[this.theme].html;
-         this.DIV.setAttribute ("id", "theme");
-         this.DIV.classList.add ("container-fluid", "p-0", "m-0");
-         this.parentDIV.prepend (this.DIV);
-     }
- };
+                         ,
+                         background: 'gravitrax3.gif'
+                     }
+             ;
+         },
+         setThemeHTML: function () {
+             this.DIV.innerHTML = this.themeContent[this.theme].html;
+             this.DIV.setAttribute ("id", "theme");
+             this.DIV.classList.add ("container-fluid", "p-0", "m-0");
+             this.parentDIV.prepend (this.DIV);
+             this.parentDIV.addEventListener ('click', function () {
+                 this.subBackTheme = document.getElementById ("subBackTheme");
+             }.bind (this));
+         }
+     };
 </script>

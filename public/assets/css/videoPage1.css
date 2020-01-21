@@ -1,21 +1,36 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Courgette|Fascinate+Inline|Black+Ops+One|Great+Vibes|Kaushan+Script|Luckiest+Guy|Modak|Pacifico|Permanent+Marker|Play|Turret+Road&display=swap');
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:#c0c0c0;border-radius:0px}
+::-webkit-scrollbar-thumb{background:rgba(140,186,255,1);border-radius:8px}
+footer{
+    margin:0;
+    padding:0;
+    height : 3em;
+    text-align: end;
+}
 html{
-    height:100%;
+    --font-family-body : 'Play', cursive;
+    --color-txt-titleVideo : rgb(255,255,255);
+    --color-bgd-titleVideo : rgb(50,50,50);
+    --color-bgd-bodyPage: rgb(245,245,245);
+    --shadow-txt-title: 1px 1px rgba(140,186,255,1),  2px 2px 1px rgba(9,69,158,1), 5px 5px 2px rgba(0,0,0,0.7);
+    --color-bgd-infos: rgb(149,149,149);
+    --border-infos: 2px inset powderblue;
+    --shadow-box-infos: -2em 2em 3em rgba(0,0,0,0.7);
+    --font-size-infos: 1.2em;
+    --shadow-txt-infos: 1px 1px 1px rgb(0,0,0), 5px 5px 2px rgb(0,0,0);
+    --color-txt-infos: rgb(240,240,240);
+    --font-size-yourComments: 1.8em;
+    --gradient-comment-old: #f85032; /* Old browsers */
+    --gradient-comment-moz: -moz-linear-gradient(-45deg, #f85032 0%, #f16f5c 50%, #f6290c 51%, #f02f17 71%, #e73827 100%); /* FF3.6-15 */
+    --gradient-comment-webkit: -webkit-linear-gradient(-45deg, #f85032 0%,#f16f5c 50%,#f6290c 51%,#f02f17 71%,#e73827 100%); /* Chrome10-25,Safari5.1-6 */
+    --gradient-comment-standard: linear-gradient(135deg, #f85032 0%,#f16f5c 50%,#f6290c 51%,#f02f17 71%,#e73827 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    --gradient-comment-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 body {
     z-index:1;
-    height:100%;
-    /*    font-family: 'Modak', cursive;
-        font-family: 'Pacifico', cursive;
-        font-family: 'Amatic SC', cursive;
-        font-family: 'Play', sans-serif;
-        font-family: 'Fascinate Inline', cursive;
-        font-family: 'Permanent Marker', cursive;
-        font-family: 'Courgette', cursive;
-        font-family: 'Turret Road', cursive;
-        font-family: 'Kaushan Script', cursive;
-        font-family: 'Great Vibes', cursive;
-        font-family: 'Luckiest Guy', cursive;*/
+    font-family: var(--font-family-body);
+
     overflow-x: hidden;
 }
 .hidden {
@@ -31,136 +46,104 @@ a {
 a:hover {
     text-decoration: none;
 }
-.headband{
-    background-color: rgba(140,186,255,1);
-}
-.headband > div{
-    flex-wrap: nowrap;
-}
-.headbandDescribe {
-    font-family: 'Luckiest Guy', cursive;
-    font-size: 1em;
-    /*    border: 2px ridge red;*/
-    border-radius :4px;
-    /*    box-shadow: 10px 10px 2px rgba(0,0,0,0.5);*/
-    background-color: transparent;
-}
-.headbandBeerus{
-    background-image: url('../img/ironmanLgLumineux.jpg');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    box-shadow: 20px 20px 15px rgba(0,0,0,0.5);
-}
-.news{
-    font-family: 'Permanent Marker', cursive;
-    font-weight: bold;
-    font-size: 1.2em;
-    padding-top: 0;
-    margin-top: 0;
-    align-self: flex-start;
-    height: 50%;
-    width:40%;
-    text-align: center;
-    rotation-point: center;
-    transform: rotateZ(5deg);
-}
-.news:hover {
-    animation: shake 1s ease-in infinite;
-}
-.newsStart {
-    animation: shake 10s ease-in 10;
-}
-.news p{
-    margin:0;
-}
-#describeNow{
-    font-family: 'Luckiest Guy', cursive;
-    text-decoration: underline;
-    font-weight: 200;
-    font-size: 1.2em;
-    text-shadow :  1px 1px red,  2px 2px 1px rgba(9,69,158,1), 5px 5px 2px rgba(0,0,0,0.7);
-    color: white;
-}
-.infoband{
-    font-family: 'Luckiest Guy', cursive;
-    border: 1px inset rgba(255, 255, 255, 0.7);
-    border-radius: 2px;
-    background-color: rgba(255,255,240,1);
-}
-.infoServer {
-    font-family: 'Luckiest Guy', cursive;
-    text-decoration: none;
-    font-size: 1em;
-    text-shadow :  1px 1px rgba(140,186,255,1),  2px 2px 1px rgba(9,69,158,1), 5px 5px 2px rgba(0,0,0,0.7);
-    color: black;
-}
 
 
 .bodyPage {
-    background-color: whitesmoke;
+    background: #a7cfdf; /* Old browsers */
+background: -moz-linear-gradient(-45deg, #a7cfdf 0%, #23538a 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #a7cfdf 0%,#23538a 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #a7cfdf 0%,#23538a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', endColorstr='#23538a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 .title{
-    font-family: 'Kaushan Script', cursive;
-    font-weight: 200;
-    font-size:3em;
-    text-shadow :  1px 1px rgba(140,186,255,1),  2px 2px 1px rgba(9,69,158,1), 5px 5px 2px rgba(0,0,0,0.7);
-    color: rgba(220,220,255,1);
-    background: rgb(220,220,255); /* Old browsers */
-    background: -moz-linear-gradient(left,  rgba(220,220,255,1) 20%, rgba(255,255,255,1) 50%, rgba(220,220,255,1) 80%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left,  rgba(220,220,255,1) 20%,rgba(255,255,255,1) 50%,rgba(220,220,255,1) 80%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right,  rgba(220,220,255,1) 20%,rgba(255,255,255,1) 50%,rgba(220,220,255,1) 80%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcdcff', endColorstr='#dcdcff',GradientType=1 ); /* IE6-9 */
+    text-shadow: var(--shadow-txt-title);
+    color: var(--color-txt-titleVideo);
+    background:  var(--color-bgd-titleVideo);
 }
-#themeVideo{
-    border-radius: 0.5em;
-    border: 2px inset powderblue;
-    box-shadow: -2em 2em 3em rgba(0,0,0,0.7);
-   }
-  
-   
-.backTheme{
-    width: 100%;
-    height: 100%; 
-    background-size: 100% 100%;
+#infoVideo{
 }
-.infos, .comments{
-    background: rgb(149,149,149); /* Old browsers */
-    background: -moz-linear-gradient(-45deg,  rgba(149,149,149,1) 0%, rgba(13,13,13,1) 46%, rgba(1,1,1,1) 50%, rgba(10,10,10,1) 53%, rgba(78,78,78,1) 76%, rgba(56,56,56,1) 87%, rgba(27,27,27,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg,  rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg,  rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#959595', endColorstr='#1b1b1b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+.infos{
     border-radius: 0.5em;
-    border: 2px inset powderblue;
-    box-shadow: -2em 2em 3em rgba(0,0,0,0.7);
-    font-family: 'Luckiest Guy', cursive;
-    text-decoration: none;
-    font-size: 1em;
-    text-shadow :  1px 1px rgba(9,69,158,1),  2px 2px 1px rgba(140,186,255,1), 5px 5px 2px green;
-    color: greenyellow;
-    font-family: 'Turret Road', cursive;
+    border: var(--border-infos);
+    box-shadow: var(--shadow-box-infos);
+    text-shadow:  var(--shadow-txt-infos);
+    color: var(--color-txt-infos);
+    background: var(--gradient-info-old);
+    background: var(--gradient-info-moz);
+    background:  var(--gradient-info-webkit);
+    background: var(--gradient-info-standard);
+    filter: var(--gradient-info-filter);
+}
+.comments{
+    border-radius: 0.5em;
+    border: var(--border-infos);
+    box-shadow: var(--shadow-box-infos);
+    font-family: var(--font-family-infos);
+    text-shadow:  var(--shadow-txt-infos);
+    color: var(--color-txt-infos);
+    background: var(--gradient-comment-old);
+    background: var(--gradient-comment-moz);
+    background:  var(--gradient-comment-webkit);
+    background: var(--gradient-comment-standard);
+    filter: var(--gradient-comment-filter);
 }
 @media screen and (max-width: 680px){
     body {
-        font-size: 10px;
+        font-size: 8px;
+        font-family : var(--font-family-body);
     }
-    h1{
 
-    }
-  .author{
-        font-size: 0.5em;
+    .title{
+        font-family: 'Courgette', cursive;
+        font-weight: 200;
+        font-size:3em;
     }
     .bodyPage {
-        height:100%;
+        height: auto;
     }
-    #themeVideo{
-        height: 68%;
-    }
+
     #infoVideo{
-        height:32%;
+        height:60%;
+    }
+    .infos{
+        overflow-y: scroll;
+        font-size: var(--font-size-infos);
+
+    }
+    .comments{
+        margin :0;
+        padding:0;
+        overflow-y: scroll;
+    }
+    .comment {
+        margin:0;
+        padding:0;
+    }
+    .commentInfo {
+        margin:0;
+        padding:0; 
+    }
+    .commentText{
+        margin:0;
+        padding:0;
+    }
+    .commentText > p {
+        margin:0;
+        padding:0;
+    }
+    .yourComments{
+        font-size: var(--font-size-yourComments);
+    }
+    .imgAvatar{
+        width: 2em;
+        height: 2em;
+    }
+    .author{
+        font-size: 0.6em;
     }
 }
 @media screen and (max-width: 1480px) and (min-width: 681px){
-   body {
+    body {
         font-size: 10px;
     }
     h1{
@@ -174,16 +157,16 @@ a:hover {
 
     }
     .bodyPage {
-        height:100%;
+        height:30%;
     }
     #themeVideo{
         height: 66%;
-         font-size: 0.2em;
+        font-size: 0.2em;
     }
     #infoVideo{
         height:34%;
     }
-      .author{
+    .author{
         font-size: 0.7em;
     }
     .yourComments{
@@ -223,7 +206,7 @@ a:hover {
     #infoVideo{
         height:32%;
     }
-      .author{
+    .author{
         font-size: 0.7em;
     }
     .yourComments{

@@ -4,18 +4,20 @@
 <html lang="fr">
     <head>
         <% include ../partials/head.ejs %>
+        <link rel="stylesheet" href="../../public/lib/js/themeChannel/themeChannel.css" />
+        <link rel="stylesheet" href="../../public/lib/js/chat/chat.css" />
     </head>
     <body class="bg-dark">
         <% include ../../public/lib/js/chat/chat.ejs %>
         <main class="container-fluid h-100 col p-0 m-0">
-            <% include ../partials/headbandVideo.ejs %>
+            <% include ../partials/headbandPub.ejs %>
             <% include ../partials/navbar.ejs %>
-            <h2 class="title py-2 text-center"><%= params.video.title %></h2>
             <div class="container-fluid bodyPage col-md-12 p-2 m-0"> 
                 <div id="themeVideo" class="container-fluid col-md-11 p-0 mx-auto">
                 </div>
                 <div id="infoVideo" class="container-fluid justify-content-between row col-md-11 p-0 my-2 mx-auto">
                     <div class="infos container col-md-3">
+                        <h2 class="description">Le Pitch .</h2>
                         <div class="container row p-0 m-0">
                             <p class="publishedAt">Posté le <%= params.video.date %></p>
                         </div>
@@ -27,101 +29,136 @@
                         <h2 class="yourComments">Vos commentaires YouTube</h2>
                         <h1><%= params.video.theme %></h1>
                         <div  class="container-fluid col justify-content-start p-0 m-0">
-                            <% params.video.comments.forEach(function(p) { %>
-                            <div class="container-fluid row justify-content-start p-0 m-0">
-                                <div class="container-fluid col col-md-1 p-0 m-0">
-                                    <img src ="<%= p.avatar %>" />
+                            <% if (params.video.comments[0].author != '') {
+                            params.video.comments.forEach(function(p) { %>
+                            <div class="comment container-fluid row justify-content-start p-0 m-0">
+                                <div class="commentInfo container-fluid col col-md-1 p-0 m-0">
+                                    <img class="imgAvatar" src ="<%= p.avatar %>" alt="avatar"/>
                                     <p class="author p-0 m-0"><%= p.author %></p>
                                 </div>
-                                <p class="adit container-fluid col-md-2 p-0 m-0">a écrit :</p>
-                                <div class="container-fluid col-md-9 p-0 m-0">
+                                <div class="commentText container-fluid col-md-9 p-0 m-0">
                                     <p><%= p.text %></p>
                                     <p class="container-fluid row justify-content-end"><small ><%= p.date %></small></p>
                                 </div>
                             </div>
-                            <% }); %>
+                            <hr>
+                            <% });}; %>
                         </div>
                     </div>
                 </div>
             </div>
-            <footer class="container container col h-25 p-0 m-0">
-                <% include ../partials/footer.ejs %>
-            </footer>
+            <% include ../partials/footer.ejs %>
             <div id="hidden" class="hidden"><%= JSON.stringify(params.video) %></div>
         </main>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-        <script src="https://apis.google.com/js/platform.js"></script>
         <script src="/socket.io/socket.io.js"></script>
-          <script src="/public/lib/js/chat/chat.js"></script>
-        <link rel="stylesheet" href="../../public/lib/js/themeChannel/themeChannel.css" />
-        <link rel="stylesheet" href="../../public/lib/js/chat/chat.css" />
+        <script src="/public/assets/js/navbar.js"></script>
+        <script src="/public/assets/js/activity.js"></script>
+        <script src="/public/lib/js/chat/chat.js"></script>
         <% include ../../public/lib/js/themeChannel/themeChannel.ejs %>
         <script>
 // Appel de la classe Theme (de themeChannel.ejs) qui met en place le theme (prepend dans #themeVideo) et a un css propre en fonction du theme
-             new Theme ('<%= params.theme %>');
-              myParam = {
-             pseudo: '<%= params.myParam.pseudo %>',
-             chatOptions: {
-                 color: '<%= params.myParam.chatOptions.color %>',
-                 style: '<%= params.myParam.chatOptions.style %>'
-             },
-             socket: {
-                 id: '<%= params.myParam.socket.id %>'
-             }
-         };
-         socket = io.connect ();
-         if (myParam.pseudo !== 'undefined' && myParam.pseudo !== '')
-             {
-                 startChat ();
-             }
-         function startChat () {
-             socket = io({'forceNew': true});
-             chatLoginHTML = document.getElementById ('chatLogin');
-             console.log ('myParam recu : ');
-             console.log (myParam);
-             if (myParam.pseudo === 'undefined' || myParam.pseudo === '')
-                 {
-                     myParam = {
-                         pseudo: '',
-                         chatOptions: {
-                             color: 'black',
-                             style: 1
-                         },
-                         socket: {
-                             id: socket.id
+                 var tag = document.createElement ('script');
+                 tag.src = "https://www.youtube.com/iframe_api";
+                 var firstScriptTag = document.getElementsByTagName ('script')[0];
+                 firstScriptTag.parentNode.insertBefore (tag, firstScriptTag);
+                 theme = new Theme ('<%= params.theme %>');
+                 var divPlayer = document.getElementById ('player');
+                 myParam = {
+                     pseudo: '<%= params.myParam.pseudo %>',
+                     chatOptions: {
+                         color: '<%= params.myParam.chatOptions.color %>',
+                         style: '<%= params.myParam.chatOptions.style %>'
+                     },
+                     socket: {
+                         id: '<%= params.myParam.socket.id %>'
+                     }
+                 };
+                 socket = io.connect ();
+                 if (myParam.pseudo !== 'undefined' && myParam.pseudo !== '')
+                     {
+                         startChat ();
+                     }
+                 function startChat () {
+                     socket = io ({
+                         'forceNew': true
+                     });
+                     chatLoginHTML = document.getElementById ('chatLogin');
+                     console.log ('myParam recu : ');
+                     console.log (myParam);
+                     if (myParam.pseudo === 'undefined' || myParam.pseudo === '')
+                         {
+                             myParam = {
+                                 pseudo: '',
+                                 chatOptions: {
+                                     color: 'black',
+                                     style: 1
+                                 },
+                                 socket: {
+                                     id: socket.id
+                                 }
+                             };
                          }
-                     };
+                     chatClient ();
+                     chatLoginHTML.style.display = 'flex';
+                     setTimeout (function () {
+                         chatLoginHTML.classList.add ('chatActif');
+                     }, 20);
                  }
-             chatClient ();
-             chatLoginHTML.style.display = 'flex';
-             setTimeout (function () {
-                 chatLoginHTML.classList.add ('chatActif');
-             }, 20);
-         }
-         ;
-         var chatButtonStart = document.getElementById ('chatButtonStart');
-         chatButtonStart.onclick = function () {
-             startChat ();
-         };
-        </script>
-        <script src="/public/assets/js/navbar.js"></script>
-        <script src="/public/assets/js/activity.js"></script>
-        <script>
-             function execute_YTvideo () {
-                 return youtube.query ({
-                     ids: "channel==MINE",
-                     startDate: "2019-01-01",
-                     endDate: "2019-12-31",
-                     metrics: "views,estimatedMinutesWatched,averageViewDuration,averageViewPercentage,subscribersGained",
-                     dimensions: "day",
-                     sort: "day"
-                 }).then (function (e) {}, function (e) {
-                     console.error ("Execute error", e);
-                 });
-             }
-             ;
+                 ;
+                 var chatButtonStart = document.getElementById ('chatButtonStart');
+                 chatButtonStart.onclick = function () {
+                     startChat ();
+                 };
+
+                 /*function execute_YTvideo () {
+                  return youtube.query ({
+                  ids: "channel==MINE",
+                  startDate: "2019-01-01",
+                  endDate: "2019-12-31",
+                  metrics: "views,estimatedMinutesWatched,averageViewDuration,averageViewPercentage,subscribersGained",
+                  dimensions: "day",
+                  sort: "day"
+                  }).then (function (e) {}, function (e) {
+                  console.error ("Execute error", e);
+                  });
+                  }
+                  ;*/
+                 var player;
+                 function onYouTubeIframeAPIReady () {
+                     player = new YT.Player ('player', {
+                         playerVars: {
+                             'autoplay': 1,
+                             'controls': 0
+                         },
+                         videoId: '<%= params.video.id %>',
+                         events: {
+                             'onReady': onPlayerReady,
+                             'onStateChange': onPlayerStateChange
+                         }
+                     });
+                 }
+                 function onPlayerReady (event) {
+                     player.setPlaybackQuality ({
+                         suggestedQuality: 'small'
+                     });
+                    event.target.playVideo ();
+                 }
+                 var done = false;
+                 function onPlayerStateChange (event) {
+                     if (event.data === YT.PlayerState.PLAYING && ! done)
+                         {
+                             setTimeout (stopVideo, 6000);
+                             done = true;
+                         }
+                 }
+                 function stopVideo () {
+                     player.stopVideo ();
+                 }
+                 ;
+             
         </script>
     </body>
 </html>

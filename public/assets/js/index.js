@@ -16,16 +16,16 @@
              i ++)
          {
              videoCard[i] = document.createElement ("A");
-             videoCard[i].innerHTML = '<div class="card-body pb-0">'
-                     + '                  <h5 class="card-title">' + allVideos.video[i].title + '</h5>'
-                     + '                  <p class="card-text">' + allVideos.video[i].description2 + ' ... ' + '</p>'
+             videoCard[i].innerHTML = '<div class="card-body p-0 m-0 col-sm-12">'
+                     + '                  <h5 class="titleCard p-0 m-1">' + allVideos[i].title + '</h5>'
+                     + '                  <p class="description p-0 m-0">' + allVideos[i].description2 + ' ... ' + '</p>'
                      + '              </div>'
-                     + '              <div class="container row">'
-                     + '                  <img id="thumbnail_' + i + '" class="card-img-top col-md-6" src="' + allVideos.video[i].thumbnail + '" alt="' + allVideos.video[i].title + '">'
+                     + '              <div class="container row p-0 m-0">'
+                     + '                  <img id="thumbnail_' + i + '" class="thumbnail p-0 m-0" src="' + allVideos[i].thumbnail + '" alt="' + allVideos[i].title + '">'
                      + '                  <p class="card-text text2 col-md-6 pt-2"></p>'
                      + '              </div>'
-                     + '              <div class="card-footer">'
-                     + '                  <small>Posté le ' + allVideos.video[i].date + '</small>'
+                     + '              <div class="card-footer p-0 m-0 mt-1 mb-1 w-100">'
+                     + '                  <small>Posté le ' + allVideos[i].date + '</small>'
                      + '              </div>';
              videoCard[i].setAttribute ("href", "#");
              videoCard[i].setAttribute ("id", "video" + i);

@@ -1,108 +1,47 @@
+#themeVideo{
+    border-radius: 1em;
+    border: 2px inset powderblue;
+    box-shadow: -2em 2em 3em rgba(0,0,0,0.7);
+    height:40%;
+   } 
 #theme{
-    height: 100%;
+ }
+.backTheme{
+    
 }
 @media screen and (max-width: 680px){
-
-    #fortnite {
-        z-index: 1;
-        background-position-x: 35%;
-        background-position-y:  0%;
-        background-size: 100% 60%;
-        background-repeat: no-repeat;
-        height: 100%;
-        width:100%;
+    #themeVideo{
+        height: auto;
+         margin:0;
+        padding:0;
     }
-
-    .TV {
-        position: relative;
-        top: 30%;
-        left: 35%;
-        background-image:url('/public/assets/img/meubleTV.png');
-        background-size: auto 25%;
-        background-repeat: no-repeat;
+    #backTheme {
+       z-index: 1;
+        margin:0;
+        padding:0;
+       height: auto;
+        width:100%;
+         display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #subBackTheme {
+       margin:0;
+        padding:0;
         width: 100%;
         height: 100%;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
-    .fortniteYtPlayer {
-        position: relative;
-        top:0%;
-        left:10%;
-        width: 42%;
-        height: 13%;
-    }
-    #nature {
-        z-index: 1;
-        background-position-x: 100%;
-        background-position-y:  100%;
-        background-size: 200% 100%;
-        background-repeat: no-repeat;
-        height: 50%;
-        width:100%;
-    }
-    .natureYtPlayer {
-        position: relative;
-        top:48.6%;
-        left:10%;
-        width: 83%;
-        height: 47.1%;
-    }
-    #other {
-        z-index: 1;
-        background-position-x: 100%;
-        background-position-y:  100%;
-        background-size: 200% 100%;
-        background-repeat: no-repeat;
-        height: 50%;
-        width:100%;
-    }
-    .otherYtPlayer {
-        position: relative;
-        top:0;
-        left:60.5%;
-        width: 36.5%;
-        height: 30%;
-    }
-    #simcity {
-        z-index: 1;
-        background-position-x: 50%;
-        background-position-y:  0%;
-        background-size: 200% 100%;
-        background-repeat: no-repeat;
-        height: 70%;
-        width:100%;
-    }
-    .simcityYtPlayer {
-        transform: rotate3d(0, 0, 1, 5.3deg);
-        position: relative;
-        top:11.9%;
-        left:21%;
-        width: 68%;
-        height: 24%;
-    }
-    #gravitrax {
-        background-position-x: 0%;
-        background-position-y:  0%;
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        height: 70%;
-        width:100%;
-    }
-    .panda {
-        position: relative;
-        top: 5%;
-        left: 5%;
-        background-image:url('/public/assets/img/theme/panda.png');
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        width: 45%;
-        height: 30%;
-    }
-    .gravitraxYtPlayer {
-        position: relative;
-        top:19%;
-        left:14%;
-        width: 69%;
-        height: 74%;
+    #player {
+        margin:0;
+        padding:0;
+        width: 100%;
+        height: 100%;
+        border-radius: 1em;
     }
 }
 @media screen and (max-width: 1480px) and (min-width: 681px){
@@ -182,32 +121,30 @@
         width: 34%;
         height: 24.8%;
     }
-    #gravitrax {
+    .gravitrax {
         z-index: 1;
         background-position-x: 0%;
         background-position-y:  0%;
         background-size: 100% 100%;
         background-repeat: no-repeat;
+        background-image: url(\'/public/assets/img/theme/gravitrax3.gif\');
         height: 600px;
         width:100%;
     }
     .panda {
-        position: relative;
-        top: 5%;
-        left: 5%;
-        background-image:url('/public/assets/img/theme/panda.png');
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        width: 35%;
-        height: 40%;
+        margin:0;
+        padding:0;
+        width: 100%;
+        height: 100%;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
-    .gravitraxYtPlayer {
-        position: relative;
-        top:24%;
-        left:13%;
-        width: 69.5%;
-        height: 73%;
-    }
+    #player {
+        width: 320px;
+        height: 240px;
+     }
 }
 @media screen and (min-width: 1481px){
 

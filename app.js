@@ -12,7 +12,8 @@
  app.set ('view engine', 'ejs');
  var http = require ('http');
  const fs = require ('fs');
-
+ var myYT = require ('@micmac/youtube');
+ const getAllVideos = myYT.getAllVideos;
 //api fortnite
 //const fortniteapi = require('fortnite-api-js');
 //
@@ -41,78 +42,76 @@
 
 // récupère les infos au format json de l'api youtube data puis les écrits dans un fichier public/src/video.json
 
- var getApiInfoThenWrite = function () {
-     console.log ('entree dans getApiInfoThenWrites()');
-     return new Promise (function (resolve, reject) {
-         var myYT = require ('@micmac/youtube');
-         var getAllVideos = myYT.getAllVideosInfos;
-         getAllVideos ().catch (function (error) {
-             console.log ('erreur loading youtube info');
-             reject (error);
-         }).then (function (response) {
-             console.log ('loading youtube info : ');
-             var dataString = JSON.stringify (response);
-             var dataJSON = response;
-             fs.writeFile ('public/src/video.json', dataString, function (error) {
-                 if (error)
-                     {
-                         console.log ('écriture erreur');
-                         reject (error);
-                     }
-                 else
-                     {
-                         console.log ('write File OK !');
-                         resolve (dataJSON);
-                     }
-             });
+ var getApiInfoThenWrite = async function () {
+     var responseGetAllVideos = await getAllVideos ();
+     var dataString = JSON.stringify (responseGetAllVideos);
+     var writeJson = new Promise (function (resolve) {
+         fs.writeFile ('public/src/video.json', dataString, function (error) {
+             if (error)
+                 {
+                     console.log ('erreur d\'écriture getAllVideos fs.writeFile');
+                     throw new Error ('erreur d\'écriture getAllVideos fs.writeFile #');
+                 }
+             resolve (responseGetAllVideos);
          });
-     }, function (error, response) {
-         if (error)
-             {
-                 reject (error);
-             }
-         if (response)
-             {
-                 resolve (response);
-             }
      });
+     var result = await writeJson.then (function (data) {
+//         console.log ('réponse de getApiInfoThenWrites()');
+//         console.log ('----------------------');
+//         console.log (data);
+         return data;
+     });
+//     console.log ('réponse de getApiInfoThenWrites()');
+//     console.log ('----------------------');
+//     console.log (result);
+     return result;
  };
 
 // fonction lecture du fichier public/src/video.json 
 
- var readVideoJSON = function () {
-     return new Promise (function (resolve, reject) {
+ var readVideoJSON = async function () {
+     var readJson = new Promise (function (resolve) {
          fs.readFile ('public/src/video.json', 'utf8', function (err, data) {
              if (err)
                  {
-                     console.log ('erreur de lecture');
+                     console.log ('erreur de lecture readVideoJSON');
                      console.log (err);
-                     reject (err);
+                     throw new Error ('erreur de lecture readVideoJSON #');
                  }
-             if (data)
-                 {
-                     console.log ('lecture OK');
-                     resolve (JSON.parse (data));
-                 }
+             var responseReadVideoJSON = data;
+             resolve (responseReadVideoJSON);
          });
      });
- };
+     var result = await readJson.then (function (data) {
+//         console.log ('réponse de readVideoJSON() : ');
+//         console.log ('-------------------------------');
+//         console.log (data);
+         return data;
+     });
+//     console.log ('réponse de readVideoJSON() : ');
+//     console.log ('-------------------------------');
+//     console.log (result);
+     return result;
+ }
+ ;
 
 // fonction appel de getAndWrite() puis renvoie la lecture de public/src/video.json sous forme de json. 
 
- var readApiThenRecordThenRead = function () {
-     return new Promise (function (resolve, reject) {
-         getApiInfoThenWrite ().then (function (response) {
-             console.log ('ecriture ok!');
-             readVideoJSON ().catch (function (error) {
-                 console.log (error);
-             }).then (function (response) {
-                 console.log ('lecture en sortie ok');
-                 resolve (response);
-             });
-         });
+ var readApiThenRecordThenRead = async function () {
+     var responseAfterRead = await getApiInfoThenWrite ().then (async function (result) {
+//         console.log ('réponse de readApiThenRecordThenRead : ');
+//         console.log ('-------------------------------');
+//         console.log (result);
+         var result2 = await readVideoJSON ();
+         return result2;
      });
- };
+//     console.log ('lecture en sortie readVideoJSON : ');
+//     console.log ('-------------------------------');
+//     console.log (responseAfterRead);
+
+     return responseAfterRead;
+ }
+ ;
 
  // fonction pour déterminer le theme d'une video
 
@@ -145,7 +144,8 @@
  // fonction démarrage du serveur
 
  var serverStart = function (videoData) {
-
+//console.log('data rection :');
+//console.log(videoData);
      var server = http.createServer (app);
 
      console.log ('Démarrage Serveur le : ' + moment ().format ('MMMM Do YYYY, h:mm:ss a'));
@@ -171,18 +171,20 @@
                          }
                      }
                  };
-                 console.log ("params envoyé vers index.ejs : ");
-                 console.log (params);
-                 res.render ('pages/index.ejs', {params: params});
+//                 console.log ("params envoyé vers index.ejs : ");
+//                 console.log (params);
+                 res.render ('pages/index.ejs', {
+                     params: params
+                 });
              })
              .get ('/googlef76e7a236c78cd16.html', function (req, res) {
                  res.render ('pages/googlef76e7a236c78cd16.ejs');
              })
              .get ('/video', function (req, res) {
-                 let videoTheme = findTheme (videoData.video[req.query.noVideo]);
+                 let videoTheme = findTheme (videoData[req.query.noVideo]);
                  let params = {
                      css: 'videoPage1.css',
-                     video: videoData.video[req.query.noVideo],
+                     video: videoData[req.query.noVideo],
                      theme: videoTheme,
                      myParam: {
                          pseudo: req.query.pseudo,
@@ -197,7 +199,9 @@
                  };
                  console.log ("params envoyé vers videoActiviy.ejs : ");
                  console.log (params);
-                 res.render ('pages/videoActivity.ejs', {params :params});
+                 res.render ('pages/videoActivity.ejs', {
+                     params: params
+                 });
              })
 // page pour les test;
              .get ('/test', function (req, res) {
@@ -282,7 +286,7 @@
                  })
                  .on ('disconnect', function () {
                      console.log ('ListClient avant déconnexion');
-                      console.log(listClient);
+                     console.log (listClient);
                      listClient = listClient.filter (filterOtherSocketId.bind (socket));
                      if (socket.dialog !== undefined)
                          {
@@ -291,16 +295,18 @@
                                  text: socket.dialog.pseudo + ' a quitté le salon.'
                              }, 'Serveur :');
                              console.log ('Clients toujours connectés : ');
-                             console.log(listClient);
+                             console.log (listClient);
                          }
                  });
      });
  };
+ var start = async function () {
+     var finalResponse = await readApiThenRecordThenRead ();
+//     console.log ('§§§§§§§§§§§§§§§§§§§ FINAL §§§§§§§§§§§§§§§§§§§');
+//     console.log (finalResponse);
+     //readVideoJSON ().then (function (response) {
+     serverStart (JSON.parse (finalResponse));
+ }
+ ;
 
- //readApiThenRecordThenRead ().then (function (response) {
-
- readVideoJSON ().then (function (response) {
-     serverStart (response);
- });
-
- 
+ start ();

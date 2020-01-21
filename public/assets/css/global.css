@@ -1,9 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Courgette|Fascinate+Inline|Black+Ops+One|Great+Vibes|Kaushan+Script|Luckiest+Guy|Modak|Pacifico|Permanent+Marker|Play|Turret+Road&display=swap');
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:#c0c0c0;border-radius:0px}
+::-webkit-scrollbar-thumb{background:rgba(140,186,255,1);border-radius:8px}
+footer{
+     height : 3em;
+    font-size: 1.2em;
+    text-align: end;
+}
 html{
-    --color-bgd1 : rgb(245,245,245);
+    --color-bgd1: rgb(245,245,245);
+    --color-bgd-card: rgba(140,186,255,1);
+    --color-txt-card: white;
+    --color-bgd-card2: rgba(0,0,0,0.8);
+    --color-txt-titleArt: red;
+    --color-txt-pitchArt: white;
 }
 body {
-    font-size: 12px;
     z-index:1;
     /*    font-family: 'Modak', cursive;
         font-family: 'Pacifico', cursive;
@@ -15,14 +27,11 @@ body {
         font-family: 'Turret Road', cursive;
         font-family: 'Kaushan Script', cursive;
         font-family: 'Great Vibes', cursive;
-        font-family: 'Luckiest Guy', cursive;*/   overflow-x: hidden;
+        font-family: 'Luckiest Guy', cursive;*/   
+    overflow-x: hidden;
 }
 .hidden {
     display: none;
-}
-h1 {
-    color:  rgba(9,69,158,1);
-    text-shadow :  3px 3px rgba(140,186,255,1),  4px 4px 3px rgba(9,69,158,1), 15px 15px 2px rgba(0,0,0,0.7);
 }
 a {
     text-decoration: none;
@@ -30,65 +39,6 @@ a {
 a:hover {
     text-decoration: none;
 }
-.headband{
-    background-color: rgba(140,186,255,1);
-}
-.headband > div{
-    flex-wrap: nowrap;
-}
-.headbandDescribe {
-    font-family: 'Luckiest Guy', cursive;
-    font-size: 1em;
-    /*    border: 2px ridge red;*/
-    border-radius :4px;
-    /*    box-shadow: 10px 10px 2px rgba(0,0,0,0.5);*/
-    background-color: transparent;
-}
-.siteName{
-    background-image: url('../img/ironmanLgLumineux.jpg');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    box-shadow: 20px 20px 15px rgba(0,0,0,0.5);
-}
-.news{
-    display:flex;
-    flex-direction: column;
-    font-family: 'Permanent Marker', cursive;
-    font-weight: bold;
-    text-align: center;
-    rotation-point: center;
-    transform: rotateZ(5deg);
-    background-color: rgb(215,0,0);
-    color: white;
-}
-.news:hover {
-    animation: shake 1s ease-in infinite;
-    color: black;
-}
-.newsStart {
-    animation: shake 10s ease-in 10;
-}
-.news > p{
-    margin:0;
-}
-#subNow{
-    font-weight: 200;
-    text-shadow :  1px 1px red,  2px 2px 1px rgba(9,69,158,1), 5px 5px 2px rgba(0,0,0,0.7);
-    color: white;
-}
-.infoband{
-    border: 1px inset rgba(255, 255, 255, 0.7);
-    background-color: rgba(255,255,230,1);
-    border-radius: 0.5em;
-    box-shadow: 1em 1em 1em black;
-}
-.infoServer {
-    text-decoration: none;
-    font-size: 1em;
-    text-shadow :  1px 1px rgba(140,186,255,1),  2px 2px 1px rgba(9,69,158,1), 5px 5px 2px rgba(0,0,0,0.7);
-    color: black;
-}
-
 .carousel-indicators{
     display:none;
 }
@@ -98,50 +48,22 @@ a:hover {
 #right{
     background-image: url('../img/right.png')
 }
-.card-columns
 .card {
-    border-radius :1px;
-    min-width: 33%;
-    padding: 0;
-    margin: 0;
-}
-.card {
-    min-width: 33%;
-    padding: 0;
-    margin: 0;
-}
-.card {
-    /*     font-family: 'Modak', cursive;
-    */        font-family: 'Pacifico', cursive;/*
-            font-family: 'Amatic SC', cursive;
-            font-family: 'Play', sans-serif;
-            font-family: 'Fascinate Inline', cursive;
-            font-family: 'Permanent Marker', cursive;
-            font-family: 'Courgette', cursive;
-            font-family: 'Turret Road', cursive;
-            font-family: 'Kaushan Script', cursive;
-            font-family: 'Great Vibes', cursive;
-            font-family: 'Luckiest Guy', cursive;*/
     border: 2px ridge white;
     border-radius :2px;
-    font-size : 1em;
-    font-weight: 200;
-    text-shadow :  1px 1px rgba(9,69,158,1),  2px 2px 1px rgba(140,186,255,1), 3px 3px 3px rgba(0,0,0,0.7);
     box-shadow: 10px 10px 2px rgba(0,0,0,0.5);
-    background-color: rgba(140,186,255,1);
-    color: white;
+    background-color: var(--color-bgd-card);
+    color: var(--color-txt-card);
 
 }
 .card-group{
     column-gap: 0;
 }
-.card-title{
+.titlecard{
     border: 1px solid white;
     background-color: red;
     border-radius: 1px;
-    font-family: 'Luckiest Guy', cursive;
     color : white;
-    font-size:1.2em;
 }
 .card-footer {
     background-color: white;
@@ -187,173 +109,194 @@ a:hover {
 @media screen and (max-width: 680px){
     body {
         font-size: 8px;
+    }  
+    .masterCard {
+        flex-direction: column;
+        width : 100%;
+
     }
-    h1{
+    .card {
+        padding : 0;
+        margin : 0;
+        padding-bottom : 1em;
+        font-size : 1em;
+        font-weight: 200;
+        width: 100%;
+        max-height: 50%;
+        align-items: center;
+        border-radius :4px;
+    }
+    .titleCard{
+        font-family: 'Permanent Marker', cursive;
+        text-shadow :  1px 1px rgba(9,69,158,1),  2px 2px 1px rgba(140,186,255,1), 3px 3px 3px rgba(0,0,0,0.7);
+        font-size: 2em;
+    }
+    .description {
+        background-color: var(--color-bgd-card2);
+        text-shadow: 0 0 0 black;
+        font-family: 'Play', cursive;
+        font-size: 1.2em;
+    }
+    .thumbnail {
+        width: 100%;
+        height: auto;
+
+    }
+    .imgCarrousel{
+        width: 100%;
+        height: auto;
+    }
+    .themePitch > h2{
+        height : 20%;
         font-size: 3em;
-        font-family: 'Luckiest Guy', cursive;
-        border-radius: 0.5em;
+        color : var(--color-txt-titleArt);
     }
-    .headband{
-        display: flex;
-        flex-direction: column;
-        height:25%;
+    .themePitch > p{
+        height : 40%;
+        font-family: 'Pacifico', recursive;
+        font-weight: 100;
+        font-size : 1.5em;
+        color : var(--color-txt-pitchArt);
+    }
+    .themePitch > h3 {
+        height : 10%;
+        color : var(--color-txt-titleArt);
+        font-family: 'Pacifico', recursive;
+        font-weight: 100;
+        font-size : 2.5em;
+    }
+    .themePitch > img {
         width: 100%;
-        margin: 0;
-        padding:0;
+        height: 30%;
     }
-    .siteName{
-        height:50%;
-        width:100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-    }
-    .homeLink{
-        height:auto;
-        width: 60%; 
-    }
-    .titleImg{
-        width:100%;
-        height:100%;
-    }
-    .news{
-        font-size: 1em;
-        height: 50%;
-        width:20%;
-    }
-    .headband2{
-        padding: 0;
-        margin:0;
-        height:50%;
-        width:100%;
-        display : flex;
-        flex-direction: column;
-        justify-content: center;
-        flex-wrap: nowrap;
-        overflow: visible;
-    }
-    boxLink{
-        width: 100%;
-        height: 50%;
-        display : flex;
-        flex-direction : row;
-        justify-content: space-around;
-        flex-wrap: nowrap;
-    }
-    .chatButtonBox{
-        width:20%;
-        height:80%;
-        float: left;
-        margin-left : 2em;
-    }
-    .sub{
-        float: right;
-       height:80%;
-       width: 30%;
-        display : flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-        margin-right: 2em;
-    }
-    .sub > p, .sub > div {
-        font-size : 1.2em;
-        margin:0;
-        padding:0;
-        flex-basis: 0;
-    }
-   .messageBox{
-        width:100%;
-        height: 50%;
-        background-color: white;
-    }
-
-
 }
 @media screen and (max-width: 1480px) and (min-width: 681px){
     body {
-        font-size: 12px;
-    }
-    h1{
-        font-size: 3em;
-        font-family: 'Luckiest Guy', cursive;
-        border-radius: 1em;
-    }
-    .headband{
+        font-size: 10px;
+    }  
+    .masterCard {
+        flex-direction: column;
+        width : 100%;
 
     }
-    .siteName{
-        min-height: 12em;
+    .card {
+        padding : 0;
+        margin : 0;
+        padding-bottom : 1em;
+        font-size : 1em;
+        font-weight: 200;
+        width: 100%;
+        max-height: 50%;
+        align-items: center;
+        border-radius :4px;
     }
-    .headbandDescribe{
-        font-size: 1em;
-
+    .titleCard{
+        font-family: 'Permanent Marker', cursive;
+        text-shadow :  1px 1px rgba(9,69,158,1),  2px 2px 1px rgba(140,186,255,1), 3px 3px 3px rgba(0,0,0,0.7);
+        font-size: 2em;
     }
-
-
-    .carousel-item p {
-        height: 20%;
-        background-color: white;
-    }
-    .carousel-item img {
-        height: 60%;
-    }
-    .news{
+    .description {
+        background-color: var(--color-bgd-card2);
+        text-shadow: 0 0 0 black;
+        font-family: 'Play', cursive;
         font-size: 1.2em;
-        padding-top: 0;
-        margin-top: 0;
-        height: 50%;
-        width:40%;
     }
-    .headband2{
-        height:20%;
-        width:100%;
-        margin:0;
-        padding:0;
-        display : flex;
-        flex-flow: row;
+    .thumbnail {
+        width: 100%;
+        height: auto;
+
     }
-    .sub{
-        width:50%;
-          }
-    .messageBox{
-        width:100%;
-        order:3;
+    .imgCarrousel{
+        width: 100%;
+        height: auto;
     }
-    .chatButtonBox{
-        width:25%;
-        order:2;
+    .themePitch > h2{
+        height : 20%;
+        font-size: 3em;
+        color : var(--color-txt-titleArt);
+    }
+    .themePitch > p{
+        height : 40%;
+        font-family: 'Pacifico', recursive;
+        font-weight: 100;
+        font-size : 1.5em;
+        color : var(--color-txt-pitchArt);
+    }
+    .themePitch > h3 {
+        height : 10%;
+        color : var(--color-txt-titleArt);
+        font-family: 'Pacifico', recursive;
+        font-weight: 100;
+        font-size : 2.5em;
+    }
+    .themePitch > img {
+        width: 100%;
+        height: 30%;
     }
 }
 
 @media screen and (min-width: 1481px){
     body {
-        font-size: 20px;
+        font-size: 12px;
+    }  
+    .masterCard {
+        flex-direction: column;
+        width : 100%;
+
     }
-    h1{
+    .card {
+        padding : 0;
+        margin : 0;
+        padding-bottom : 1em;
+        font-size : 1em;
+        font-weight: 200;
+        width: 100%;
+        max-height: 50%;
+        align-items: center;
+        border-radius :4px;
+    }
+    .titleCard{
+        font-family: 'Permanent Marker', cursive;
+        text-shadow :  1px 1px rgba(9,69,158,1),  2px 2px 1px rgba(140,186,255,1), 3px 3px 3px rgba(0,0,0,0.7);
+        font-size: 2em;
+    }
+    .description {
+        background-color: var(--color-bgd-card2);
+        text-shadow: 0 0 0 black;
+        font-family: 'Play', cursive;
+        font-size: 1.2em;
+    }
+    .thumbnail {
+        width: 100%;
+        height: auto;
+
+    }
+    .imgCarrousel{
+        width: 100%;
+        height: auto;
+    }
+    .themePitch > h2{
+        height : 20%;
         font-size: 3em;
-        font-family: 'Luckiest Guy', cursive;
-        border-radius: 1em;
+        color : var(--color-txt-titleArt);
     }
-    .headband{
-
+    .themePitch > p{
+        height : 40%;
+        font-family: 'Pacifico', recursive;
+        font-weight: 100;
+        font-size : 1.5em;
+        color : var(--color-txt-pitchArt);
     }
-    .siteName{
-        min-height: 12em;
+    .themePitch > h3 {
+        height : 10%;
+        color : var(--color-txt-titleArt);
+        font-family: 'Pacifico', recursive;
+        font-weight: 100;
+        font-size : 2.5em;
     }
-    .headbandDescribe{
-        font-size: 1em;
-
-    }
-
-
-    .carousel-item p {
-        height: 20%;
-        background-color: white;
-    }
-    .carousel-item img {
-        height: 60%;
+    .themePitch > img {
+        width: 100%;
+        height: 30%;
     }
 }
 

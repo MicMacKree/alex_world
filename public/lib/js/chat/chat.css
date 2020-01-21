@@ -67,7 +67,7 @@ cursor: pointer;
     background-color: rgba(120,120,255,1);
     transform: scale(0.95);
 }
-#cat{
+.cat{
     position: relative;
     top : 0.2em;
     left:-35%;
@@ -78,7 +78,7 @@ cursor: pointer;
     height:100%;
     overflow: visible;
 }   
-#cat>img {
+.cat>img {
     position:relative;
     width:auto;
     height:5em;
@@ -145,19 +145,19 @@ cursor: pointer;
 #chatButtonStart{
     height:5em;
     width:auto;
-    box-shadow: 0.7em 0.7em 0.7em black;
+    box-shadow: 0.5em 0.5em 0.5em rgba(0,0,0,0.6), -0.5em -0.5em 0.5em rgba(0,0,0,0.6), -0.5em 0.5em 0.5em rgba(0,0,0,0.6), 0.5em -0.5em 0.5em rgba(0,0,0,0.6);
     border-radius: 0.5em;
     transform : scale(1);
     transition: box-shadow linear 0.1s, border-radius ease-in-out 0.1s, transform linear  0.1s;
 }
 #chatButtonStart:hover{
-    box-shadow: 1em 1em 1em black;
+    box-shadow: 1em 1em 1em rgba(0,0,0,0.6), -1em -1em 1em rgba(0,0,0,0.6), -1em 1em 1em rgba(0,0,0,0.6), 1em -1em 1em rgba(0,0,0,0.6);
     border-radius: 0.6em;
     transform: scale(1.05);
     cursor: pointer;
 }
 #chatButtonStart:active{
-    box-shadow: 0.2em 0.2em 0.2em black;
+    box-shadow: 0.2em 0.2em 0.2em rgba(0,0,0,0.6), -0.2em -0.2em 0.2em rgba(0,0,0,0.6), -0.2em 0.2em 0.2em rgba(0,0,0,0.6), 0.2em -0.2em 0.2em rgba(0,0,0,0.6);
     border-radius: 1.5em;
     transform: scale(0.8);
 }
@@ -321,7 +321,7 @@ cursor: pointer;
 #chatLoginBody > div:hover{
     background-color: rgba(255,255,255,0.5);
 }
-#cat > span {
+.cat > span {
     font-size:1.5em;
     color: pink;
     font-family: 'Black Ops One', cursive;

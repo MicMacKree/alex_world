@@ -2,18 +2,19 @@
  var intervalID;
  beerus.addEventListener ('mouseover', function () {
      var xPos = 0;
-     var dx = - 100;
+     var dx = - beerus.offsetWidth;
+     var spriteWidth = -dx * 5;
      intervalID = setInterval (function () {
-         beerus.style.backgroundPosition = xPos + "px 0px";
-         xPos += dx;
-         if (xPos <= - 500)
+       if (xPos <= - spriteWidth)
              {
-                 dx = 100;
+                 dx = beerus.offsetWidth;
              }
          if (xPos >= 0)
              {
-                 dx = - 100;
+                 dx = -beerus.offsetWidth;
              }
+        beerus.style.backgroundPosition = xPos + "px 0px";
+         xPos += dx;
      }, 50);
  });
  beerus.addEventListener ('mouseleave', function () {

@@ -1,14 +1,14 @@
 <div id="chat" class="chat">
     <div id="chatHandler" class="chatHandler">
-        <div id="cat">
+        <div class="cat">
             <span>THE </span>
-            <img src="/public/lib/js/chat/img/cat.png" width="100px" height="100px"/>
+            <img src="/public/lib/js/chat/img/cat.png"  alt="The Lynx"/>
         </div>
 
-        <img id = "leaveChat" class="leave" src="/public/lib/js/chat/img/leave.png" width="auto" height="80%"/>
+        <img id = "leaveChat" class="leave" src="/public/lib/js/chat/img/leave.png"  alt="leave"/>
 
 
-        <img id = "reduceChat" class="reduction" src="/public/lib/js/chat/img/reduction.png" width="auto" height="80%"/>
+        <img id = "reduceChat" class="reduction" src="/public/lib/js/chat/img/reduction.png"  alt="reduce"/>
 
     </div>
     <div class="chatBand"> 
@@ -25,7 +25,7 @@
         <div class="chatBodyUpRight">
             <div id="chatOutput"></div>
             <div class="chatInput">
-                <textarea id="chatInput" autocomplete="off" autofocus row = "2" value=""></textarea>
+                <textarea id="chatInput" autocomplete="off" autofocus rows = "2" placeholder = "Tapes ton message ici."></textarea>
                 <div class="cmdChat">
                     <div id="chatButton" class = "cButton"><p>OK !</p></div>
                     <div id="eraseButton" class = "cButton"><p>Effacer</p> </div>
@@ -36,16 +36,16 @@
 </div>
 <div id="chatLogin" class="chatLogin">
     <div id="chatHandlerLogin" class="chatHandler">
-        <div id="cat">
+        <div class="cat">
             <span>THE </span>
-            <img src="/public/lib/js/chat/img/cat.png" width="100px" height="100px"/>
+            <img src="/public/lib/js/chat/img/cat.png"  alt="The Lynx"/>
         </div>
-        <img  id="leaveLogin" class="leave" src="/public/lib/js/chat/img/leave.png" width="auto" height="80%"/>
+        <img  id="leaveLogin" class="leave" src="/public/lib/js/chat/img/leave.png" alt="leave"/>
     </div>
     <div id="chatLoginBody">
         <div>
-            <h3 for="chatLoginPseudo">TON PSEUDO :</h3>
-            <input id="chatLoginPseudo" name="chatLoginPseudo" value=""/>
+            <h3>TON PSEUDO :</h3>
+            <input id="chatLoginPseudo" value=""/>
             <a id="chatLoginButton" href="#">GO !!</a>
         </div>
     </div>
