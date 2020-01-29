@@ -1,5 +1,5 @@
 #beerus{
-    background-image: url('../img/navbar/spriteBeerus.png');
+    background-image: url('../img/navbar/spriteBeerus.webp');
   background-origin: initial;
   background-position: 0px 0px;
   background-repeat: no-repeat;
@@ -13,10 +13,7 @@
     height:100%;
 }
 .navbar {
-    font-size : 1.2em;
-    font-weight: bolder;
-    font-family: 'Luckiest Guy', cursive;
-    background-image: url('../img/maxresdefault.jpg');
+    background-image: url('../img/maxresdefault.webp');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -27,7 +24,7 @@
     border: none;
     width: 2em;
     height:2em;
-    background-image: url("../img/captain.png");
+    background-image: url("../img/captain.webp");
     background-size: cover;
     background-repeat: no-repeat;
     transition: transform ease-in-out 0.2s
@@ -46,7 +43,7 @@
     border-left: 1px solid white;
     border-bottom: 1px solid black;
     border-radius: 5px;
-    background-image: url('../img/maxresdefault.jpg');
+    background-image: url('../img/maxresdefault.webp');
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -55,7 +52,6 @@
     border-color: greenyellow;
 }
 .nav-link{
-    height:98%;
     background-color: rgba(255,255,255,0.2);
     border-left: 1px solid white;
     border-bottom: 1px solid black;
@@ -70,26 +66,31 @@
     text-shadow :  1px 1px rgba(9,69,158,1),  2px 2px 1px rgba(140,186,255,1), 3px 3px 3px rgba(0,0,0,0.7);
 }
 .buttonBasketUS{
-    background-image: url('../img/navbar/basket.jpg'); 
+    background-image: url('../img/navbar/basket.webp'); 
 
 }
 .buttonFortnite{
-    background-image: url('../img/navbar/fortnite.jpg'); 
+    background-image: url('../img/navbar/fortnite.webp'); 
 
 }
 .buttonGravitrax{
-    background-image: url('../img/navbar/gravitrax.jpg'); 
+    background-image: url('../img/navbar/gravitrax.webp'); 
 
 }
 .buttonNature{
-    background-image: url('../img/navbar/nature.jpg'); 
+    background-image: url('../img/navbar/nature.webp'); 
 
 }
 .buttonSimcity{
-    background-image: url('../img/navbar/simcity.jpg'); 
+    background-image: url('../img/navbar/simcity.webp'); 
 
 }
 @media screen and (max-width: 680px){
+    .navbar{
+        font-size : 1.2em;
+        font-weight: bolder;
+        font-family: 'Luckiest Guy', cursive;
+    }
     #beerus{
         width: 50px;
         height: 50px;
@@ -110,9 +111,16 @@
         background-repeat: no-repeat;
         height: 5em;
     }
-
+    .nav-link{
+        height:98%;
+    }
 }
 @media screen and (max-width: 1480px) and (min-width: 681px){
+    .navbar{
+        font-size : 0.5em;
+        font-weight: bolder;
+        font-family: 'Luckiest Guy', cursive;
+    }
     ul.navbar-nav {
         display: flex;
         flex-direction: row;
@@ -137,11 +145,22 @@
         font-size: 0em;      
     }
     ul.navbar-nav>li>a:hover{
-        font-size: 2em;
+        font-size: 2.5em;
+    }
+    .nav-link{
+        height:98%;
+    }
+    .nav-item{
+        min-width: 10%;
     }
 }
 @media screen and (min-width: 1481px){
-     ul.navbar-nav {
+    .navbar{
+        font-size : 1.2em;
+        font-weight: bolder;
+        font-family: 'Luckiest Guy', cursive;
+    }
+    ul.navbar-nav {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -166,5 +185,8 @@
     }
     ul.navbar-nav>li>a:hover{
         font-size: 1.5em;
+    }
+    .nav-link{
+        height:98%;
     }
 }

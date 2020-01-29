@@ -6,7 +6,6 @@
      var chatHTML = document.getElementById ('chat');
      var chatOutput = document.getElementById ('chatOutput');
      var chatButton = document.getElementById ('chatButton');
-     var eraseButton = document.getElementById ('eraseButton');
      var chatLoginButton = document.getElementById ('chatLoginButton');
      var chatInput = document.getElementById ('chatInput');
      var chatLoginPseudo = document.getElementById ('chatLoginPseudo');
@@ -27,9 +26,7 @@
          chatInput.value = '';
          socket.emit ('message', message);
      };
-     eraseButton.onclick = function () {
-       chatInput.value = '';
-     };
+     
      chatLoginButton.onclick = function () {
          myParam.pseudo = chatLoginPseudo.value;
          socket.emit ('entry', myParam.pseudo);
@@ -159,7 +156,7 @@
                  });
                  pMessage.push (document.createElement ('DIV'));
                  pMessage.slice (- 1)[0].innerHTML = '<p class="messagePseudo">' + _pseudo + '</p><p class="messageText">' + _message.text + '</p>';
-                 chatOutput.appendChild (pMessage.slice (- 1)[0]);
+                 chatOutput.prepend (pMessage.slice (- 1)[0]);
              });
  }
 

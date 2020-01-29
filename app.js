@@ -31,12 +31,14 @@
 //provisoirement stocké ici en attendant mieux, les JSON des vignettes manga, culture ....
 
  var titan = {
-     rep: 'titan',
-     title: 'L\'attaque des titans',
+     rep: "titan",
+     article: "Un manga à dévorer !",
+     intro: "L'attaque des titans c'est aussi, les 3 premières saisons d'un animé disponible sur NetFix, des jeux vidéos et même un film en préparation",
+     title: "L'attaque des titans",
      description: {
-         author: 'Hajime Isayama',
-         genre: 'Action, dark fantasy, horreur, mystère, tragédie, thriller',
-         pitch: 'L’histoire tourne autour du personnage d’Eren Jäger dans un monde où l’humanité vit entourée d’immenses murs pour se protéger de créatures gigantesques, les Titans. Le récit raconte le combat mené par l’humanité pour reconquérir son territoire, en éclaircissant les mystères dus à l’apparition des Titans. '
+         author: "Hajime Isayama",
+         genre: "Action, dark fantasy, horreur, mystère, tragédie, thriller",
+         pitch: "L’histoire tourne autour du personnage d’Eren Jäger dans un monde où l’humanité vit entourée d’immenses murs pour se protéger de créatures gigantesques, les Titans. Le récit raconte le combat mené par l’humanité pour reconquérir son territoire, en éclaircissant les mystères dus à l’apparition des Titans. "
      }
  };
 
@@ -113,34 +115,7 @@
  }
  ;
 
- // fonction pour déterminer le theme d'une video
-
- var findTheme = function (_video) {
-     var theme = 'other';
-     _video.tags.forEach (function (tag) {
-         let lowTag = tag.toLowerCase ();
-         switch (lowTag)
-             {
-                 case 'fortnite':
-                     theme = 'fortnite';
-                     console.log ('Theme fortnite');
-                     break;
-                 case 'nature':
-                     theme = 'nature';
-                     console.log ('Theme nature');
-                     break;
-                 case 'gravitrax':
-                     theme = 'gravitrax';
-                     console.log ('Theme gravitrax');
-                     break;
-                 case 'simcity':
-                     theme = 'simcity';
-                     console.log ('Theme simcity');
-                     break;
-             }
-     });
-     return theme;
- };
+ 
  // fonction démarrage du serveur
 
  var serverStart = function (videoData) {
@@ -156,9 +131,9 @@
              .use ('/public', express.static ('public'))
              // index page 
              .get ('/', function (req, res) {
-                 let params = {
+                let params = {
                      css: 'global.css',
-                     video: videoData,
+                     video: JSON.stringify(videoData),
                      carroussel: titan,
                      myParam: {
                          pseudo: req.query.pseudo,
@@ -172,7 +147,8 @@
                      }
                  };
 //                 console.log ("params envoyé vers index.ejs : ");
-//                 console.log (params);
+                 console.log (params.video);
+                 
                  res.render ('pages/index.ejs', {
                      params: params
                  });
@@ -181,6 +157,7 @@
                  res.render ('pages/googlef76e7a236c78cd16.ejs');
              })
              .get ('/video', function (req, res) {
+                 console.log('video !!!!!');
                  let videoTheme = findTheme (videoData[req.query.noVideo]);
                  let params = {
                      css: 'videoPage1.css',
@@ -305,8 +282,37 @@
 //     console.log ('§§§§§§§§§§§§§§§§§§§ FINAL §§§§§§§§§§§§§§§§§§§');
 //     console.log (finalResponse);
      //readVideoJSON ().then (function (response) {
-     serverStart (JSON.parse (finalResponse));
+     serverStart (JSON.parse(finalResponse));
  }
  ;
 
  start ();
+
+ // fonction pour déterminer le theme d'une video
+
+ function findTheme (_video) {
+    var theme = 'other';
+    _video.tags.forEach (function (tag) {
+        let lowTag = tag.toLowerCase ();
+        switch (lowTag)
+            {
+                case 'fortnite':
+                    theme = 'fortnite';
+                    console.log ('Theme fortnite');
+                    break;
+                case 'nature':
+                    theme = 'nature';
+                    console.log ('Theme nature');
+                    break;
+                case 'gravitrax':
+                    theme = 'gravitrax';
+                    console.log ('Theme gravitrax');
+                    break;
+                case 'simcity':
+                    theme = 'simcity';
+                    console.log ('Theme simcity');
+                    break;
+            }
+    });
+    return theme;
+};

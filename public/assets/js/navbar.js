@@ -21,5 +21,10 @@
      beerus.style.backgroundPosition = "0px 0px";
      clearInterval (intervalID);
  });
-
- 
+beerus.addEventListener ('click', function () {
+                 redirection ();
+             });
+  function redirection () {
+     document.location.href = '/?pseudo=' + myParam.pseudo + '&color=' + myParam.chatOptions.color + '&style=' + myParam.chatOptions.style +
+             '&idSocket=' + myParam.socket.id;
+ }

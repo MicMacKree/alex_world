@@ -24,11 +24,10 @@
         </div>
         <div class="chatBodyUpRight">
             <div id="chatOutput"></div>
-            <div class="chatInput">
-                <textarea id="chatInput" autocomplete="off" autofocus rows = "2" placeholder = "Tapes ton message ici."></textarea>
+            <div class="chatInputBox">
+                <input id="chatInput" autocomplete="off" autofocus placeholder = "Tapes ton message ici."></textarea>
                 <div class="cmdChat">
-                    <div id="chatButton" class = "cButton"><p>OK !</p></div>
-                    <div id="eraseButton" class = "cButton"><p>Effacer</p> </div>
+                    <div id="chatButton" class = "cButton"></div>       
                 </div>
             </div>
         </div>
@@ -45,8 +44,10 @@
     <div id="chatLoginBody">
         <div>
             <h3>TON PSEUDO :</h3>
-            <input id="chatLoginPseudo" value=""/>
-            <a id="chatLoginButton" href="#">GO !!</a>
+            <div>
+                <input id="chatLoginPseudo" value=""/>
+                <a id="chatLoginButton" href="#">GO !!</a>
+            </div>
         </div>
     </div>
 </div>

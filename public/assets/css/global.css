@@ -1,22 +1,56 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Courgette|Fascinate+Inline|Black+Ops+One|Great+Vibes|Kaushan+Script|Luckiest+Guy|Modak|Pacifico|Permanent+Marker|Play|Turret+Road&display=swap');
-::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:#c0c0c0;border-radius:0px}
-::-webkit-scrollbar-thumb{background:rgba(140,186,255,1);border-radius:8px}
-footer{
-     height : 3em;
-    font-size: 1.2em;
-    text-align: end;
+
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
-html{
-    --color-bgd1: rgb(245,245,245);
-    --color-bgd-card: rgba(140,186,255,1);
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+::-webkit-scrollbar {
+    width: 5px
+}
+
+::-webkit-scrollbar-track {
+    background: #c0c0c0;
+    border-radius: 0px
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(140, 186, 255, 1);
+    border-radius: 8px
+}
+
+html {
+    --color-bgd1: rgb(245, 245, 245);
+    --color-bgd-card: rgba(140, 186, 255, 1);
     --color-txt-card: white;
-    --color-bgd-card2: rgba(0,0,0,0.8);
-    --color-txt-titleArt: red;
+    --color-bgd-card2: rgb(40, 40, 50);
+    --color-txt-titleArt: #f85032;
     --color-txt-pitchArt: white;
+    --color-txt-welcome: rgba(140, 186, 255, 1);
+    --color-txt-infos: rgb(240, 240, 240);
+    --gradient-comment-old: #f85032;
+    /* Old browsers */
+    --gradient-comment-moz: -moz-linear-gradient(-45deg, #f85032 0%, #f16f5c 50%, #f6290c 51%, #f02f17 71%, #e73827 100%);
+    /* FF3.6-15 */
+    --gradient-comment-webkit: -webkit-linear-gradient(-45deg, #f85032 0%, #f16f5c 50%, #f6290c 51%, #f02f17 71%, #e73827 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    --gradient-comment-standard: linear-gradient(135deg, #f85032 0%, #f16f5c 50%, #f6290c 51%, #f02f17 71%, #e73827 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    --gradient-comment-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f85032', endColorstr='#e73827', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
 }
+
 body {
-    z-index:1;
+    z-index: 1;
     /*    font-family: 'Modak', cursive;
         font-family: 'Pacifico', cursive;
         font-family: 'Amatic SC', cursive;
@@ -27,282 +61,657 @@ body {
         font-family: 'Turret Road', cursive;
         font-family: 'Kaushan Script', cursive;
         font-family: 'Great Vibes', cursive;
-        font-family: 'Luckiest Guy', cursive;*/   
+        font-family: 'Luckiest Guy', cursive;*/
     overflow-x: hidden;
+    background-color: var(--color-bgd-card2);
 }
-.hidden {
-    display: none;
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
+
+.mainBody {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 a {
     text-decoration: none;
 }
+
 a:hover {
     text-decoration: none;
 }
-.carousel-indicators{
-    display:none;
+
+h1 {
+    color: var(--color-txt-titleArt);
+    text-shadow: 1px 1px 1px var(--color-txt-infos);
+    text-align: center;
 }
-#left{
+
+#welcome {
+    background-color: transparent;
+    border-radius: 1em;
+    color: var(--color-txt-welcome);
+}
+
+.carousel-indicators {
+    display: none;
+}
+
+#left {
     background-image: url('../img/left.png')
 }
-#right{
+
+#right {
     background-image: url('../img/right.png')
 }
+
 .card {
-    border: 2px ridge white;
-    border-radius :2px;
-    box-shadow: 10px 10px 2px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    box-shadow: 10px 10px 2px rgba(0, 0, 0, 0.5);
     background-color: var(--color-bgd-card);
     color: var(--color-txt-card);
 
 }
-.card-group{
+
+.card-group {
     column-gap: 0;
 }
-.titlecard{
-    border: 1px solid white;
-    background-color: red;
-    border-radius: 1px;
-    color : white;
+
+.titleCard {
+    background: var(--gradient-comment-old);
+    background: var(--gradient-comment-moz);
+    background: var(--gradient-comment-webkit);
+    background: var(--gradient-comment-standard);
+    filter: var(--gradient-comment-filter);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    color: white;
 }
+
 .card-footer {
     background-color: white;
     border-radius: 1em;
     color: grey;
 }
+
 .card:hover {
-    background-color: rgba(130,176,255,1);
+    background-color: rgba(130, 176, 255, 1);
     transition: transform ease-in 0.5s;
     transform: scale(0.99);
-    color:white;
+    color: white;
 }
+
 .card:active {
-    background-color: rgba(186,226,255,1);
+    background-color: rgba(186, 226, 255, 1);
     transition: transform ease-out 0.5s;
     transform: scale(1.2);
 }
-.card-columns{
+
+.titleCard {
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+}
+
+.card-columns {
     column-gap: 0;
 }
-.card-img-top{
+
+.card-img-top {
     padding: 1em;
     outline: 1px solid grey;
     outline-offset: -1em;
-    border-radius: 2px;
+    border-radius: 1em;
 }
-.carousel-item>small{
+
+.carousel-item>small {
     color: white;
 }
+
 .card.fix {
-    background-color: rgba(55,50,65,1);
+    background-color: rgba(55, 50, 65, 1);
     font-family: 'Permanent Marker', cursive;
-    color : red;
+    color: red;
 }
+
 .card.fix:hover {
     transform: none;
 }
+
 .card.fix:active {
     transform: none;
 }
 
+.description {
+    text-shadow: 0 0 0 black;
 
-@media screen and (max-width: 680px){
+    background-color: var(--color-bgd-card2);
+}
+
+
+@media screen and (max-width: 680px) {
     body {
         font-size: 8px;
-    }  
-    .masterCard {
+    }
+
+    h1 {
+        width: 100%;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        font-size: 3em;
+        font-family: 'Permanent Marker', cursive;
+    }
+
+    #welcome {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: auto;
+        width: 100%;
+    }
+
+    #welcome>div {
+        display: flex;
         flex-direction: column;
-        width : 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        height: auto;
+        width: 100%;
+    }
+
+    #welcome>div>p {
+        margin: 0;
+        padding: 0;
+        font-size: 1em;
+        font-weight: 400;
+        font-family: 'Play', recursive;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+    #welcome>div>p.bigger {
+    font-size: 1.5em;
+}
+    .masterCard {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
 
     }
+
+    #welcome>img {
+        height: 15em;
+        width: auto;
+        align-self: flex-end;
+    }
+
     .card {
-        padding : 0;
-        margin : 0;
-        padding-bottom : 1em;
-        font-size : 1em;
+        padding: 0;
+        margin: 0;
+        font-size: 1em;
         font-weight: 200;
         width: 100%;
         max-height: 50%;
         align-items: center;
-        border-radius :4px;
+        border-radius: 4px;
     }
-    .titleCard{
+
+    .card .fix {
+        max-height: 380px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+
+    }
+
+    .titleCard {
+        height: 2em;
+        width: 100%;
+        margin: 0;
+        padding: 0;
         font-family: 'Permanent Marker', cursive;
-        text-shadow :  1px 1px rgba(9,69,158,1),  2px 2px 1px rgba(140,186,255,1), 3px 3px 3px rgba(0,0,0,0.7);
         font-size: 2em;
     }
+
     .description {
-        background-color: var(--color-bgd-card2);
-        text-shadow: 0 0 0 black;
+        height: 4em;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
         font-family: 'Play', cursive;
         font-size: 1.2em;
     }
+
     .thumbnail {
         width: 100%;
         height: auto;
 
     }
-    .imgCarrousel{
+
+    .imgCarrousel {
         width: 100%;
         height: auto;
     }
-    .themePitch > h2{
-        height : 20%;
-        font-size: 3em;
-        color : var(--color-txt-titleArt);
-    }
-    .themePitch > p{
-        height : 40%;
-        font-family: 'Pacifico', recursive;
-        font-weight: 100;
-        font-size : 1.5em;
-        color : var(--color-txt-pitchArt);
-    }
-    .themePitch > h3 {
-        height : 10%;
-        color : var(--color-txt-titleArt);
-        font-family: 'Pacifico', recursive;
-        font-weight: 100;
-        font-size : 2.5em;
-    }
-    .themePitch > img {
-        width: 100%;
-        height: 30%;
-    }
-}
-@media screen and (max-width: 1480px) and (min-width: 681px){
-    body {
-        font-size: 10px;
-    }  
-    .masterCard {
-        flex-direction: column;
-        width : 100%;
 
+    .themePitch>h2 {
+        height: 20%;
+        font-size: 3em;
+        color: var(--color-txt-titleArt);
     }
-    .card {
-        padding : 0;
-        margin : 0;
-        padding-bottom : 1em;
-        font-size : 1em;
+
+    .themePitch>p {
+        width: 100%;
+        font-family: 'Pacifico', recursive;
         font-weight: 200;
-        width: 100%;
-        max-height: 50%;
-        align-items: center;
-        border-radius :4px;
+        font-size: 1em;
+        color: var(--color-txt-pitchArt);
     }
-    .titleCard{
-        font-family: 'Permanent Marker', cursive;
-        text-shadow :  1px 1px rgba(9,69,158,1),  2px 2px 1px rgba(140,186,255,1), 3px 3px 3px rgba(0,0,0,0.7);
-        font-size: 2em;
-    }
-    .description {
-        background-color: var(--color-bgd-card2);
-        text-shadow: 0 0 0 black;
-        font-family: 'Play', cursive;
-        font-size: 1.2em;
-    }
-    .thumbnail {
-        width: 100%;
-        height: auto;
 
-    }
-    .imgCarrousel{
-        width: 100%;
-        height: auto;
-    }
-    .themePitch > h2{
-        height : 20%;
-        font-size: 3em;
-        color : var(--color-txt-titleArt);
-    }
-    .themePitch > p{
-        height : 40%;
+    .themePitch>h3 {
+        height: 10%;
+        color: var(--color-txt-titleArt);
         font-family: 'Pacifico', recursive;
         font-weight: 100;
-        font-size : 1.5em;
-        color : var(--color-txt-pitchArt);
+        font-size: 2.5em;
     }
-    .themePitch > h3 {
-        height : 10%;
-        color : var(--color-txt-titleArt);
-        font-family: 'Pacifico', recursive;
-        font-weight: 100;
-        font-size : 2.5em;
-    }
-    .themePitch > img {
+
+    .themePitch>img {
         width: 100%;
         height: 30%;
     }
+
+    .LG {
+        display: none;
+        visibility: hidden;
+    }
+    .readCorner {
+        padding-top: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        font-family: 'Pacifico', recursive;
+       
+    }
+    .readCorner>h2{
+        font-size: 2.5em;
+        color: var(--color-txt-titleArt);
+    }
+    .readCorner>p{
+        font-size: 1em;
+        color: var(--color-txt-infos);
+    }
+    footer {
+        height: 3em;
+        font-size: 1.2em;
+        text-align: end;
+    }
 }
 
-@media screen and (min-width: 1481px){
+@media screen and (max-width: 1480px) and (min-width: 681px) {
     body {
         font-size: 12px;
-    }  
-    .masterCard {
-        flex-direction: column;
-        width : 100%;
-
     }
-    .card {
-        padding : 0;
-        margin : 0;
-        padding-bottom : 1em;
-        font-size : 1em;
-        font-weight: 200;
+
+    .mainBody {
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    #welcome {
+        padding-top: 2em;;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: auto;
         width: 100%;
+    }
+
+    #welcome>div {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        height: auto;
+        width: 100%;
+    }
+
+    #welcome>div>p {
+        margin: 0;
+        padding: 0;
+        font-size: 1.2em;
+        font-weight: 800;
+        font-family: 'Play', recursive;
+        margin-left: 3em;
+        margin-right: 3em;
+    }
+
+    #welcome>img {
+        height: 15em;
+        width: auto;
+    }
+    #welcome>div>p.bigger {
+        font-size: 1.5em;
+    }
+    h1 {
+        width: 100%;
+        padding-top: 1em;
+        padding-bottom: 0;
+        font-size: 3em;
+        font-family: 'Permanent Marker', cursive;
+    }
+
+    .masterCard {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 60%;
+        padding-top: 7%;
+    }
+
+    .card {
+        padding: 0;
+        margin: 0;
+        font-size: 1em;
+        font-weight: 200;
+        width: 25%;
         max-height: 50%;
         align-items: center;
-        border-radius :4px;
+        border-radius: 4px;
     }
-    .titleCard{
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+
+    }
+
+    .titleCard {
+        height: 2.6em;
+        width: 100%;
+        margin: 0;
+        padding: 0;
         font-family: 'Permanent Marker', cursive;
-        text-shadow :  1px 1px rgba(9,69,158,1),  2px 2px 1px rgba(140,186,255,1), 3px 3px 3px rgba(0,0,0,0.7);
-        font-size: 2em;
+        font-size: 1.3em;
+        text-align: center;
     }
+
     .description {
-        background-color: var(--color-bgd-card2);
-        text-shadow: 0 0 0 black;
+        height: 7.2em;
+        width: 100%;
+        padding: 1em;
+
         font-family: 'Play', cursive;
         font-size: 1.2em;
     }
+
     .thumbnail {
         width: 100%;
         height: auto;
 
     }
-    .imgCarrousel{
+
+    .imgCarrousel {
         width: 100%;
         height: auto;
     }
-    .themePitch > h2{
-        height : 20%;
+
+    #masterCard_0 {
+        order: 1;
+    }
+
+    #masterCard_1 {
+        order: 2;
+    }
+
+    #masterCard_2 {
+        order: 4;
+    }
+
+    #masterCard_3 {
+        order: 5;
+    }
+
+    #readCorner {
+        padding-top: 7%;
+        order: 3
+    }
+
+    #SM {
+        display: none;
+
+    }
+
+    .readCorner {
+        width: 100%;
+        min-width: 680px;
+        min-height: 340px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        font-family: 'Pacifico', recursive;
+    }
+
+    .LG {}
+
+    .readCorner>h2 {
+        font-size: 2.5em;
+        color: var(--color-txt-titleArt);
+    }
+
+    .intro {
+        padding-top: 1em;
+        width: 90%;
+        height: 1em;
+        font-weight: 200;
+        font-size: 1em;
+        text-align: left;
+        color: var(--color-txt-welcome);
+    }
+
+    #LG {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .themePitch {
+        padding-top: 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 30%;
+    }
+
+    .themePitch>h3 {
+        font-size: 1.5em;
+        color: var(--color-txt-titleArt);
+    }
+
+    .themePitch>h4 {
+        height: 10%;
+        color: var(--color-txt-welcome);
+        font-weight: 100;
+        font-size: 1em;
+    }
+
+    .themePitch>img {
+        width: 100%;
+    }
+
+    .txtArticle {
+        padding-bottom: 1em;
+        height: 50%;
+        font-weight: 200;
+        font-size: 1em;
+        color: var(--color-txt-welcome);
+    }
+
+    .card.fix {
+        min-width: 680px;
+        min-height: 340px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        background-image: url(/public/assets/img/fontBD.webp);
+        background-size: cover;
+    }
+
+    #carouselExampleIndicators1 {
+        position: absolute;
+        top: 4%;
+        left: 4%;
+        width: 56.75%;
+    }
+
+    #carouselExampleIndicators2 {
+        position: absolute;
+        top: 4%;
+        left: 63.25%;
+        width: 32.75%;
+    }
+
+    #carouselExampleIndicators3 {
+        position: absolute;
+        top: 51.5%;
+        left: 4%;
+        width: 39.75%;
+    }
+
+    #carouselExampleIndicators4 {
+        position: absolute;
+        top: 51.75%;
+        left: 46.25%;
+        width: 49.5%;
+    }
+
+    footer {
+        height: 3em;
+        font-size: 1.2em;
+        text-align: end;
+    }
+}
+
+@media screen and (min-width: 1481px) {
+    body {
+        font-size: 12px;
+    }
+
+    .masterCard {
+        flex-direction: column;
+        width: 100%;
+
+    }
+
+    .card {
+        padding: 0;
+        margin: 0;
+        padding-bottom: 1em;
+        font-size: 1em;
+        font-weight: 200;
+        width: 100%;
+        max-height: 50%;
+        align-items: center;
+        border-radius: 4px;
+    }
+
+    .titleCard {
+        font-family: 'Permanent Marker', cursive;
+
+        font-size: 2em;
+    }
+
+    .description {
+        font-family: 'Play', cursive;
+        font-size: 1.2em;
+    }
+
+    .thumbnail {
+        width: 100%;
+        height: auto;
+
+    }
+
+    .imgCarrousel {
+        width: 100%;
+        height: auto;
+    }
+
+    .themePitch>h2 {
+        height: 20%;
         font-size: 3em;
-        color : var(--color-txt-titleArt);
+        color: var(--color-txt-titleArt);
     }
-    .themePitch > p{
-        height : 40%;
+
+    .themePitch>p {
+        height: 40%;
         font-family: 'Pacifico', recursive;
         font-weight: 100;
-        font-size : 1.5em;
-        color : var(--color-txt-pitchArt);
+        font-size: 1.5em;
+        color: var(--color-txt-pitchArt);
     }
-    .themePitch > h3 {
-        height : 10%;
-        color : var(--color-txt-titleArt);
+
+    .themePitch>h3 {
+        height: 10%;
+        color: var(--color-txt-titleArt);
         font-family: 'Pacifico', recursive;
         font-weight: 100;
-        font-size : 2.5em;
+        font-size: 2.5em;
     }
-    .themePitch > img {
+
+    .themePitch>img {
         width: 100%;
         height: 30%;
+    }
+
+    footer {
+        height: 3em;
+        font-size: 1.2em;
+        text-align: end;
     }
 }
 
 
 @keyframes shake {
-    0% {transform : rotateY(-45deg) rotateZ(5deg);}
-    50% {transform :rotateY(45deg) rotateZ(0deg);}
-    100% {transform :rotateY(-45deg) rotateZ(5deg);}
+    0% {
+        transform: rotateY(-45deg) rotateZ(5deg);
+    }
+
+    50% {
+        transform: rotateY(45deg) rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateY(-45deg) rotateZ(5deg);
+    }
 }

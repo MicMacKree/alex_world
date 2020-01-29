@@ -1,24 +1,31 @@
 <div class="headband">
     <div class="siteName">
-        <a href = "/" class="homeLink">
-            <img class="titleImg" src="/public/assets/img/alyxEye6.png" alt="Alyx" />
+        <a href="/" class="homeLink">
+            <img class="titleImg" src="/public/assets/img/alyxEye6.webp" alt="Alyx" />
         </a>
-        <% include ../partials/pubYT.ejs %>
+        <a class="news" href="https://www.youtube.com/channel/UCtToNyHU2Fjxuh__ypkHiIQ/videos">
+            <p> Retrouves moi</p>
+            <p> sur </p>
+            <p>
+                <img class="logoYT" src="/public/assets/img/logoYT.webp" alt="youtube" />
+            </p>
+        </a>
     </div>
     <div class="headband2">
         <div class="boxLink">
-            <div class="chatButtonBox">
-                <img id="chatButtonStart" src="/public/lib/js/chat/img/cat.png" alt="chat"/>
+            <div id="chatButtonStart" class="chatButtonBox">
+
             </div>
             <div class="sub">
                 <p id="subNow">Vite abonnes toi !</p>
-                <div class="g-ytsubscribe" data-channelid="UCtToNyHU2Fjxuh__ypkHiIQ" data-layout="default" data-theme="dark" data-count="default">
+                <div class="g-ytsubscribe" data-channelid="UCtToNyHU2Fjxuh__ypkHiIQ" data-layout="default"
+                    data-theme="dark" data-count="default">
                 </div>
             </div>
         </div>
         <div class="messageBox">
-            <p class="infoServer col-md-12 text-left">MESSAGES :</p>
-            <p id ="infoServer" class="infoServer col-md-12"></p>
+            <p class="infoServer">MESSAGES :</p>
+            <p id="infoServer"></p>
         </div>
     </div>
 </div>
