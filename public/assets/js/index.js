@@ -18,8 +18,8 @@
              videoCard[i] = document.createElement ("A");
              videoCard[i].innerHTML = '<div class="card-body">'
                      + '                  <h5 class="titleCard">' + allVideos[i].title + '</h5>'
-                     + '                  <p class="description">' + allVideos[i].description2 + ' ... ' + '</p>'
                      + '              </div>'
+                     + '              <p class="description">' + allVideos[i].description2 + ' ... ' + '</p>'
                      + '              <div class="container row p-0 m-0">'
                      + '                  <img id="thumbnail_' + i + '" class="lazyload thumbnail p-0 m-0" data-src="' + allVideos[i].thumbnail + '" alt="' + allVideos[i].title + '">'
                      + '                  <p class="card-text text2 col-md-6 pt-2"></p>'

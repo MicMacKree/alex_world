@@ -54,7 +54,7 @@
                         fonctions, et même une page trés utile à mes amis Fan de fortnite, mais c'est une surprise...
                     </p>
                 </div>
-                <img src="/public/assets/img/beerus_avatar.webp" alt="beerus_avatar">
+                <img  class="lazyload" data-src="/public/assets/img/beerus_avatar.webp" alt="beerus_avatar">
             </div>
             <h1> Voici mes 10 dernières vidéos </h1>
             <div id="masterCard_0" class="masterCard">
@@ -68,7 +68,7 @@
                     <div class="themePitch">
                         <h3> <%= params.carroussel.title %> </h3>
                         <p class="txtArticle"><%= params.carroussel.description.pitch %></p>
-                        <img src="/public/assets/img/<%= params.carroussel.rep %>/img1.webp"
+                        <img  class="lazyload" data-src="/public/assets/img/<%= params.carroussel.rep %>/img1.webp"
                             alt="<%= params.carroussel.title %>" title="<%= params.carroussel.title %>">
                         <h4 class="text-right"><%= params.carroussel.description.author %></h4>
                     </div>
@@ -83,20 +83,20 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="/public/assets/img/<%= params.carroussel.rep %>/class1/img0.webp"
-                                        class="imgCarrousel" alt="<%= params.carroussel.title %>">
+                                    <img class="imgCarrousel lazyload" data-src="/public/assets/img/<%= params.carroussel.rep %>/class1/img0.webp"
+                                     alt="<%= params.carroussel.title %>">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/public/assets/img/<%= params.carroussel.rep %>/class1/img1.webp"
-                                        class="imgCarrousel" alt="<%= params.carroussel.title %>">
+                                    <img class="imgCarrousel lazyload" data-src="/public/assets/img/<%= params.carroussel.rep %>/class1/img1.webp"
+                                        alt="<%= params.carroussel.title %>">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/public/assets/img/<%= params.carroussel.rep %>/class1/img2.webp"
-                                        class="imgCarrousel" alt="<%= params.carroussel.title %>">
+                                    <img class="imgCarrousel lazyload" data-src="/public/assets/img/<%= params.carroussel.rep %>/class1/img2.webp"
+                                     alt="<%= params.carroussel.title %>">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/public/assets/img/<%= params.carroussel.rep %>/class1/img3.webp"
-                                        class="imgCarrousel" alt="<%= params.carroussel.title %>">
+                                    <img data-src="/public/assets/img/<%= params.carroussel.rep %>/class1/img3.webp"
+                                    class="imgCarrousel lazyload" alt="<%= params.carroussel.title %>">
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button"
@@ -120,20 +120,20 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="/public/assets/img/<%= params.carroussel.rep %>/class2/img0.webp"
-                                        class="imgCarrousel" alt="<%= params.carroussel.title %>">
+                                    <img class="imgCarrousel lazyload" data-src="/public/assets/img/<%= params.carroussel.rep %>/class2/img0.webp"
+                                        alt="<%= params.carroussel.title %>">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/public/assets/img/<%= params.carroussel.rep %>/class2/img1.webp"
-                                        class="imgCarrousel" alt="<%= params.carroussel.title %>">
+                                    <img data-src="/public/assets/img/<%= params.carroussel.rep %>/class2/img1.webp"
+                                    class="imgCarrousel lazyload" alt="<%= params.carroussel.title %>">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/public/assets/img/<%= params.carroussel.rep %>/class2/img2.webp"
-                                        class="imgCarrousel" alt="<%= params.carroussel.title %>">
+                                    <img data-src="/public/assets/img/<%= params.carroussel.rep %>/class2/img2.webp"
+                                    class="imgCarrousel lazyload" alt="<%= params.carroussel.title %>">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/public/assets/img/<%= params.carroussel.rep %>/class2/img3.webp"
-                                        class="imgCarrousel" alt="<%= params.carroussel.title %>">
+                                    <img data-src="/public/assets/img/<%= params.carroussel.rep %>/class2/img3.webp"
+                                    class="imgCarrousel lazyload" alt="<%= params.carroussel.title %>">
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button"
@@ -157,20 +157,20 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="/public/assets/img/<%= params.carroussel.rep %>/class3/img0.webp"
-                                        class="imgCarrousel" alt="<%= params.carroussel.title %>">
+                                    <img class="imgCarrousel lazyload" data-src="/public/assets/img/<%= params.carroussel.rep %>/class3/img0.webp"
+                                        alt="<%= params.carroussel.title %>">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/public/assets/img/<%= params.carroussel.rep %>/class3/img1.webp"
-                                        class="imgCarrousel" alt="<%= params.carroussel.title %>">
+                                    <img class="imgCarrousel lazyload" data-src="/public/assets/img/<%= params.carroussel.rep %>/class3/img1.webp"
+                                        alt="<%= params.carroussel.title %>">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/public/assets/img/<%= params.carroussel.rep %>/class3/img2.webp"
-                                        class="imgCarrousel" alt="<%= params.carroussel.title %>">
+                                    <img class="imgCarrousel lazyload" data-src="/public/assets/img/<%= params.carroussel.rep %>/class3/img2.webp"
+                                        alt="<%= params.carroussel.title %>">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/public/assets/img/<%= params.carroussel.rep %>/class3/img3.webp"
-                                        class="imgCarrousel" alt="<%= params.carroussel.title %>">
+                                    <img class="imgCarrousel lazyload" data-src="/public/assets/img/<%= params.carroussel.rep %>/class3/img3.webp"
+                                        alt="<%= params.carroussel.title %>">
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators3" role="button"
@@ -194,19 +194,19 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="/public/assets/img/<%= params.carroussel.rep %>/class4/img0.webp"
+                                    <img class="imgCarrousel lazyload" data-src="/public/assets/img/<%= params.carroussel.rep %>/class4/img0.webp"
+                                     alt="<%= params.carroussel.title %>">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="imgCarrousel lazyload" data-src="/public/assets/img/<%= params.carroussel.rep %>/class4/img1.webp"
                                         class="imgCarrousel" alt="<%= params.carroussel.title %>">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/public/assets/img/<%= params.carroussel.rep %>/class4/img1.webp"
+                                    <img class="imgCarrousel lazyload" data-src="/public/assets/img/<%= params.carroussel.rep %>/class4/img2.webp"
                                         class="imgCarrousel" alt="<%= params.carroussel.title %>">
                                 </div>
-                                <div class="carousel-item">
-                                    <img src="/public/assets/img/<%= params.carroussel.rep %>/class4/img2.webp"
-                                        class="imgCarrousel" alt="<%= params.carroussel.title %>">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="/public/assets/img/<%= params.carroussel.rep %>/class4/img3.webp"
+                                <div class="carousclass="imgCarrousel lazyload"el-item">
+                                    <img class="imgCarrousel lazyload" data-src="/public/assets/img/<%= params.carroussel.rep %>/class4/img3.webp"
                                         class="imgCarrousel" alt="<%= params.carroussel.title %>">
                                 </div>
                             </div>
@@ -233,24 +233,24 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="/public/assets/img/<%= params.carroussel.rep %>/img0.webp"
-                                    class="imgCarrousel" alt="<%= params.carroussel.title %>">
+                                <img data-src="/public/assets/img/<%= params.carroussel.rep %>/img0.webp"
+                                    class="imgCarrousel lazyload" alt="<%= params.carroussel.title %>">
                             </div>
                             <div class="carousel-item container column themePitch">
                                 <h2> <%= params.carroussel.title %> </h2>
-                                <img src="/public/assets/img/<%= params.carroussel.rep %>/img1.webp"
+                                <img class="lazyload" data-src="/public/assets/img/<%= params.carroussel.rep %>/img1.webp"
                                     alt="<%= params.carroussel.title %>"
                                     title="<%= params.carroussel.description.pitch %>">
                                 <h3 class="text-right"><%= params.carroussel.description.author %></h3>
                                 <p><%= params.carroussel.description.pitch %></p>
                             </div>
                             <div class="carousel-item">
-                                <img src="/public/assets/img/<%= params.carroussel.rep %>/img2.webp"
-                                    class="imgCarrousel" alt="<%= params.carroussel.title %>">
+                                <img data-src="/public/assets/img/<%= params.carroussel.rep %>/img2.webp"
+                                    class="imgCarrousel lazyload" alt="<%= params.carroussel.title %>">
                             </div>
                             <div class="carousel-item">
-                                <img src="/public/assets/img/<%= params.carroussel.rep %>/img3.webp"
-                                    class="imgCarrousel" alt="<%= params.carroussel.title %>">
+                                <img data-src="/public/assets/img/<%= params.carroussel.rep %>/img3.webp"
+                                    class="imgCarrousel lazyload" alt="<%= params.carroussel.title %>">
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"

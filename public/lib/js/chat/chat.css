@@ -55,7 +55,6 @@ textarea{
     background-color: rgba(120,120,255,1);
     transform: scale(0.95);
 }
-
 .cat>img {
     pointer-events: none;
 }
@@ -102,7 +101,6 @@ textarea{
     border-radius: 1.5em;
     transform: scale(0.8);
 }
-
 .chatBodyUpRight{
 
 }
@@ -136,11 +134,9 @@ textarea{
     background-repeat: no-repeat;
     border-radius: 2px;
 }
-
 .cButton{
    
 }
-
 #chatInput{
     border :1px solid grey;
     background-color: var(--color-bgd-input-chat);
@@ -444,59 +440,272 @@ textarea{
     }
 }
 @media screen and (max-width: 1480px) and (min-width: 681px){
-    .chatLogin{
-        height:50%;
-        position:absolute;
-        top:25%;
-        left:30%;
-        z-index:2;
-
-        font-size: 0em;
-
-        width:40%;
-        transition : font-size linear 0.5s, height linear 0.5s;
-        overflow: visible;
-    }
-    .chat{
-        height: 20%;
-        position : fixed;
+    #chatLogin{
+        flex-direction: column;
+        position:fixed;
         top:80%;
         left:60%;
-        z-index:2;
-        font-size: 0em;
-        width:40%;
-        transition : font-size linear 0.5s, height linear 0.5s;
-        overflow: visible;
-    }
-    .chatMinimize{
-        height: 3em;
-    }
-    .chatActif{
+        z-index:3;
 
-        font-size: 1em;
+        width:40%;
+        height:20%;
+
+        overflow: hidden;
+    }
+    .chatHandler{
+        height:20%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
     }
     #chatLoginBody{
 
+        padding:0;
+        margin:0;
 
         width: 100%;
+        height: 80%;
+
+        display:flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+
+        justify-content: center;
+        align-items: center;
+    }
+    #chatLoginBody > div {
+        display:flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+
+        justify-content: space-around;
+        align-items: flex-start;
+
+        width:80%;
+        height:80%;
+    }
+    #chatLoginBody > div > h3 {
+        font-size:3em;
+        font-weight: 800;
+        font-family: 'Amatic SC', cursive;
+        text-align: start;
+    }
+    #chatLoginBody > div > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-end;
+        width:100%;
+    }
+    #chatLoginBody > div > div > input {
+        font-weight : 400;
+        font-family: 'Play', cursive;
+        font-size: 2em;
+        text-align: right;
+
+    }
+    #chatLoginBody > div > div > a {
+        font-size:3em;
+        font-weight: 800;
+        font-family: 'Amatic SC', cursive;
+    }
+    .chat {
+
+        position:fixed;
+        top:80%;
+        left:60%;
+        z-index:3;
+
+        width:40%;
+        height:20%;
+
+        padding:0;
+        margin:0;
+
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: nowrap;
+
+        overflow: hidden;
+    }
+    .cat{
+        position: relative;
+        top : 0%;
+        left:-35%;
+        display:flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width : auto;
+        height:100%;
+        overflow: visible;
+        align-items: center;
+    }   
+    .cat>img {
+        position:relative;
+        width:auto;
+        height:5em;
+    }
+    .cat>span{
+        text-align: center;
+        font-size:3em;
+        font-weight: 800;
+        font-family: 'Amatic SC', cursive;
+    }
+    .chatBodyUp {
+        display:flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width: 100%;
         height: 100%;
+    }
+    .chatBodyUpLeft{
+        display:flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        padding:0;
+        margin:0;
+        width: 25%;
+        height: 100%;
+    }
+    .chatBodyUpLeft > h4{
+        text-align: left;
+        font-size:2em;
+        font-weight: 800;
+        margin-top : 2%;
+        height:10%;
+        font-family: 'Amatic SC', cursive;
+    }
+    #chatConnected{
+        overflow-y: scroll;
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        width: 100%;
+        height: 58%;   
+    }
+    #chatConnected > p{
+        margin-top:0;
+        margin-bottom:0;
+        text-align: start;
+        font-family: 'Play', cursive;
+        font-size:1.5em;
+    }
+    #chatGame{
+        width: 100%;
+        height: 15%;
+    }
+    #chatOptions{
+        width: 100%;
+        height: 15%;
+    }
+  
+    .chatBodyUpRight{
+        display:flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 75%;
+        height: 100%;
+    }
+    #chatOutput{
+        margin:0;
+        padding:0;
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        width: 100%;
+        height: 80%;
+
+        overflow-y: scroll;
+    }
+    #chatOutput > div{
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+   
+    }
+   
+    .messagePseudo {
+        margin:0;
+        padding:0;
+        text-align: end;
+        font-size:1.6em;
+        font-weight: 800;
+        font-family: 'Play', cursive;
+    }
+    .messageText{
+        align-self: flex-start;
+        margin:0;
+        padding:0;
+        margin-right: 0.5em;
+        text-align: start;
+        font-size:1.5em;
+        font-weight: 400;
+             font-family: 'Play', cursive;
+    }
+    .chatInputBox{
+        width: 100%;
+        height: 20%;
+        font-size:0.8em;
+        display:flex;
+        flex-direction: row;
+    }
+    .cmdChat{
+        margin:0;
+        padding:0;
+        height:100%;
+        width:20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cButton{
+        margin:0;
+        padding:0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height:100%;
+        width:100%;
+    }
+    
+    #chatInput{
+        height:100%;
+        width:90%;
+        margin:0;
+        padding:0;
+        text-align: left;
+        font-size: 1.5em;
+        font-family: var(--font-area);
     }
 }
 
 @media screen and (min-width: 1481px){
     #chatLogin{
+        flex-direction: column;
+        position:fixed;
+        top:80%;
+        left:60%;
+        z-index:3;
 
-        position:absolute;
-        top:25%;
-        left:25%;
-        z-index:2;
+        width:40%;
+        height:20%;
 
-        padding:0;
-        margin:0;
-        width:35em;
-        height:20em;
-
-        overflow: visible;
+        overflow: hidden;
+    }
+    .chatHandler{
+        height:20%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
     }
     #chatLoginBody{
 
@@ -504,6 +713,222 @@ textarea{
         margin:0;
 
         width: 100%;
+        height: 80%;
+
+        display:flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+
+        justify-content: center;
+        align-items: center;
+    }
+    #chatLoginBody > div {
+        display:flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+
+        justify-content: space-around;
+        align-items: flex-start;
+
+        width:80%;
+        height:80%;
+    }
+    #chatLoginBody > div > h3 {
+        font-size:3em;
+        font-weight: 800;
+        font-family: 'Amatic SC', cursive;
+        text-align: start;
+    }
+    #chatLoginBody > div > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-end;
+        width:100%;
+    }
+    #chatLoginBody > div > div > input {
+        font-weight : 400;
+        font-family: 'Play', cursive;
+        font-size: 2em;
+        text-align: right;
+
+    }
+    #chatLoginBody > div > div > a {
+        font-size:3em;
+        font-weight: 800;
+        font-family: 'Amatic SC', cursive;
+    }
+    .chat {
+
+        position:fixed;
+        top:80%;
+        left:60%;
+        z-index:3;
+
+        width:40%;
+        height:20%;
+
+        padding:0;
+        margin:0;
+
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: nowrap;
+
+        overflow: hidden;
+    }
+    .cat{
+        position: relative;
+        top : 0%;
+        left:-35%;
+        display:flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width : auto;
+        height:100%;
+        overflow: visible;
+        align-items: center;
+    }   
+    .cat>img {
+        position:relative;
+        width:auto;
+        height:5em;
+    }
+    .cat>span{
+        text-align: center;
+        font-size:3em;
+        font-weight: 800;
+        font-family: 'Amatic SC', cursive;
+    }
+    .chatBodyUp {
+        display:flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width: 100%;
         height: 100%;
+    }
+    .chatBodyUpLeft{
+        display:flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        padding:0;
+        margin:0;
+        width: 25%;
+        height: 100%;
+    }
+    .chatBodyUpLeft > h4{
+        text-align: left;
+        font-size:2em;
+        font-weight: 800;
+        margin-top : 2%;
+        height:10%;
+        font-family: 'Amatic SC', cursive;
+    }
+    #chatConnected{
+        overflow-y: scroll;
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        width: 100%;
+        height: 58%;   
+    }
+    #chatConnected > p{
+        margin-top:0;
+        margin-bottom:0;
+        text-align: start;
+        font-family: 'Play', cursive;
+        font-size:1.5em;
+    }
+    #chatGame{
+        width: 100%;
+        height: 15%;
+    }
+    #chatOptions{
+        width: 100%;
+        height: 15%;
+    }
+  
+    .chatBodyUpRight{
+        display:flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 75%;
+        height: 100%;
+    }
+    #chatOutput{
+        margin:0;
+        padding:0;
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        width: 100%;
+        height: 80%;
+
+        overflow-y: scroll;
+    }
+    #chatOutput > div{
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+   
+    }
+   
+    .messagePseudo {
+        margin:0;
+        padding:0;
+        text-align: end;
+        font-size:1.6em;
+        font-weight: 800;
+        font-family: 'Play', cursive;
+    }
+    .messageText{
+        align-self: flex-start;
+        margin:0;
+        padding:0;
+        margin-right: 0.5em;
+        text-align: start;
+        font-size:1.5em;
+        font-weight: 400;
+             font-family: 'Play', cursive;
+    }
+    .chatInputBox{
+        width: 100%;
+        height: 20%;
+        font-size:0.8em;
+        display:flex;
+        flex-direction: row;
+    }
+    .cmdChat{
+        margin:0;
+        padding:0;
+        height:100%;
+        width:20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cButton{
+        margin:0;
+        padding:0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height:100%;
+        width:100%;
+    }
+    
+    #chatInput{
+        height:100%;
+        width:90%;
+        margin:0;
+        padding:0;
+        text-align: left;
+        font-size: 1.5em;
+        font-family: var(--font-area);
     }
 }

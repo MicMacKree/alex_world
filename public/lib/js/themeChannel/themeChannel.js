@@ -1,4 +1,3 @@
-<script>
      Theme = function (_theme) {
          this.initTheme (_theme);
          this.setThemeHTML ();
@@ -19,8 +18,7 @@
                                  + '</div>'
                          ,
                          background: 'fortnite.jpg'
-                     }
-             ;
+                     };
              this.themeContent['other'] =
                      {
                          html: '<div class="other" id="backTheme">'
@@ -29,8 +27,7 @@
                                  + '</div>'
                          ,
                          background: 'other.jpg'
-                     }
-             ;
+                     };
              this.themeContent['simcity'] =
                      {
                          html: '<div class="simcity" id="backTheme">'
@@ -39,8 +36,7 @@
                                  + '</div>'
                          ,
                          background: 'simcity.jpg'
-                     }
-             ;
+                     };
              this.themeContent['nature'] =
                      {
                          html: '<div class="nature" id="backTheme">'
@@ -49,8 +45,7 @@
                                  + '</div>'
                          ,
                          background: 'nature.jpg'
-                     }
-             ;
+                     };
              this.themeContent['gravitrax'] =
                      {
                          html: '<div id="backTheme" class="gravitrax">'
@@ -61,8 +56,7 @@
                              + '</div>'
                          ,
                          background: 'gravitrax3.gif'
-                     }
-             ;
+                     };
          },
          setThemeHTML: function () {
              this.DIV.innerHTML = this.themeContent[this.theme].html;
@@ -74,4 +68,3 @@
              }.bind (this));
          }
      };
-</script>

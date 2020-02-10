@@ -13,13 +13,15 @@ html{
     --color-txt-titleVideo : rgb(255,255,255);
     --color-bgd-titleVideo : rgb(50,50,50);
     --color-bgd-bodyPage: rgb(245,245,245);
-    --shadow-txt-title: 1px 1px rgba(140,186,255,1),  2px 2px 1px rgba(9,69,158,1), 5px 5px 2px rgba(0,0,0,0.7);
+    --shadow-txt-title: 1px 1px 1px rgba(140,186,255,1);
     --color-bgd-infos: rgb(149,149,149);
     --border-infos: 2px inset powderblue;
-    --shadow-box-infos: -2em 2em 3em rgba(0,0,0,0.7);
+    --shadow-box-infos: 2em 2em 3em rgba(0,0,0,0.7);
     --font-size-infos: 1.2em;
-    --shadow-txt-infos: 1px 1px 1px rgb(0,0,0), 5px 5px 2px rgb(0,0,0);
+    --shadow-txt-infos: 1px 1px 1px rgb(0,0,0);
     --color-txt-infos: rgb(240,240,240);
+    --color-bgd-title1 : rgba(50,50,50,0.8);
+    --color-bgd-title2 : rgba(50,50,50,0.5);
     --font-size-yourComments: 1.8em;
     --gradient-comment-old: #f85032; /* Old browsers */
     --gradient-comment-moz: -moz-linear-gradient(-45deg, #f85032 0%, #f16f5c 50%, #f6290c 51%, #f02f17 71%, #e73827 100%); /* FF3.6-15 */
@@ -30,7 +32,6 @@ html{
 body {
     z-index:1;
     font-family: var(--font-family-body);
-
     overflow-x: hidden;
 }
 .hidden {
@@ -60,8 +61,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', end
     color: var(--color-txt-titleVideo);
     background:  var(--color-bgd-titleVideo);
 }
-#infoVideo{
-}
+
 .infos{
     border-radius: 0.5em;
     border: var(--border-infos);
@@ -73,6 +73,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', end
     background:  var(--gradient-info-webkit);
     background: var(--gradient-info-standard);
     filter: var(--gradient-info-filter);
+}
+.description{
+    width:100%;
+    margin-bottom:0;
+    background-color: var(--color-bgd-title1);
+}
+.publishedAt{
+    width:100%;
+    margin-top:0;
+    background-color: var(--color-bgd-title2);
 }
 .comments{
     border-radius: 0.5em;
@@ -87,19 +97,27 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', end
     background: var(--gradient-comment-standard);
     filter: var(--gradient-comment-filter);
 }
+.yourComments{
+    width:100%;
+    margin-bottom:0;
+    background-color: var(--color-bgd-title1);
+}
 @media screen and (max-width: 680px){
     body {
-        font-size: 8px;
+        font-size: 10px;
         font-family : var(--font-family-body);
     }
 
     .title{
-        font-family: 'Courgette', cursive;
         font-weight: 200;
         font-size:3em;
     }
     .bodyPage {
         height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
     }
 
     #infoVideo{
@@ -135,88 +153,145 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', end
         font-size: var(--font-size-yourComments);
     }
     .imgAvatar{
-        width: 2em;
-        height: 2em;
+        width: 3em;
+        height: 3em;
     }
     .author{
-        font-size: 0.6em;
+        font-size: 0.8em;
     }
 }
 @media screen and (max-width: 1480px) and (min-width: 681px){
     body {
-        font-size: 10px;
-    }
-    h1{
-
-    }
-    .headbandDescribe{
-
-
-    }
-    .subscribe{
-
+        font-size: 12px;
     }
     .bodyPage {
-        height:30%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
     }
-    #themeVideo{
-        height: 66%;
-        font-size: 0.2em;
-    }
-    #infoVideo{
-        height:34%;
-    }
-    .author{
-        font-size: 0.7em;
-    }
-    .yourComments{
-        font-weight: 800;
-        color: whitesmoke;
-    }
-    .adit{
-        color: whitesmoke;
-        font-weight: 600;
+.title{
+    font-size: 3em;
+}
+  
+    .description{
+        font-size: 3em;
     }
     .publishedAt{
-        font-weight: 600;
-        color: whitesmoke; 
+        font-size: 1em;
+    }
+    .descriptionText{
+        font-size: 1.5em;
+    }
+    .infos{
+        margin:0;
+        padding:0;
+        overflow-y: scroll;
+        font-size: var(--font-size-infos);
+width: 33%;
+    }
+    .comments{
+        margin :0;
+        padding:0;
+        width: 66%;
+        overflow-y: scroll;
+    }
+    .comment {
+        margin:0;
+        padding:0;
+    }
+    .commentInfo {
+        margin:0;
+        padding:0; 
+    }
+    .commentText{
+        margin:0;
+        padding:0;
+    }
+    .commentText > p {
+        margin:0;
+        padding:0;
+        font-size: 1.5em;
+    }
+    .yourComments{
+        font-size: 2.5em;
+    }
+    .imgAvatar{
+        width: 4em;
+        height: 4em;
+    }
+    .author{
+        font-size: 1.2em;
     }
 }
 
 @media screen and (min-width: 1481px){
     body {
-        font-size: 15px;
-    }
-    h1{
-
-    }
-    .headbandDescribe{
-
-
-    }
-    .subscribe{
-
+        font-size: 16px;
     }
     .bodyPage {
-        height:100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
     }
-    #themeVideo{
-        height: 65%;
-    }
+     .title{
+    font-size: 5em;
+}
     #infoVideo{
-        height:32%;
     }
-    .author{
-        font-size: 0.7em;
-    }
-    .yourComments{
-        font-weight: 800;
-        color: graytext;
-    }
-    .adit{
-        font-size:1em;
-        font-weight: 600;
-    }
+        .description{
+            font-size: 4em;
+        }
+        .publishedAt{
+            font-size: 1em;
+        }
+        .descriptionText{
+            font-size: 1.5em;
+        }
+        .infos{
+            width: 50%;
+            margin:0;
+            padding:0;
+            overflow-y: scroll;
+            font-size: var(--font-size-infos);
+    
+        }
+        .comments{
+            width:50%;
+            margin :0;
+            padding:0;
+            overflow-y: scroll;
+        }
+        .comment {
+            margin:0;
+            padding:0;
+        }
+        .commentInfo {
+            margin:0;
+            padding:0; 
+        }
+        .commentText{
+            margin:0;
+            padding:0;
+        }
+        .commentText > p {
+            margin:0;
+            padding:0;
+            font-size: 2em;
+        }
+        .yourComments{
+            font-size: 3em;
+        }
+        .imgAvatar{
+            width: 4em;
+            height: 4em;
+        }
+        .author{
+            font-size: 1.5em;
+        }
 }
 
 

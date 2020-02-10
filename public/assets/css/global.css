@@ -121,19 +121,21 @@ h1 {
     box-shadow: 10px 10px 2px rgba(0, 0, 0, 0.5);
     background-color: var(--color-bgd-card);
     color: var(--color-txt-card);
-
+overflow: hidden;
 }
 
 .card-group {
     column-gap: 0;
 }
-
-.titleCard {
+.card-body{
     background: var(--gradient-comment-old);
     background: var(--gradient-comment-moz);
     background: var(--gradient-comment-webkit);
     background: var(--gradient-comment-standard);
     filter: var(--gradient-comment-filter);
+}
+.titleCard {
+
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     color: white;
@@ -159,7 +161,7 @@ h1 {
 }
 
 .titleCard {
-    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 1px black;
 }
 
 .card-columns {
@@ -208,7 +210,7 @@ h1 {
         padding-top: 1em;
         padding-bottom: 1em;
         font-size: 3em;
-        font-family: 'Permanent Marker', cursive;
+        font-family: 'Luckiest Guy', cursive;
     }
 
     #welcome {
@@ -277,16 +279,19 @@ h1 {
         margin: 0;
         padding: 0;
         width: 100%;
-
+        justify-content: space-around;
+      align-items: flex-start;
+      height: 4em;
     }
 
     .titleCard {
-        height: 2em;
         width: 100%;
         margin: 0;
         padding: 0;
-        font-family: 'Permanent Marker', cursive;
+        font-family: 'Luckiest Guy', cursive;
         font-size: 2em;
+        text-align: start;
+        text-justify: distribute-all-lines;
     }
 
     .description {
@@ -294,7 +299,6 @@ h1 {
         width: 100%;
         margin: 0;
         padding: 0;
-
         font-family: 'Play', cursive;
         font-size: 1.2em;
     }
@@ -399,7 +403,7 @@ h1 {
         margin: 0;
         padding: 0;
         font-size: 1.2em;
-        font-weight: 800;
+        font-weight: 200;
         font-family: 'Play', recursive;
         margin-left: 3em;
         margin-right: 3em;
@@ -417,7 +421,7 @@ h1 {
         padding-top: 1em;
         padding-bottom: 0;
         font-size: 3em;
-        font-family: 'Permanent Marker', cursive;
+        font-family: 'Luckiest Guy', cursive;
     }
 
     .masterCard {
@@ -426,7 +430,6 @@ h1 {
         justify-content: space-around;
         align-items: center;
         width: 100%;
-        height: 60%;
         padding-top: 7%;
     }
 
@@ -436,7 +439,7 @@ h1 {
         font-size: 1em;
         font-weight: 200;
         width: 25%;
-        max-height: 50%;
+        height: 100%;
         align-items: center;
         border-radius: 4px;
     }
@@ -444,28 +447,27 @@ h1 {
     .card-body {
         display: flex;
         flex-direction: column;
-        justify-content: start;
+        justify-content: space-around;
+        align-items: flex-start;
         margin: 0;
         padding: 0;
         width: 100%;
-
+        height:4em;
     }
 
     .titleCard {
-        height: 2.6em;
         width: 100%;
         margin: 0;
         padding: 0;
-        font-family: 'Permanent Marker', cursive;
-        font-size: 1.3em;
-        text-align: center;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 1.2em;
+        text-align: start;
+        text-justify: distribute-all-lines;
     }
 
     .description {
         height: 7.2em;
         width: 100%;
-        padding: 1em;
-
         font-family: 'Play', cursive;
         font-size: 1.2em;
     }
@@ -540,7 +542,7 @@ h1 {
         width: 90%;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         flex-wrap: wrap;
     }
@@ -575,11 +577,12 @@ h1 {
         font-weight: 200;
         font-size: 1em;
         color: var(--color-txt-welcome);
+        text-shadow: 1px 1px 1px black;
     }
 
-    .card.fix {
-        min-width: 680px;
-        min-height: 340px;
+    .LG > .card.fix {
+        width: 680px;
+        height: 340px;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -624,34 +627,101 @@ h1 {
 
 @media screen and (min-width: 1481px) {
     body {
-        font-size: 12px;
+        font-size: 20px;
+    }
+    .mainBody {
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    #welcome {
+        padding-top: 2em;;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: auto;
+        width: 100%;
+    }
+
+    #welcome>div {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        height: auto;
+        width: 100%;
+    }
+
+    #welcome>div>p {
+        margin: 0;
+        padding: 0;
+        font-size: 1.2em;
+        font-weight: 200;
+        font-family: 'Play', recursive;
+        margin-left: 3em;
+        margin-right: 3em;
+    }
+
+    #welcome>img {
+        height: 15em;
+        width: auto;
+    }
+    #welcome>div>p.bigger {
+        font-size: 1.5em;
+    }
+    h1 {
+        width: 100%;
+        padding-top: 1em;
+        padding-bottom: 0;
+        font-size: 3em;
+        font-family: 'Luckiest Guy', cursive;
     }
 
     .masterCard {
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
         width: 100%;
-
+        padding-top: 7%;
     }
 
     .card {
         padding: 0;
         margin: 0;
-        padding-bottom: 1em;
         font-size: 1em;
         font-weight: 200;
-        width: 100%;
-        max-height: 50%;
+        width: 25%;
+        height: 100%;
         align-items: center;
         border-radius: 4px;
     }
 
-    .titleCard {
-        font-family: 'Permanent Marker', cursive;
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height:4em;
+    }
 
-        font-size: 2em;
+    .titleCard {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 1.4em;
+        text-align: start;
+        text-justify: distribute-all-lines;
     }
 
     .description {
+        height: 7.2em;
+        width: 100%;
         font-family: 'Play', cursive;
         font-size: 1.2em;
     }
@@ -667,31 +737,140 @@ h1 {
         height: auto;
     }
 
-    .themePitch>h2 {
-        height: 20%;
-        font-size: 3em;
-        color: var(--color-txt-titleArt);
+    #masterCard_0 {
+        order: 1;
     }
 
-    .themePitch>p {
-        height: 40%;
+    #masterCard_1 {
+        order: 2;
+    }
+
+    #masterCard_2 {
+        order: 4;
+    }
+
+    #masterCard_3 {
+        order: 5;
+    }
+
+    #readCorner {
+        padding-top: 7%;
+        order: 3
+    }
+
+    #SM {
+        display: none;
+
+    }
+
+    .readCorner {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
         font-family: 'Pacifico', recursive;
-        font-weight: 100;
+    }
+
+    #LG {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .readCorner>h2 {
+        font-size: 4em;
+        color: var(--color-txt-titleArt);
+        height:150px;
+    }
+
+    .intro {
+        padding-top: 1em;
+        width: 90%;
+        height: 50px;
+        font-weight: 200;
         font-size: 1.5em;
-        color: var(--color-txt-pitchArt);
+        text-align: left;
+        color: var(--color-txt-welcome);
+    }
+    .themePitch {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 30%;
     }
 
     .themePitch>h3 {
-        height: 10%;
+        font-size: 3em;
         color: var(--color-txt-titleArt);
-        font-family: 'Pacifico', recursive;
+    }
+    .themePitch>p {
+        color: var(--color-txt-welcome);
         font-weight: 100;
-        font-size: 2.5em;
+        font-size: 1.5em;
+    }
+    .themePitch>h4 {
+        height: 50px;
+        color: var(--color-txt-titleArt);
+        font-weight: 100;
+        font-size: 2em;
     }
 
     .themePitch>img {
         width: 100%;
-        height: 30%;
+    }
+
+    .txtArticle {
+        padding-bottom: 1em;
+        height: 50%;
+        font-weight: 200;
+        font-size: 1em;
+        color: var(--color-txt-welcome);
+        text-shadow: 1px 1px 1px black;
+    }
+
+    .LG > .card.fix {
+        width: 1400px;
+        height: 700px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        background-image: url(/public/assets/img/fontBD.webp);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    #carouselExampleIndicators1 {
+        position: absolute;
+        top: 4%;
+        left: 4%;
+        width: 56.75%;
+    }
+
+    #carouselExampleIndicators2 {
+        position: absolute;
+        top: 4%;
+        left: 63.25%;
+        width: 32.75%;
+    }
+
+    #carouselExampleIndicators3 {
+        position: absolute;
+        top: 51.5%;
+        left: 4%;
+        width: 39.75%;
+    }
+
+    #carouselExampleIndicators4 {
+        position: absolute;
+        top: 51.75%;
+        left: 46.25%;
+        width: 49.5%;
     }
 
     footer {

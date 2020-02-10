@@ -1,10 +1,10 @@
 #beerus{
-    background-image: url('../img/navbar/spriteBeerus.webp');
+  background-image: url('../img/navbar/spriteBeerus.webp');
   background-origin: initial;
   background-position: 0px 0px;
   background-repeat: no-repeat;
   background-size: initial;
-  position: relative;
+ align-self: flex-start;
 }
 #beerus:hover{
     cursor: pointer;
@@ -19,7 +19,7 @@
     background-position: center;
     color: rgba(9,69,158,1);
     text-shadow :  1px 1px rgba(140,186,255,1),  2px 2px 1px rgba(9,69,158,1), 5px 5px 2px rgba(0,0,0,0.7);
-}
+  }
 .navbar .navbar-toggler-icon {
     border: none;
     width: 2em;
@@ -33,10 +33,12 @@
     transform: scale(0.90);
 }
 .dropdown-menu {
-    background-color: rgba(9,69,158,1);
+    background-image: url('../img/navbar/fortnite.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .dropdown-item {
-    color: rgba(140,186,255,1);
+    color: var;
     background-color: transparent;
 }
 .dropdown-item:hover {
@@ -48,9 +50,7 @@
     background-repeat: no-repeat;
     background-position: center;
 }
-.dropdown-divider {
-    border-color: greenyellow;
-}
+
 .nav-link{
     background-color: rgba(255,255,255,0.2);
     border-left: 1px solid white;
@@ -59,6 +59,8 @@
     color:  rgba(9,69,158,1);
     text-shadow :  1px 1px rgba(140,186,255,1),  2px 2px 1px  rgba(9,69,158,1), 5px 5px 5px rgba(0,0,0,0.6);
     box-shadow : 5px 5px 5px rgba(0,0,0,0.2);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .nav-link:hover {
     background-color: rgba(255,255,255,0.5);
@@ -87,7 +89,7 @@
 }
 @media screen and (max-width: 680px){
     .navbar{
-        font-size : 1.2em;
+        font-size : 2em;
         font-weight: bolder;
         font-family: 'Luckiest Guy', cursive;
     }
@@ -101,22 +103,31 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: flex-end;
     }
     ul.navbar-nav>li{
-        width:10em;
-        height:10em;
+        height: 6em;
+        width: 6em;
+       margin-right: 2em;
+       margin-top: 1em;
     }
     ul.navbar-nav>li>a{
-        background-size: auto 100%;
-        background-repeat: no-repeat;
-        height: 5em;
-    }
-    .nav-link{
-        height:98%;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;    
     }
 }
 @media screen and (max-width: 1480px) and (min-width: 681px){
+    #beerus{
+        width: 75px;
+        height: 75px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
     .navbar{
+        min-height: 75px;
         font-size : 0.5em;
         font-weight: bolder;
         font-family: 'Luckiest Guy', cursive;
@@ -125,13 +136,15 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
     }
     ul.navbar-nav>li{
         display:flex;
         flex-direction: column;
         justify-content: center;
-        width:6em;
-        height:8em;
+        width:100px;
+        height:70px;
+        margin-right: 50px;;
     }
     ul.navbar-nav>li>a{
         background-size: 100% 100%;
@@ -142,10 +155,10 @@
     ul.navbar-nav>li>a{
         text-align: center;
         transition: font-size linear 0.2s;
-        font-size: 0em;      
+        font-size: 2.5em;      
     }
     ul.navbar-nav>li>a:hover{
-        font-size: 2.5em;
+        font-size: 3em;
     }
     .nav-link{
         height:98%;
@@ -155,8 +168,15 @@
     }
 }
 @media screen and (min-width: 1481px){
+    #beerus{
+        width: 150px;
+        height: 150px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
     .navbar{
-        font-size : 1.2em;
+        min-height: 75px;
+        font-size : 0.5em;
         font-weight: bolder;
         font-family: 'Luckiest Guy', cursive;
     }
@@ -164,13 +184,15 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
     }
     ul.navbar-nav>li{
         display:flex;
         flex-direction: column;
         justify-content: center;
-        width:6em;
-        height:4em;
+        width:100px;
+        height:145px;
+        margin-right: 50px;;
     }
     ul.navbar-nav>li>a{
         background-size: 100% 100%;
@@ -181,12 +203,15 @@
     ul.navbar-nav>li>a{
         text-align: center;
         transition: font-size linear 0.2s;
-        font-size: 0em;      
+        font-size: 3em;      
     }
     ul.navbar-nav>li>a:hover{
-        font-size: 1.5em;
+        font-size: 3.5em;
     }
     .nav-link{
         height:98%;
+    }
+    .nav-item{
+        min-width: 10%;
     }
 }
