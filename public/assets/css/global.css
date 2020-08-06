@@ -229,6 +229,7 @@ overflow: hidden;
         align-items: flex-start;
         height: auto;
         width: 100%;
+        background-color: rgba(0, 0, 0, 0.1)
     }
 
     #welcome>div>p {

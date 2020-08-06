@@ -1,5 +1,5 @@
  // pour lancer le server utiliser la commande suivante :
- // node -r dotenv/config app.js dotenv_config_path=private/lib/src/.env
+ // node -r dotenv/config app.js dotenv_config_path=/.env
  var ent = require ('ent');
  var bodyParser = require ('body-parser');
  var urlencodedParser = bodyParser.urlencoded ({
@@ -278,10 +278,10 @@
      });
  };
  var start = async function () {
-     var finalResponse = await readApiThenRecordThenRead ();
+    var finalResponse = await readApiThenRecordThenRead ();
 //     console.log ('§§§§§§§§§§§§§§§§§§§ FINAL §§§§§§§§§§§§§§§§§§§');
 //     console.log (finalResponse);
-     //readVideoJSON ().then (function (response) {
+var finalResponse = await readVideoJSON ();
      serverStart (JSON.parse(finalResponse));
  }
  ;
